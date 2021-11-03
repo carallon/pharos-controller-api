@@ -1,0 +1,1355 @@
+openapi: 3.0.0
+info:
+  version: 5.0.0
+  title: Pharos Control API
+servers:
+  - url: "http://localhost/api"
+security:
+  - bearer: []
+  - cookie: []
+paths:
+  /authorise:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Login"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Login"
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+  /token:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Login"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Login"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BearerToken"
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+  /time:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CurrentTime"
+  /system:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/System"
+  /project:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/vnd.pharos:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+        '411':
+          description: Length Required
+  /firmware:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/vnd.pharos:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '204':
+          description: OK
+        '411':
+          description: Length Required
+  /timeline:
+    get:
+      parameters:
+        - in: query
+          name: num
+          required: false
+          schema:
+            $ref: "#/components/schemas/IdList"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timelines:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Timeline"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ControlTimeline"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /scene:
+    get:
+      parameters:
+        - in: query
+          name: num
+          required: false
+          schema:
+            $ref: "#/components/schemas/IdList"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  scenes:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Scene"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ControlScene"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /playlist:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  playlists:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Playlist"
+  /group:
+    get:
+      parameters:
+        - in: query
+          name: num
+          required: false
+          schema:
+            $ref: "#/components/schemas/IdList"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  groups:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Group"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ControlGroup"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /content_target:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content_targets:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ContentTarget"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ControlContentTarget"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /remote_device:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  remote_devices:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/RemoteDevice"
+  /controller:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  controllers:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Controller"
+  /text_slot:
+    get:
+      parameters:
+        - in: query
+          name: names
+          required: false
+          schema:
+            $ref: "#/components/schemas/NameList"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  text_slots:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/TextSlot"
+    put:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TextSlot"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /temperature:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Temperature"
+  /fan_speed:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FanSpeed"
+  /log:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  log:
+                    type: string
+    delete:
+      responses:
+        '204':
+          description: OK
+  /protocol:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  outputs:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/OutputProtocol"
+  /output:
+    get:
+      parameters:
+        - in: query
+          name: universe
+          schema:
+            type: object
+            properties:
+              universe:
+                $ref: "#/components/schemas/UniverseId"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Output"
+    post:
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ControlOutput"
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: "#/components/schemas/ControlOutput"
+            multipart/form-data:
+              schema:
+                $ref: "#/components/schemas/ControlOutput"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /input:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Input"
+  /trigger:
+    get:
+      parameters:
+        - in: query
+          name: type
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  triggers:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Trigger"
+    post:
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FireTrigger"
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: "#/components/schemas/FireTrigger"
+            multipart/form-data:
+              schema:
+                $ref: "#/components/schemas/FireTrigger"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /dali_interface:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dali_interface:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/DaliInterface"
+  /dali:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Dali"
+    post:
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ControlDali"
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: "#/components/schemas/ControlDali"
+            multipart/form-data:
+              schema:
+                $ref: "#/components/schemas/ControlDali"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /lua:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+  /replication:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  replication:
+                    oneOf:
+                      - type: object
+                        properties:
+                          name:
+                            type: string
+                          unique_id:
+                            type: string
+                      - type: boolean
+  /io_modules:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  instances:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/IoModule"
+  /config:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Config"
+    post:
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Config"
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: "#/components/schemas/Config"
+            multipart/form-data:
+              schema:
+                $ref: "#/components/schemas/Config"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /cloud:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  state:
+                    type: object
+                    properties:
+                      connecting:
+                        type: boolean
+                      connected:
+                        type: boolean
+    post:
+      requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ControlCloud"
+            application/x-www-form-urlencoded:
+              schema:
+                $ref: "#/components/schemas/ControlCloud"
+            multipart/form-data:
+              schema:
+                $ref: "#/components/schemas/ControlCloud"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+        '501':
+          description: Not Implemented
+  /channel:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ParkChannel"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/ParkChannel"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/ParkChannel"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+    delete:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ParkChannel"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/ParkChannel"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/ParkChannel"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /override:
+    put:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SetOverride"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/SetOverride"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/SetOverride"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
+    delete:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SetOverride"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/SetOverride"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/SetOverride"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /cmdline:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RunCommand"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/RunCommand"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/RunCommand"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+        '501':
+          description: Not Implemented
+  /beacon:
+    post:
+      responses:
+        '204':
+          description: OK
+  /format:
+    post:
+      responses:
+        '204':
+          description: OK
+        '500':
+          description: Internal Server Error
+  /reset:
+    post:
+      responses:
+        '204':
+          description: OK
+components:
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+    cookie:
+      type: apiKey
+      in: cookie
+      name: session
+  schemas:
+    Date:
+      type: string
+      pattern: /^\d{2} \d{2} \d{4} \d{2}\.\d{2}(\.\d{2})?$/
+    CurrentTime:
+      type: object
+      properties:
+        datetime:
+          $ref: "#/components/schemas/Date"
+        local_time:
+          type: integer
+          format: int64
+        uptime:
+          type: integer
+          format: int64
+    Project:
+      type: object
+      properties:
+        name:
+          type: string
+        author:
+          type: string
+        filename:
+          type: string
+        uniqueId:
+          type: string
+        upload_date:
+          $ref: "#/components/schemas/Date"
+    System:
+      type: object
+      properties:
+        hardware_type:
+          type: string
+          enum: [Unknown, LPC, LPC X, TPC, VLC, VLC+, TPS, SOLO, MSC, MSC X, MTPC, Atlas, Atlas Pro, M-TS]
+        channel_capacity:
+          type: integer
+        serial_number:
+          type: string
+        memory_total:
+          type: string
+          pattern: /\d+ KB/
+        memory_used:
+          type: string
+          pattern: /\d+ KB/
+        memory_available:
+          type: string
+          pattern: /\d+ KB/
+        storage_size:
+          type: string
+          pattern: /(\d+ MB)|(Not present)/
+        bootloader_version:
+          type: string
+        firmware_version:
+          type: string
+        reset_reason:
+          type: string
+        last_boot_time:
+          $ref: "#/components/schemas/Date"
+        ip_address:
+          type: string
+        subnet_mask:
+          type: string
+        default_gateway:
+          type: string
+    Timeline:
+      type: object
+      properties:
+        name:
+          type: string
+        length:
+          type: integer
+        group:
+          type: string
+        source_bus:
+          type: string
+          enum: [internal, real_time, timecode_1, timecode_2, timecode_3, timecode_4, timecode_5, timecode_6, audio_1, audio_2, audio_3, audio_4]
+        timecode_format:
+          type: string
+        audio_band:
+          type: integer
+        audio_channel:
+          type: string
+        audio_peak:
+          type: boolean
+        time_offset:
+          type: integer
+        priority:
+          type: string
+          enum: [high, above_normal, normal, below_normal, low]
+      additionalProperties: true
+    Scene:
+      type: object
+      properties:
+        name:
+          type: string
+        num:
+          type: integer
+        state:
+          type: string
+          enum: [started, released, none]
+        onstage:
+          type: boolean
+        group:
+          type: string
+      additionalProperties: true
+    Playlist:
+      type: object
+      properties:
+        name:
+          type: string
+        position:
+          type: integer
+        state:
+          type: string
+          enum: [running, holding_at_end, released, none]
+        onstage:
+          type: boolean
+    Group:
+      type: object
+      properties:
+        name:
+          type: string
+        num:
+          type: integer
+        level:
+          type: integer
+    ContentTarget:
+      type: object
+      properties:
+        name:
+          type: string
+        level:
+          type: integer
+    RemoteDevice:
+      type: object
+      properties:
+        num:
+          type: integer
+        type:
+          type: string
+        name:
+          type: string
+        name_with_type:
+          type: string
+        serial:
+          type: array
+          items:
+            type: string
+        online:
+          type: boolean
+        outputs:
+          type: array
+          items:
+            type: object
+            properties:
+              output:
+                type: integer
+              state:
+                type: boolean
+        inputs:
+          $ref: "#/components/schemas/GPIO"
+    Controller:
+      type: object
+      properties:
+        num:
+          type: integer
+        type:
+          type: string
+          enum: [Unknown, LPC, LPC X, TPC, VLC, VLC+, TPS, SOLO, MSC, MSC X, MTPC, Atlas, Atlas Pro, M-TS]
+        serial:
+          type: string
+        ip_address:
+          type: string
+        online:
+          type: boolean
+        is_network_primary:
+          type: boolean
+    TextSlot:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
+    Temperature:
+      type: object
+      properties:
+        temp:
+          type: object
+          properties:
+            sys_temp:
+              type: integer
+            core_temp:
+              type: integer
+            ambient_temp:
+              type: integer
+            gpu_temp:
+              type: integer
+            cc_temp:
+              type: integer
+    FanSpeed:
+      type: object
+      properties:
+        fan_speed:
+          type: object
+          properties:
+            fan_1:
+              type: integer
+            fan_2:
+              type: integer
+    OutputProtocol:
+      type: object
+      properties:
+        type:
+          type: string
+        name:
+          type: string
+        disabled:
+          type: boolean
+        dmx_proxy:
+          type: object
+          properties:
+            name:
+              type: string
+            ip_address:
+              type: string
+        universes:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              key:
+                $ref: "#/components/schemas/UniverseKey"
+    Output:
+      type: object
+      properties:
+        channels:
+          type: array
+          items:
+            type: string
+            pattern: \((+|!)?/d+)| \
+        proxied_tpc_name:
+          type: string
+        disabled:
+          type: boolean
+      additionalProperties: false
+      oneOf:
+        - required: [channels, disabled]
+        - required: [proxied_tpc_name, disabled]
+    Input:
+      type: object
+      properties:
+        gpio:
+          $ref: "#/components/schemas/GPIO"
+        dmxIn:
+          type: object
+    GPIO:
+      type: array
+      items:
+        type: object
+        properties:
+          input:
+            type: integer
+          type:
+            type: string
+            enum: [Analog, Digital, Contact Closure]
+          value:
+            oneOf:
+              - type: integer
+              - type: boolean
+    Trigger:
+      type: object
+      properties:
+        type:
+          type: string
+        num:
+          type: integer
+        name:
+          type: string
+        group_num:
+          type: string
+        trigger_text:
+          type: string
+        description:
+          type: string
+        conditions:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              icon:
+                type: string
+        actions:
+          type: array
+          items:
+            type: object
+            properties:
+              text:
+                type: string
+              icon:
+                type: string
+    DaliInterface:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+    Dali:
+      type: object
+      properties:
+        online:
+          type: boolean
+        schedule:
+          type: object
+          properties:
+            next_function_test:
+              $ref: "#/components/schemas/Date"
+            next_duration_test:
+              $ref: "#/components/schemas/Date"
+            prev_function_test:
+              $ref: "#/components/schemas/Date"
+            prev_duration_test:
+              $ref: "#/components/schemas/Date"
+        power:
+          type: object
+          properties:
+            dali_bus_uptime:
+              type: integer
+            power_failures:
+              type: array
+              items:
+                $ref: "#/components/schemas/Date"
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: integer
+              test:
+                type: string
+              error:
+                type: string
+              fixed:
+                type: boolean
+        ballast_status:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: string
+              user_name:
+                type: string
+              status:
+                type: string
+              actual_level:
+                type: integer
+              battery_level:
+                type: integer
+              battery_charged:
+                type: boolean
+              lamp_emergency_hours:
+                type: integer
+              lamp_total_hours:
+                type: integer
+              last_status_check:
+                $ref: "#/components/schemas/Date"
+    IoModule:
+      type: object
+      properties:
+        modules:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+        instances:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              module_id:
+                type: integer
+              name:
+                type: string
+              status:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    key:
+                      type: string
+                    label:
+                      type: string
+                    value:
+                      type: string
+    Config:
+      type: object
+      properties:
+        ip:
+          type: string
+        subnet_mask:
+          type: string
+        gateway:
+          type: string
+        dhcp_enabled:
+          type: boolean
+        name_server_1:
+          type: string
+        name_server_2:
+          type: string
+        http_port:
+          type: integer
+        https_port:
+          type: integer
+        year:
+          type: integer
+        month:
+          type: integer
+        day:
+          type: integer
+        hour:
+          type: integer
+        minute:
+          type: integer
+        second:
+          type: integer
+        watchdog_enabled:
+          type: boolean
+        log_level:
+          type: integer
+        syslog_ip:
+          type: string
+        ntp_enabled:
+          type: boolean
+        ntp_ip:
+          type: string
+        password:
+          type: string
+    ParkChannel:
+      type: object
+      properties:
+        universe:
+          $ref: "#/components/schemas/UniverseId"
+        channels:
+          $ref: "#/components/schemas/IdList"
+        level:
+          type: integer
+    SetOverride:
+      type: object
+      properties:
+        target:
+          type: string
+          enum: [group, fixture]
+        num:
+          type: integer
+        intensity:
+          type: integer
+        red:
+          type: integer
+        green:
+          type: integer
+        blue:
+          type: integer
+        temperature:
+          type: integer
+        fade:
+          type: integer
+        path:
+          type: string
+      required: [target, num]
+    IdList:
+      oneOf:
+        - type: array
+          items:
+            oneOf:
+              - type: string
+                pattern: /\d+-\d+/
+              - type: integer
+        - type: integer
+    NameList:
+      oneOf:
+        - type: array
+          items:
+            type: string
+        - type: string
+    UniverseId:
+      oneOf:
+        - type: string
+          pattern: /(\d+)|((rio08)|(rio44)|(rio80):\d+)|(\d+:\d+)|((edn20)|(edn10):\d+:\d+)/
+        - allOf:
+            - $ref: "#/components/schemas/UniverseKey"
+            - type: object
+              properties:
+                protocol:
+                  type: integer
+    UniverseKey:
+      type: object
+      properties:
+        index:
+          type: integer
+        remote_device_num:
+          type: integer
+        remote_device_type:
+          type: integer
+        kinet_power_supply_num:
+          type: integer
+        kinet_port:
+          type: integer
+        port:
+          type: integer
+      oneOf:
+        - required: [index]
+        - required: [remote_device_num, remote_device_type]
+        - required: [kinet_power_supply_num, kinet_port]
+        - required: [remote_device_num, remote_device_type, port]
+    ControlTimeline:
+      type: object
+      properties:
+        num:
+          type: integer
+        action:
+          type: string
+          enum: [start, release, toggle, pause, resume, set_rate, set_position]
+        fade:
+          type: integer
+        group:
+          type: string
+        rate:
+          type: number
+        position:
+          type: number
+    ControlScene:
+      type: object
+      properties:
+        num:
+          type: integer
+        action:
+          type: string
+          enum: [start, release, toggle]
+        fade:
+          type: integer
+        group:
+          type: string
+    ControlGroup:
+      type: object
+      properties:
+        num:
+          type: integer
+        action:
+          type: string
+          enum: [master_intensity]
+        level:
+          type: number
+        fade:
+          type: integer
+        delay:
+          type: integer
+    ControlContentTarget:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [primary, secondary, target_3, target_4, target_5, target_6, target_7, target_8]
+        action:
+          type: string
+          enum: [master_intensity]
+        level:
+          type: number
+        fade:
+          type: integer
+        delay:
+          type: integer
+    ControlOutput:
+      type: object
+      properties:
+        output:
+          type: string
+          enum: [dmx, pathport, sacn, art-net, kinet, rio-dmx, edn, edn-spi]
+        action:
+          type: string
+          enum: [enable, disable]
+    ControlDali:
+      type: object
+      properties:
+        interface:
+          type: integer
+        address:
+          type: integer
+        action:
+          type: string
+          enum: [mark_fixed, refresh]
+    ControlCloud:
+      type: object
+      properties:
+        action:
+          type: string
+          enum: [set_device_key, clear_device_key]
+        cloud_device_key:
+          type: string
+    FireTrigger:
+      type: object
+      properties:
+        var:
+          type: string
+        conditions:
+          type: boolean
+        num:
+          type: integer
+    RunCommand:
+      type: object
+      properties:
+        input:
+          type: string
+    Login:
+      type: object
+      properties:
+        user:
+          type: string
+        password:
+          type: string
+    BearerToken:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+          enum: [Bearer]
+        expires_in:
+          type: integer
