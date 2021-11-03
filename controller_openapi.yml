@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  version: 5.0.0
+  version: 6.0.0
   title: Pharos Control API
 servers:
   - url: "http://localhost/api"
@@ -161,7 +161,7 @@ paths:
                   scenes:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Scene"
+                      $ref: "#/components/schemas/StaticScene"
     post:
       requestBody:
         required: true
@@ -702,6 +702,92 @@ paths:
       responses:
         '204':
           description: OK
+  /space:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  spaces:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Space"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ControlSpace"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
+  /rdm/discovery:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RdmDiscoveredDevices"
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartRdmDiscovery"
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+  /rdm/get:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartRdmOperation"
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+  /rdm/set:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartRdmOperation"
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
+  /project_state:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ControlProjectState"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
 components:
   securitySchemes:
     bearer:
@@ -801,7 +887,7 @@ components:
           type: string
           enum: [high, above_normal, normal, below_normal, low]
       additionalProperties: true
-    Scene:
+    StaticScene:
       type: object
       properties:
         name:
@@ -1346,10 +1432,112 @@ components:
     BearerToken:
       type: object
       properties:
-        access_token:
+        token:
           type: string
-        token_type:
-          type: string
-          enum: [Bearer]
-        expires_in:
+          pattern: '^[\w-=]+\.[\w-=]+\.[\w-=]+$'
+    ControlProjectState:
+      type: object
+      properties:
+        num:
           type: integer
+        action:
+          type: string
+          enum: [set_value]
+        value_num:
+          type: string
+    Scene:
+      type: object
+      properties:
+        name:
+          type: string
+        num:
+          type: integer
+    Space:
+      type: object
+      properties:
+        name:
+          type: string
+        num:
+          type: integer
+        intensity_master:
+          type: integer
+        active_scene:
+          $ref: "#/components/schemas/Scene"
+        is_modified:
+          type: boolean
+        child_spaces:
+          type: array
+          items:
+            $ref: "#/components/schemas/Space"
+        child_scenes:
+          type: array
+          items:
+            $ref: "#/components/schemas/Scene"
+    ControlSpace:
+      type: object
+      properties:
+        num:
+          type: integer
+        action:
+          type: string
+          enum: [master_intensity]
+        level:
+          type: string
+    RdmDiscoveredDevices:
+      type: object
+      properties:
+        devices:
+          type: array
+          items:
+            type: object
+            properties:
+              uid:
+                type: string
+              device_model_id:
+                type: integer
+              dmx512_footprint:
+                type: integer
+              dmx512_start_address:
+                type: integer
+              dmx512_personality:
+                type: integer
+              fixture_num:
+                type: integer
+    StartRdmDiscovery:
+      type: object
+      properties:
+        universe:
+          $ref: "#/components/schemas/UniverseId"
+    StartRdmOperation:
+      type: object
+      properties:
+        universe:
+          $ref: "#/components/schemas/UniverseId"
+        destination_uid:
+          type: string
+        pid:
+          type: string
+          enum: [
+            COMMS_STATUS,
+            STATUS_MESSAGES,
+            SUPPORTED_PARAMETERS,
+            PARAMETER_DESCRIPTION,
+            DEVICE_INFO,
+            DEVICE_MODEL_DESCRIPTION,
+            MANUFACTURER_LABEL,
+            DEVICE_LABEL,
+            FACTORY_DEFAULTS,
+            SOFTWARE_VERSION_LABEL,
+            BOOT_SOFTWARE_VERSION_ID,
+            BOOT_SOFTWARE_VERSION_LABEL,
+            DMX_PERSONALITY,
+            DMX_PERSONALITY_DESCRIPTION,
+            DMX_START_ADDRESS,
+            SLOT_INFO,
+            SLOT_DESCRIPTION,
+            SENSOR_DEFINITION,
+            SENSOR_VALUE
+            ]
+        meta:
+          type: object
+          additionalProperties: true
