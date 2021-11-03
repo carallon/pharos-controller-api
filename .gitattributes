@@ -1,0 +1,32 @@
+#==============================================================================
+#
+# copyright  2021 Carallon Ltd. as an unpublished work.  All Rights Reserved.
+#
+#==============================================================================
+#
+# Our .gitattributes file follows the normal git rules for specifying attributes to files and folders
+# with a few extra rules which we are enforcing via a commit-received hook in gerrit:
+#
+# * file_size_limit_kb
+#    This attribute is used to limit the size of files accepted into the repo.  Currently the argument
+#    must be in kB, but the intention is to extend this to other units (see bug 7974)
+#
+# * format_rules
+#    This attribute is only checked when the text attribute is also set, so removing the text attribute
+#    check for third-party files will automatically remove all of this checking.
+#
+#    This attribute checks for the following by default:
+#      * The command "git diff --check" is run, which is the inbuilt git command which checks for
+#        whitespace issues.  We are just using the default core.whitespace settings, which checks for:
+#            * blank-at-eol (trailing whitespace at the end of a line)
+#            * blank-at-eof (multiple blank lines added at the end of the file are treated as errors)
+#            * space-before-tab (if a space character appears immediately before a tab character)
+#      * We check that there is a single newline at the end of the file
+#      * We check that the filename only contains ascii characters
+#
+#    It is also possible to specify these extra checks within the format_rules attribute:
+#      * spaces_instead_of_tabs
+#         This setting checks that there are no tabs in the file
+#      * no_double_semi_colon_eol
+#         This setting checks that there are no lines that end with two semi-colons
+* text=auto file_size_limit_kb=256
