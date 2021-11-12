@@ -1,0 +1,21 @@
+{% extends "!layout.html" %}
+{% block footer %}
+  
+  <div class="footer">
+    <ul class="footer_nav">
+      {%- if prev %}
+        <li class="prev">
+          Previous topic: <a href="{{ prev.link|e }}">{{ prev.title }}</a>
+        {%- if prev and next %}
+          &nbsp;|&nbsp;
+        {%- endif -%}
+        </li>
+      {%- endif %}
+      {%- if next %}
+        <li class="next">
+          Next topic: <a href="{{ next.link|e }}">{{ next.title }}</a>
+        </li>
+      {%- endif %}
+    </ul>
+  </div>
+{% endblock %}

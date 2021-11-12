@@ -1,0 +1,7 @@
+ul.footer_nav {
+    text-align: right;
+    list-style-type: none;
+}
+ul.footer_nav li {
+    display: inline;
+}
