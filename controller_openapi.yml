@@ -736,7 +736,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RdmDiscoveredDevices"
+                $ref: "#/components/schemas/RdmDeviceInfo"
     post:
       requestBody:
         required: true
@@ -1483,26 +1483,59 @@ components:
           enum: [master_intensity]
         level:
           type: string
-    RdmDiscoveredDevices:
+    RdmDeviceInfo:
       type: object
       properties:
-        devices:
-          type: array
-          items:
-            type: object
-            properties:
-              uid:
-                type: string
-              device_model_id:
-                type: integer
-              dmx512_footprint:
-                type: integer
-              dmx512_start_address:
-                type: integer
-              dmx512_personality:
-                type: integer
-              fixture_num:
-                type: integer
+        uid:
+          type: string
+          description: >
+            Format must be {manuId}:{deviceId}(:{subId})
+            where {manuId} is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. 072c
+            where {deviceId} is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. 0004fe02
+            where {subId} is an optional unsigned decimal integer.
+        rdm_protocol_version:
+          type: integer
+          minimum: 0
+          maximum: 65535
+        device_model_id:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 65535
+        product_category:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 65535
+        software_version_id:
+          type: integer
+          format: int32
+        dmx512_footprint:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 512
+          exclusiveMaximum: true
+        dmx512_personality:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 65535
+        dmx512_start_address:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 512
+        sub_device_count:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 65535
+        sensor_count:
+          type: integer
+          format: int32
+          minimum: 0
+          maximum: 255
     StartRdmDiscovery:
       type: object
       properties:
