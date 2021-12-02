@@ -7,9 +7,9 @@ REM Command file for Sphinx documentation
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=python -msphinx
 )
-set SOURCEDIR=source
+set SOURCEDIR=sphinx-src
 set BUILDDIR=build
-set SPHINXPROJ=ControllerApiDocumentation
+set SPHINXPROJ=ControllerApi
 
 if "%1" == "" goto help
 

@@ -4,8 +4,8 @@
 # You can set these variables from the command line.
 SPHINXOPTS    =
 SPHINXBUILD  := $(if $(SPHINXBUILD),$(SPHINXBUILD),"python -msphinx")
-SPHINXPROJ    = ControllerApiDocumentation
-SOURCEDIR     = source
+SPHINXPROJ    = ControllerApi
+SOURCEDIR     = sphinx-src
 BUILDDIR      = build
 
 # Put it first so that "make" without argument is like "make help".
