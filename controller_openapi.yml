@@ -788,6 +788,21 @@ paths:
           description: OK
         '400':
           description: Bad Request
+  /mode:
+    get:
+      summary: Get current mode dial position
+      operationId: getWheelMode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mode:
+                    type: string
+                    enum: [Run, Dmx1, Dmx2, Dali, All, Off, PG1, PG2, PG3, PG4]
 components:
   securitySchemes:
     bearer:
