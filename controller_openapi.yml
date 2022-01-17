@@ -803,6 +803,19 @@ paths:
                   mode:
                     type: string
                     enum: [Run, Dmx1, Dmx2, Dali, All, Off, PG1, PG2, PG3, PG4]
+  /setup:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminPassword"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
 components:
   securitySchemes:
     bearer:
@@ -813,6 +826,11 @@ components:
       in: cookie
       name: session
   schemas:
+    AdminPassword:
+      type: object
+      properties:
+        password:
+          type: string
     Date:
       type: string
       pattern: /^\d{2} \d{2} \d{4} \d{2}\.\d{2}(\.\d{2})?$/
