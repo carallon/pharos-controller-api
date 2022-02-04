@@ -702,6 +702,11 @@ paths:
       responses:
         '204':
           description: OK
+  /factory_reset:
+    post:
+      responses:
+        '204':
+          description: OK
   /space:
     get:
       responses:
