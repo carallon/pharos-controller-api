@@ -815,7 +815,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AdminPassword"
+              $ref: "#/components/schemas/Login"
       responses:
         '204':
           description: OK
@@ -831,11 +831,6 @@ components:
       in: cookie
       name: session
   schemas:
-    AdminPassword:
-      type: object
-      properties:
-        password:
-          type: string
     Date:
       type: string
       pattern: /^\d{2} \d{2} \d{4} \d{2}\.\d{2}(\.\d{2})?$/
