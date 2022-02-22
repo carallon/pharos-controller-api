@@ -8,7 +8,7 @@ You need to have [Sphinx](http://www.sphinx-doc.org/en/stable/) installed to bui
 
 You can install Sphinx and other python dependencies from the requirements file. From the root directory of the project you can run:
 
-    pip install -r requirements.txt
+    pip install -r sphinx-src/requirements.txt
 
 where `pip` might need to be `pip3` or similar if you've installed pip under another name.
 
@@ -16,9 +16,13 @@ The project Makefile assumes your python executable is `python`. If it's anythin
 
 ## Build instructions
 
-From the root directory of the project you can run:
+From the root directory of the project you can run, on Linux or macOS:
 
     make html
+
+or on Windows:
+
+    .\make.bat html
 
 This will create the html output for Pharos in the `build` directory (which will be created if building for the first time).
 
