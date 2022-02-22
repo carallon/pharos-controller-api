@@ -10,8 +10,8 @@ build:
     python: "3.9"
 
 sphinx:
-   configuration: sphinx_src/conf.py
+   configuration: sphinx-src/conf.py
 
 python:
    install:
-   - requirements: sphinx_src/requirements.txt
+   - requirements: sphinx-src/requirements.txt
