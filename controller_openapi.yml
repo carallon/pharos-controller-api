@@ -10,6 +10,9 @@ security:
 paths:
   /authorise:
     post:
+      servers:
+        - url: "http://localhost"
+      security: []
       requestBody:
         required: true
         content:
@@ -31,6 +34,9 @@ paths:
           description: Unauthorized
   /token:
     post:
+      servers:
+        - url: "http://localhost"
+      security: []
       requestBody:
         required: true
         content:
