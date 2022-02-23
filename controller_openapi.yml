@@ -1294,8 +1294,6 @@ components:
           type: boolean
         ntp_ip:
           type: string
-        password:
-          type: string
     ParkChannel:
       type: object
       properties:
