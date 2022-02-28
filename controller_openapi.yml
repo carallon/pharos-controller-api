@@ -770,6 +770,18 @@ paths:
           description: Accepted
         '400':
           description: Bad Request
+    put:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartRdmDiscovery"
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
   /rdm/get:
     post:
       requestBody:
