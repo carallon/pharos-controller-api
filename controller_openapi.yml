@@ -849,6 +849,123 @@ paths:
           description: OK
         '400':
           description: Bad Request
+  /user:
+    post:
+      summary: Create user with access level 'control' and set password
+      description: >
+        Currently logged in user must supply their password for action to proceed.
+        Does not require session_password if a password has not yet been set on
+        the controller.
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+                - access
+              properties:
+                session_password:
+                  $ref: '#/components/schemas/Password'
+                username:
+                  $ref: '#/components/schemas/Username'
+                password:
+                  $ref: '#/components/schemas/Password'
+                access:
+                  $ref: '#/components/schemas/AccessGroups'
+      responses:
+        '201':
+          description: User created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    $ref: '#/components/schemas/Token'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+    put:
+      summary: Update a user account with a new password and/or access groups
+      description: >
+        Currently logged in user must supply their password for action to proceed
+      operationId: updateUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - session_password
+                - username
+              properties:
+                session_password:
+                  $ref: '#/components/schemas/Password'
+                username:
+                  $ref: '#/components/schemas/Username'
+                password:
+                  $ref: '#/components/schemas/Password'
+                access:
+                  $ref: '#/components/schemas/AccessGroups'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    $ref: '#/components/schemas/Token'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
+    delete:
+      summary: Delete user
+      description: >
+        Currently logged in user must supply their password for action to proceed
+      operationId: deleteUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - session_password
+                - username
+              properties:
+                session_password:
+                  $ref: '#/components/schemas/Password'
+                username:
+                  $ref: '#/components/schemas/Username'
+      responses:
+        '201':
+          description: User deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    $ref: '#/components/schemas/Token'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Errors'
 components:
   securitySchemes:
     bearer:
@@ -1633,3 +1750,21 @@ components:
         meta:
           type: object
           additionalProperties: true
+    AccessGroup:
+      type: string
+      description: Group to be assigned to a user
+      enum:
+        - status
+        - control
+        - admin
+    AccessGroups:
+      type: array
+      items:
+        $ref: '#/components/schemas/AccessGroup'
+      uniqueItems: true
+    Password:
+      type: string
+      example: verysecret123
+    Username:
+      type: string
+      example: bob
