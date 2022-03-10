@@ -1,7 +1,7 @@
 RDM Discovery
 #############
 
-Returns RDM data from fixtures, or triggers an RDM scan on the desired controller.
+Discover RDM fixtures and get cached device info from discovered fixtures.
 
 HTTP
 ****
@@ -92,7 +92,7 @@ start_rdm_discovery
 ===================
 ``start_rdm_discovery(callback)``
 
-Starts scanning for 
+Discover RDM fixtures and get cached device info from discovered fixtures.
 
 
 RDM PID Information
