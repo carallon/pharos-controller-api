@@ -32,3 +32,6 @@ Reference for controller web API endpoints.
    reset
    factory-reset
    rdm
+   space
+   project-state
+   xpc-mode
