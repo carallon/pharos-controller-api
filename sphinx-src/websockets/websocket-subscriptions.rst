@@ -229,3 +229,67 @@ And the subscription could be setup as follows:
 	  value = l.key           // "56" in the above example
 	  alert(key + ": " + value)
    })
+
+subscribe_rmd_discovery
+=======================
+
+Subscribe to the RDM poll results.
+
+``subscribe_rdm_discovery(callback)``
+
+The ``callback`` is called each time the controller finishes an RDM scan. Each time it is passed an object with the following attributes:
+
+**TODO** HOW DO I FIND THIS OUT?
+
+.. .. list-table : :
+..    :widths: 2 2 10 5
+..    :header-rows: 1
+
+..    * - Attribute
+..      - Value Type
+..      - Description
+..      - Value Example
+..    * - ``on``
+..      - boolean
+..      - New beacon status
+..      - ``true``
+
+.. For example:
+
+.. .. code-block:: js
+
+..    Query.subscribe_beacon(b => {
+..      alert(b.on ? "Beacon turned on" : "Beacon turned off")
+..    })
+
+subscribe_rdm_get_set
+=======================
+
+Subscribe to the RDM poll get and set functions.
+
+``subscribe_rdm_get_set(callback)``
+
+The ``callback`` is called each time the controller finishes an RDM scan. Each time it is passed an object with the following attributes:
+
+**TODO** HOW DO I FIND THIS OUT?
+
+.. .. list-table : :
+..    :widths: 2 2 10 5
+..    :header-rows: 1
+
+..    * - Attribute
+..      - Value Type
+..      - Description
+..      - Value Example
+..    * - ``on``
+..      - boolean
+..      - New beacon status
+..      - ``true``
+
+.. For example:
+
+.. .. code-block:: js
+
+..    Query.subscribe_beacon(b => {
+..      alert(b.on ? "Beacon turned on" : "Beacon turned off")
+..    })
