@@ -1,7 +1,7 @@
 Factory Reset
 ##############
 
-Reboots the controller and wipes all settings off the unit.
+Deletes all controller settings and reboots the unit.
 
 HTTP
 ****
