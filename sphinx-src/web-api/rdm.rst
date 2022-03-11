@@ -94,6 +94,7 @@ start_rdm_discovery
 
 Discover RDM fixtures and get cached device info from discovered fixtures.
 
+**TODO** WHERE DO I FIND EXAMPLES OF THE CALLBACK?
 
 RDM PID Information
 ###################
@@ -129,7 +130,7 @@ Queues an RDM poll that will return PID information. This is available by subscr
    * - ``meta``
      - object
      - Optional metadata for the PID, i.e. query params.
-     - ???
+     - **TODO**
 
 .. _pid-http-set:
 
@@ -159,9 +160,9 @@ Queues an RDM command that will alter specific PID information. This is availabl
    * - ``meta``
      - object
      - Optional metadata for the PID, i.e. query params.
-     - ???
+     - **TODO**
 
-??? HOW IS THE PID INFO SET?
+**TODO** HOW IS THE PID INFO SET?
 
 JavaScript
 **********
@@ -197,7 +198,7 @@ Returns chosen PID information from the selected fixture.
    * - ``meta``
      - object
      - Optional metadata for the PID, i.e. query params.
-     - ???
+     - **TODO**
 
 start_rdm_set
 =============
@@ -228,9 +229,9 @@ Sets PID value for the selected fixture.
    * - ``meta``
      - object
      - Optional metadata for the PID, i.e. query params.
-     - ???
+     - **TODO**
 
-??? DO WE NEED TO GIVE EXAMPLES OF WHAT TO USE FOR CALLBACK?
+**TODO** DO WE NEED TO GIVE EXAMPLES OF WHAT TO USE FOR CALLBACK?
 
 Universe Key String Format
 **************************
