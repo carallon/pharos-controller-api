@@ -30,3 +30,9 @@ Reference for controller web API endpoints.
    beacon
    channel
    reset
+   factory-reset
+   rdm
+   space
+   project-state
+   xpc-mode
+   setup
