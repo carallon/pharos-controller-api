@@ -35,3 +35,4 @@ Reference for controller web API endpoints.
    space
    project-state
    xpc-mode
+   setup
