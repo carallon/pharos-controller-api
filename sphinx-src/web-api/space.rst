@@ -32,24 +32,24 @@ Returns a JSON object with a single ``space`` attribute, which has an array valu
      - ``1``
    * - ``intensity_master``
      - integer
-     - ???0-255 VALUE?
+     - **TODO** 0-255 VALUE?
      - ``189``
    * - ``active_scene``
      - object
      - Contains ``name`` (str) and ``num`` (int)
-     - ???
+     - **TODO**
    * - ``is_modified``
      - boolean
-     - ??? Checks if the space is currently overridden 
+     - **TODO** Checks if the space is currently overridden 
      - ``true``
    * - ``child_spaces``
      - array
      - Contains an array of all child spaces, each an object using the same format as the ``space`` object.
-     - ???
+     - **TODO**
    * - ``child_scenes``
      - array
      - Contains an array of all scenes on child spaces, in the same format as ``active_scene``
-     - ???
+     - **TODO**
 
 
 POST
@@ -76,6 +76,6 @@ Triggers intensity mastering on the selected Space.
      - Enum. Currently, only master intensity is supported
      - ``"master_instensity"``
    * - ``level``
-     - string <??? IS THAT RIGHT? WHY NOT AN INT?
-     - A string set for the value we want to set the master to. ??? IS IT 0-255 or 0.0-1.0 or 0-100?
+     - string **TODO** IS THAT RIGHT? WHY NOT AN INT?
+     - A string set for the value we want to set the master to. **TODO** IS IT 0-255 or 0.0-1.0 or 0-100?
      - ``"189"``
