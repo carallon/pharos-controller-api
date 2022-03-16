@@ -966,6 +966,62 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Errors'
+  /user_groups:
+    get:
+      summary: List access permissions
+      operationId: getUserGroups
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user_groups:
+                    $ref: '#/components/schemas/AccessGroups'
+                  token:
+                    $ref: '#/components/schemas/Token'
+  /guest_groups:
+    get:
+      summary: List guest permissions
+      operationId: getGuestGroups
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  guest_groups:
+                    $ref: '#/components/schemas/AccessGroups'
+                  token:
+                    $ref: '#/components/schemas/Token'
+    post:
+      summary: Change guest permissions
+      operationId: setGuestGroups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                session_password:
+                  $ref: '#/components/schemas/Password'
+                access:
+                  $ref: '#/components/schemas/AccessGroups'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    $ref: '#/components/schemas/Token'
 components:
   securitySchemes:
     bearer:
