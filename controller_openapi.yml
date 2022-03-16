@@ -849,6 +849,33 @@ paths:
           description: OK
         '400':
           description: Bad Request
+    put:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Login"
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+    delete:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                session_password:
+                  $ref: '#/components/schemas/Password'
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
   /user:
     post:
       summary: Create user with access level 'control' and set password
