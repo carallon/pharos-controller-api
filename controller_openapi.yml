@@ -751,13 +751,26 @@ paths:
           description: Bad Request
   /rdm/discovery:
     get:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartRdmDiscovery"
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RdmDeviceInfo"
+                type: object
+                properties:
+                  devices:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/RdmDeviceInfo"
+                  token:
+                    $ref: "#/components/schemas/Token"
     post:
       requestBody:
         required: true
@@ -1819,6 +1832,7 @@ components:
             MANUFACTURER_LABEL,
             DEVICE_LABEL,
             FACTORY_DEFAULTS,
+            IDENTIFY_DEVICE,
             SOFTWARE_VERSION_LABEL,
             BOOT_SOFTWARE_VERSION_ID,
             BOOT_SOFTWARE_VERSION_LABEL,
@@ -1831,8 +1845,22 @@ components:
             SENSOR_VALUE
             ]
         meta:
-          type: object
-          additionalProperties: true
+          oneOf:
+            - $ref: '#/components/schemas/RdmGetStatusMessages'
+            - $ref: '#/components/schemas/RdmGetParameterDescription'
+            - $ref: '#/components/schemas/RdmGetDmxPersonalityDescription'
+            - $ref: '#/components/schemas/RdmGetSlotDescription'
+            - $ref: '#/components/schemas/RdmGetSensorInfo'
+            - $ref: '#/components/schemas/RdmSetDeviceLabel'
+            - $ref: '#/components/schemas/RdmSetIdentifyDevice'
+            - $ref: '#/components/schemas/RdmSetDmxStartAddress'
+            - $ref: '#/components/schemas/RdmSetDmxPersonality'
+            - $ref: '#/components/schemas/RdmSetSensorValue'
+            - $ref: '#/components/schemas/RdmSetLampHours'
+            - $ref: '#/components/schemas/RdmSetLampState'
+            - $ref: '#/components/schemas/RdmSetRaw'
+        max_rx_length:
+          type: integer
     AccessGroup:
       type: string
       description: Group to be assigned to a user
@@ -1851,3 +1879,68 @@ components:
     Username:
       type: string
       example: bob
+    RdmGetStatusMessages:
+      type: object
+      properties:
+        status_type:
+          type: integer
+    RdmGetParameterDescription:
+      type: object
+      properties:
+        pid_requested:
+          type: integer
+    RdmGetDmxPersonalityDescription:
+      type: object
+      properties:
+        personality_requested:
+          type: integer
+    RdmGetSlotDescription:
+      type: object
+      properties:
+        slot_number_requested:
+          type: integer
+    RdmGetSensorInfo:
+      type: object
+      properties:
+        sensor_number_requested:
+          type: integer
+    RdmSetDeviceLabel:
+      type: object
+      properties:
+        label:
+          type: string
+    RdmSetIdentifyDevice:
+      type: object
+      properties:
+        enable:
+          type: boolean
+    RdmSetDmxStartAddress:
+      type: object
+      properties:
+        start_address:
+          type: integer
+    RdmSetDmxPersonality:
+      type: object
+      properties:
+        personality:
+          type: integer
+    RdmSetSensorValue:
+      type: object
+      properties:
+        sensor_number:
+          type: integer
+    RdmSetLampHours:
+      type: object
+      properties:
+        lamp_hours:
+          type: integer
+    RdmSetLampState:
+      type: object
+      properties:
+        lamp_state:
+          type: integer
+    RdmSetRaw:
+      type: object
+      properties:
+        raw:
+          type: string
