@@ -30,3 +30,5 @@ Reference for controller web API endpoints.
    beacon
    channel
    reset
+   factory-reset
+   
