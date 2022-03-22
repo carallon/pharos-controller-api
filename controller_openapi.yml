@@ -668,13 +668,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SetOverride"
+              $ref: "#/components/schemas/ClearOverride"
           application/x-www-form-urlencoded:
             schema:
-              $ref: "#/components/schemas/SetOverride"
+              $ref: "#/components/schemas/ClearOverride"
           multipart/form-data:
             schema:
-              $ref: "#/components/schemas/SetOverride"
+              $ref: "#/components/schemas/ClearOverride"
       responses:
         '204':
           description: OK
@@ -1529,6 +1529,18 @@ components:
         level:
           type: integer
     SetOverride:
+      allOf:
+        - type: object
+          properties:
+            target:
+              type: string
+              enum: [group, fixture]
+            num:
+              type: integer
+        - $ref: "#/components/schemas/Override"
+        - $ref: "#/components/schemas/Fade"
+      required: [target, num]
+    ClearOverride:
       type: object
       properties:
         target:
@@ -1536,20 +1548,10 @@ components:
           enum: [group, fixture]
         num:
           type: integer
-        intensity:
-          type: integer
-        red:
-          type: integer
-        green:
-          type: integer
-        blue:
-          type: integer
-        temperature:
-          type: integer
         fade:
           type: integer
-        path:
-          type: string
+          minimum: 0
+          maximum: 3600000
       required: [target, num]
     IdList:
       oneOf:
@@ -1944,3 +1946,81 @@ components:
       properties:
         raw:
           type: string
+    Override:
+      type: object
+      properties:
+        intensity:
+          $ref: '#/components/schemas/LevelIn'
+        colour:
+          anyOf:
+            - $ref: '#/components/schemas/ColourInRGB'
+            - $ref: '#/components/schemas/ColourInHS'
+        temperature:
+          $ref: '#/components/schemas/LevelIn'
+    ColourInRGB:
+      type: object
+      properties:
+        red:
+          $ref: '#/components/schemas/LevelIn'
+        green:
+          $ref: '#/components/schemas/LevelIn'
+        blue:
+          $ref: '#/components/schemas/LevelIn'
+    ColourInHS:
+      type: object
+      required:
+        - hue
+        - saturation
+      properties:
+        hue:
+          $ref: '#/components/schemas/LevelIn'
+        saturation:
+          $ref: '#/components/schemas/LevelIn'
+    ColourOutRGB:
+      type: object
+      properties:
+        red:
+          $ref: '#/components/schemas/LevelOut'
+        green:
+          $ref: '#/components/schemas/LevelOut'
+        blue:
+          $ref: '#/components/schemas/LevelOut'
+    ColourOutHS:
+      type: object
+      required:
+        - hue
+        - saturation
+      properties:
+        hue:
+          $ref: '#/components/schemas/LevelOut'
+        saturation:
+          $ref: '#/components/schemas/LevelOut'
+    LevelIn:
+      oneOf:
+        - type: integer
+          minimum: 0
+          maximum: 65535
+        - type: string
+          pattern: '^\d{1,3}(\.\d+)?%$'
+    LevelOut:
+      type: integer
+      minimum: 0
+      maximum: 65535
+    Fade:
+      type: object
+      properties:
+        fade:
+          type: integer
+          minimum: 0
+          maximum: 3600000
+        path:
+          type: string
+          enum:
+            - default
+            - linear
+            - start
+            - end
+            - braked
+            - accelerated
+            - damped
+            - overshoot
