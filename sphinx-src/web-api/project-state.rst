@@ -1,5 +1,6 @@
 Project State
 #############
+
 .. note:: Expert only
 
 HTTP
@@ -8,7 +9,7 @@ HTTP
 POST
 ====
 
-Triggers changes to the Project State.
+Requests a change to a Project State.
 
 ``POST /api/project_state``
 
@@ -22,13 +23,13 @@ Triggers changes to the Project State.
      - Value Example
    * - ``num``
      - integer
-     - **TODO** Number of the project state (Is that a thing?)
+     - **TODO** Number of the Project State (Is that a thing?)
      - ``"1"``
    * - ``action``
      - string
-     - Enum. Currently, only set value is supported
-     - ``"set_value"``
+     - Enum. Currently, only ``set_value`` is supported
+     - ``set_value``
    * - ``value_num``
-     - string **TODO** IS THAT RIGHT? WHY NOT AN INT?
-     - A string set for the value we want to set the State value to. ??? IS IT 0-255 or 0.0-1.0 or 0-100?
+     - string **TODO** Is this right? Why not an int?
+     - A string set for the value we want to set the State Value to. **TODO** IS IT 0-255 or 0.0-1.0 or 0-100?
      - ``"189"``
