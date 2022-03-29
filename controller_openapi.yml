@@ -376,10 +376,8 @@ paths:
         - in: query
           name: universe
           schema:
-            type: object
-            properties:
-              universe:
-                $ref: "#/components/schemas/UniverseId"
+            $ref: "#/components/schemas/UniverseId"
+          required: true
       responses:
         '200':
           description: OK
@@ -751,12 +749,12 @@ paths:
           description: Bad Request
   /rdm/discovery:
     get:
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/StartRdmDiscovery"
+      parameters:
+        - in: query
+          name: universe
+          schema:
+            $ref: "#/components/schemas/UniverseId"
+          required: true
       responses:
         '200':
           description: OK
