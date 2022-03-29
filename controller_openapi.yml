@@ -1311,7 +1311,7 @@ components:
           type: array
           items:
             type: string
-            pattern: \((+|!)?/d+)| \
+            pattern: '^((\+|!)?\d+)| $'
         proxied_tpc_name:
           type: string
         disabled:
