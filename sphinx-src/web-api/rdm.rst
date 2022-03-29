@@ -6,14 +6,14 @@ Discover RDM fixtures and get cached device info from discovered fixtures.
 HTTP
 ****
 
-.. _discover-http-get:
+.. _rdm-discover-http-get:
 
 GET
 ===
 
 ``GET /api/rdm/discovery``
 
-Returns a JSON object with the following attributes:
+Returns an array with the following attributes:
 
 .. list-table::
    :widths: 5 3 8 4
@@ -29,47 +29,48 @@ Returns a JSON object with the following attributes:
      - ``"072c:0004fe02"``
    * - ``rdm_protocol_version``
      - integer
-     - range of 0-65535
+     - Range of 0-65535
      - ``123``
    * - ``device_model_id``
      - integer
-     - range of 0-65535
+     - Range of 0-65535
      - ``123``
    * - ``product_category``
      - integer
-     - range of 0-65535
+     - Range of 0-65535
      - ``123``
    * - ``software_version_id``
      - integer
-     - a 32bit number
+     - A 32bit number
      - ``12345678``
    * - ``dmx512_footprint``
      - integer
-     - range of 0-512
+     - Range of 0-512
      - ``3``
    * - ``dmx512_personality``
      - integer
-     - range of 0-65535
+     - Range of 0-65535
      - ``2``
    * - ``dmx512_start_address``
      - integer
-     - range of 1-512
+     - Range of 1-512
      - ``4``
    * - ``sub_device_count``
      - integer
-     - range of 0-65535
+     - Range of 0-65535
      - ``12``
    * - ``sensor_count``
      - integer
-     - range of 0-255
+     - Range of 0-255
      - ``0``
 
-.. _discover-http-post:
+.. _rdm-discover-http-post:
 
 POST
 ====
 
 ``POST /api/rdm/discovery``
+
 Triggers an RDM poll of the defined universe
 
 .. list-table::
@@ -82,7 +83,7 @@ Triggers an RDM poll of the defined universe
      - Value Example
    * - ``universe``
      - string
-     - See `universe-key-string-format`_ below.
+     - See `Universe Key String Format`_
      - ``"dmx:1"``
 
 JavaScript
@@ -90,6 +91,7 @@ JavaScript
 
 start_rdm_discovery
 ===================
+
 ``start_rdm_discovery(params, callback)``
 
 Discover RDM fixtures and get cached device info from discovered fixtures.
@@ -106,7 +108,7 @@ Discover RDM fixtures and get cached device info from discovered fixtures.
      - Value Example
    * - ``universe``
      - string
-     - See `universe-key-string-format`_ below.
+     - See `Universe Key String Format`_
      - ``"dmx:1"``
 
 RDM PID Information
@@ -118,6 +120,7 @@ POST
 ====
 
 ``POST /api/rdm/get``
+
 Queues an RDM poll that will return PID information. This is available by subscribing to the relevant websocket. 
 
 .. list-table::
@@ -134,12 +137,12 @@ Queues an RDM poll that will return PID information. This is available by subscr
      - ``"dmx:1"``
    * - ``destination_uid``
      - string
-     - manuId:deviceId[:subId] (Hex, 4byte:8byte[:decimal integer)
+     - See `RDM UIDs`_
      - ``"072c:0004fe02"``
    * - ``pid`` 
      - string
-     - This will request the value for the given PID. See `pid-enums`_ below.
-     - ``COMMS_STATUS``
+     - This will request the value for the given PID. See `PID Enums`_ below.
+     - ``"COMMS_STATUS"``
    * - ``meta``
      - object
      - Optional metadata for the PID, i.e. query params.
@@ -148,6 +151,7 @@ Queues an RDM poll that will return PID information. This is available by subscr
 .. _pid-http-set:
 
 ``POST /api/rdm/set``
+
 Queues an RDM command that will alter specific PID information. This is available by subscribing to the relevant websocket. 
 
 .. list-table::
@@ -164,12 +168,12 @@ Queues an RDM command that will alter specific PID information. This is availabl
      - ``"dmx:1"``
    * - ``destination_uid``
      - string
-     - manuId:deviceId[:subId] (Hex, 4byte:8byte[:decimal integer)
+     - See `RDM UIDs`_
      - ``"072c:0004fe02"``
    * - ``pid`` 
      - string
-     - This will be the PID we intend to change. See `pid-enums`_ below.
-     - ``COMMS_STATUS``
+     - This will be the PID we intend to change. See `PID Enums`_ below.
+     - ``"COMMS_STATUS"``
    * - ``meta``
      - object
      - Optional metadata for the PID, i.e. query params.
@@ -182,6 +186,7 @@ JavaScript
 
 start_rdm_get
 =============
+
 ``start_rdm_get(params, callback)``
 
 Returns chosen PID information from the selected fixture.
@@ -202,11 +207,11 @@ Returns chosen PID information from the selected fixture.
      - ``"dmx:1"``
    * - ``destination_uid``
      - string
-     - manuId:deviceId[:subId] (Hex, 4byte:8byte[:decimal integer)
+     - See `RDM UIDs`_
      - ``"072c:0004fe02"``
    * - ``pid`` 
      - string
-     - This will request the value for the given PID. See `pid-enums`_ below.
+     - This will request the value for the given PID. See `PID Enums`_ below.
      - ``COMMS_STATUS``
    * - ``meta``
      - object
@@ -215,6 +220,7 @@ Returns chosen PID information from the selected fixture.
 
 start_rdm_set
 =============
+
 ``start_rdm_set(params, callback)``
 
 Sets PID value for the selected fixture.
@@ -235,11 +241,11 @@ Sets PID value for the selected fixture.
      - ``"dmx:1"``
    * - ``destination_uid``
      - string
-     - manuId:deviceId[:subId] (Hex, 4byte:8byte[:decimal integer)
+     - See `RDM UIDs`_
      - ``"072c:0004fe02"``
    * - ``pid`` 
      - string
-     - This will request the value for the given PID. See `pid-enums`_ below.
+     - This will request the value for the given PID. See `PID Enums`_ below.
      - ``COMMS_STATUS``
    * - ``meta``
      - object
@@ -257,3 +263,38 @@ PID Enums
 *********
 .. _pid-enums:
 .. include:: ../snippets/pid-enums.rst
+
+RDM UIDs
+********
+.. _rdm-uids:
+
+RDM UIDs is a hexidecimal value take the format:
+
+``manuId:deviceId[:subId]`` 
+
+where each value is set as follows:
+
+.. list-table::
+   :widths: 3 3
+   :header-rows: 1
+   :align: left
+
+   * - ID
+     - Type
+   * - ``manuId``
+     - 4-byte
+   * - ``deviceId``
+     - 8-byte
+   * - ``subId``
+     - Decimal Integer (optional)
+
+For example:
+
+.. code-block:: none
+
+   072c:0004fe02:2
+
+
+  
+
+
