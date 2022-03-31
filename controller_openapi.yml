@@ -900,20 +900,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - username
-                - password
-                - access
-              properties:
-                session_password:
-                  $ref: '#/components/schemas/Password'
-                username:
-                  $ref: '#/components/schemas/Username'
-                password:
-                  $ref: '#/components/schemas/Password'
-                access:
-                  $ref: '#/components/schemas/AccessGroups'
+              $ref: '#/components/schemas/User'
       responses:
         '201':
           description: User created
@@ -940,19 +927,7 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              required:
-                - session_password
-                - username
-              properties:
-                session_password:
-                  $ref: '#/components/schemas/Password'
-                username:
-                  $ref: '#/components/schemas/Username'
-                password:
-                  $ref: '#/components/schemas/Password'
-                access:
-                  $ref: '#/components/schemas/AccessGroups'
+              $ref: '#/components/schemas/User'
       responses:
         '200':
           description: OK
@@ -1696,11 +1671,29 @@ components:
           type: string
     Login:
       type: object
+      required:
+        - username
+        - password
       properties:
-        user:
-          type: string
+        username:
+          $ref: '#/components/schemas/Username'
         password:
-          type: string
+          $ref: '#/components/schemas/Password'
+    User:
+      type: object
+      required:
+        - username
+        - password
+        - access
+      properties:
+        session_password:
+          $ref: '#/components/schemas/Password'
+        username:
+          $ref: '#/components/schemas/Username'
+        password:
+          $ref: '#/components/schemas/Password'
+        access:
+          $ref: '#/components/schemas/AccessGroups'
     BearerToken:
       type: object
       properties:
