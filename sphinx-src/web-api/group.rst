@@ -1,7 +1,7 @@
 Group
 #####
 
-.. note:: Not applicable to VLC/VLC+
+.. note:: Not applicable to |VLC|/|VLC+|
 
 HTTP
 ****

@@ -22,7 +22,7 @@ Returns a JSON object with the following attributes:
      - Description
    * - ``gpio``
      - array
-     - Array of Input objects; returned when queried controller is LPC or TPC+EXT
+     - Array of Input objects; returned when queried controller is |LPC| or |TPC| + |EXT|
    * - ``dmxIn``
      - object
      - DMX Input object; returned when DMX input is configured on the queried controller

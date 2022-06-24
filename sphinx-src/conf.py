@@ -94,11 +94,33 @@ if variant == 'mosaic':
     print('Building Mosaic variant')
     rst_prolog = """
     .. |Vendor| replace:: Mosaic
+    .. |LPC| replace:: MSC
+    .. |LPC X| replace:: MSC X
+    .. |TPC| replace:: MTPC
+    .. |VLC| replace:: Atlas
+    .. |VLC+| replace:: Atlas Pro
+    .. |TPS| replace:: M-TS
+    .. |XPC| replace:: XPC
+    .. |EXT| replace:: TPC-RIO
+    .. |EDN| replace:: EDN
+    .. |EDN 20| replace:: EDN 20
+    .. |EDN 10| replace:: EDN 10
     """
 else:
     print('Building Pharos variant')
     rst_prolog = """
     .. |Vendor| replace:: Pharos
+    .. |LPC| replace:: LPC
+    .. |LPC X| replace:: LPC X
+    .. |TPC| replace:: TPC
+    .. |VLC| replace:: VLC
+    .. |VLC+| replace:: VLC+
+    .. |TPS| replace:: TPS
+    .. |XPC| replace:: XPC
+    .. |EXT| replace:: EXT
+    .. |EDN| replace:: EDN
+    .. |EDN 20| replace:: EDN 20
+    .. |EDN 10| replace:: EDN 10
     """
 
 # -- Options for HTML output ----------------------------------------------

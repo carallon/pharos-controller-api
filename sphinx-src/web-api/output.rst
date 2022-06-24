@@ -44,7 +44,7 @@ For example:
 * ``GET /api/output?universe=dmx:1``
 * ``GET /api/output?universe=rio-dmx:rio44:1``
 
-If the queried controller is an LPC 1, the universe is DMX 2, DMX Proxy has been enabled for a TPC in the project and the TPC is offline then this request will return a JSON object with the following attributes:
+If the queried controller is an |LPC| 1, the universe is DMX 2, DMX Proxy has been enabled for a |TPC| in the project and the |TPC| is offline then this request will return a JSON object with the following attributes:
 
 .. list-table::
    :widths: 3 3 5

@@ -27,8 +27,8 @@ Returns a JSON object with a single ``controllers`` attribute, which has an arra
      - ``1``
    * - ``type``
      - string
-     - Controller type, e.g. "LPC" or "TPC"
-     - ``"LPC"``
+     - Controller type, e.g. "|LPC|" or "|TPC|"
+     - "|LPC|"
    * - ``name``
      - string
      - Controller user name, or the default name if none is set

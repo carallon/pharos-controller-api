@@ -23,27 +23,27 @@ Returns a JSON object with the following attributes:
      - Value Example
    * - ``sys_temp``
      - number
-     - Only for LPC X and VLC/VLC+
+     - Only for |LPC X| and |VLC|/|VLC+|
      - ``40.2``
    * - ``core1_temp``
      - number
-     - Only for LPC X and VLC/VLC+
+     - Only for |LPC X| and |VLC|/|VLC+|
      - ``44``
    * - ``core2_temp``
      - number
-     - Only for LPC X rev 1
+     - Only for |LPC X| rev 1
      - ``44.1``
    * - ``ambient_temp``
      - number
-     - Only for TPC, LPC X rev 1
+     - Only for |TPC|, |LPC X| rev 1
      - ``36.9``
    * - ``cc_temp``
      - number
-     - Only for LPC X rev 2 and VLC/VLC+
+     - Only for |LPC X| rev 2 and |VLC|/|VLC+|
      - ``44.1``
    * - ``gpu_temp``
      - number
-     - Only for VLC/VLC+
+     - Only for |VLC|/|VLC+|
      - ``38.2``
 
 JavaScript

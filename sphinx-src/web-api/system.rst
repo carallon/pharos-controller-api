@@ -22,7 +22,7 @@ Returns a JSON object with the following attributes:
      - Value Example
    * - ``hardware_type``
      - string
-     - ``"LPC"``
+     - "|LPC|"
    * - ``channel_capacity``
      - integer
      - ``512``

@@ -185,7 +185,7 @@ Returns a JSON object with a single ``timelines`` attribute, which has an array 
      - ``10000``
    * - ``source_bus``
      - string
-     - ``internal``, ``timecode_1``,...``timecode_6``, ``audio_1``,...``audio_4``
+     - ``internal``, ``timecode_1`` ... ``timecode_6``, ``audio_1`` ... ``audio_4``
      - ``"internal"``
    * - ``timecode_format``
      - string
@@ -386,6 +386,10 @@ release_all_timelines
      - float
      - Optional. Release fade time in seconds. If not provided, the default fade time will be used.
      - ``2.0``
+   * - ``group``
+     - string
+     - Optional. Timeline group name: ``A``, ``B``, ``C`` or ``D``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
+     - ``"B"``
 
 For ``callback`` please see `JavaScript Command Callback`_.
 

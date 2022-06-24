@@ -196,6 +196,9 @@ For example:
      alert(b.on ? "Beacon turned on" : "Beacon turned off")
    })
 
+
+.. _websocket_subscribe_lua:
+
 subscribe_lua
 =============
 

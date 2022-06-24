@@ -219,6 +219,10 @@ release_all_scenes
      - float
      - Optional. Release fade time in seconds. If not provided, the default fade time will be used.
      - ``2.0``
+   * - ``group``
+     - string
+     - Optional. Scene group name: ``A``, ``B``, ``C`` or ``D``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
+     - ``"B"``
 
 For ``callback`` please see `JavaScript Command Callback`_.
 

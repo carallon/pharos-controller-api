@@ -23,7 +23,7 @@ Returns a JSON object with a single ``outputs`` attribute, which has an array va
      - Value Example
    * - ``type``
      - integer
-     - Protocol type; possible types are: DMX (1), Pathport (2), Art-Net (4), KiNET (8), sACN (16), DVI (32), RIO DMX (64), EDN DMX (128), EDN SPI (256)
+     - Protocol type; possible types are: DMX (1), Pathport (2), Art-Net (4), KiNET (8), sACN (16), DVI (32), RIO DMX (64), |EDN| DMX (128), |EDN| SPI (256)
      - ``1``
    * - ``name``
      - string
@@ -130,7 +130,7 @@ For RIO DMX:
      - Value can be 101 (RIO 80), 102 (RIO 44) or 103 (RIO 08)
      - ``101``
 
-For EDN:
+For |EDN|:
 
 .. list-table::
    :widths: 2 2 10 5
@@ -142,15 +142,15 @@ For EDN:
      - Value Example
    * - ``remote_device_num``
      - integer
-     - EDN number (address)
+     - |EDN| number (address)
      - ``1``
    * - ``remote_device_type``
      - integer
-     - Value can be 109 (EDN 20) or 110 (EDN 10)
+     - Value can be 109 (|EDN 20|) or 110 (|EDN 10|)
      - ``110``
    * - ``port``
      - integer
-     - Number of EDN output port
+     - Number of |EDN| output port
      - ``1``
 
 JavaScript

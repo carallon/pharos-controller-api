@@ -1,7 +1,7 @@
 Content Targets
 ###############
 
-.. note:: VLC/VLC+ only
+.. note:: |VLC|/|VLC+| only
 
 HTTP
 ****
@@ -29,7 +29,7 @@ Payload is a JSON object with the following attributes:
      - ``"master_intensity"``
    * - ``type``
      - string
-     - Optional. Type of content target (only relevant on VLC+): ``primary``, ``secondary``, ``target_3``, ``target_4``, ``target_5``, ``target_6``, ``target_7``, ``target_8``. Defaults to ``primary``.
+     - Optional. Type of content target (only relevant on |VLC+|): ``primary``, ``secondary``, ``target_3``, ``target_4``, ``target_5``, ``target_6``, ``target_7``, ``target_8``. Defaults to ``primary``.
      - ``"secondary"``
    * - ``level``
      - float or string containing a bounded integer
@@ -92,7 +92,7 @@ master_content_target_intensity
      - Value Example
    * - ``type``
      - string
-     - Optional. Type of content target (only relevant on VLC+): ``primary``, ``secondary``, ``target_3``, ``target_4``, ``target_5``, ``target_6``, ``target_7``, ``target_8``. Defaults to ``primary``.
+     - Optional. Type of content target (only relevant on |VLC+|): ``primary``, ``secondary``, ``target_3``, ``target_4``, ``target_5``, ``target_6``, ``target_7``, ``target_8``. Defaults to ``primary``.
      - ``"secondary"``
    * - ``level``
      - float or string containing a bounded integer
