@@ -1520,7 +1520,7 @@ components:
     UniverseId:
       oneOf:
         - type: string
-          pattern: /(\d+)|((rio08)|(rio44)|(rio80):\d+)|(\d+:\d+)|((edn20)|(edn10):\d+:\d+)/
+          pattern: /((dmx|art-net|pathport|sacn):\d+)|(kinet:\d+:\d+)|(rio-dmx:(rio08|rio44|rio80):\d+)|(edn:(edn20|edn10):\d+:\d+)|(edn-spi:(edn20|edn10):\d+:\d+)/
         - allOf:
             - $ref: "#/components/schemas/UniverseKey"
             - type: object
