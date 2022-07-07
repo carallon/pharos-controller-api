@@ -14,6 +14,7 @@ Reference for controller HTTP API.
    content-targets
    command
    controller
+   factory-reset
    group
    input
    log
