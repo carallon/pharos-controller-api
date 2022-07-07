@@ -948,6 +948,8 @@ Disables the output of a single protocol from the controller, where ``protocol``
 * ``SACN``
 * ``DVI``
 * ``RIO_DMX``
+* ``EDN_DMX``
+* ``EDN_SPI``
 
 For example:
 
