@@ -68,7 +68,7 @@ Returns an object with the same attributes as in the HTTP :ref:`output-http-get`
      - Description
    * - ``protocol``
      - integer
-     - Constants defined in query.js are: ``DMX`` (1), ``PATHPORT`` (2), ``ARTNET`` (4), ``KINET`` (8), ``SACN`` (16), ``DVI`` (32), ``RIO_DMX`` (64), ``EDN`` (128)
+     - Output protocol (see `Enumerated Protocols`_)
    * - ``index``
      - integer
      - Required unless ``protocol`` is ``KINET``, ``RIO_DMX`` or ``EDN``
@@ -80,7 +80,7 @@ Returns an object with the same attributes as in the HTTP :ref:`output-http-get`
      - Only required if ``protocol`` is ``KINET``
    * - ``remote_device_type``
      - integer
-     - Only required if ``protocol`` is ``RIO_DMX`` or ``EDN``
+     - Only required if ``protocol`` is ``RIO_DMX`` or ``EDN`` (see `Enumerated Remote Device Types`_)
    * - ``remote_device_num``
      - integer
      - Only required if ``protocol`` is ``RIO_DMX`` or ``EDN``
@@ -117,3 +117,15 @@ Universe Key String Format
 **************************
 
 .. include:: ../snippets/universe-key-string-format.rst
+
+Enumerated Protocols
+********************
+
+.. include:: ../snippets/enumerated-protocols.rst
+
+Enumerated Remote Device Types
+******************************
+
+.. include:: ../snippets/enumerated-rio-types.rst
+
+.. include:: ../snippets/enumerated-edn-types.rst
