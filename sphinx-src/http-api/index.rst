@@ -23,6 +23,7 @@ Reference for controller HTTP API.
    override
    project
    protocol
+   rdm-discovery
    remote-device
    replication
    reset
@@ -33,3 +34,5 @@ Reference for controller HTTP API.
    time
    timeline
    trigger
+
+   objects/index

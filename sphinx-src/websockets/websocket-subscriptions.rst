@@ -232,3 +232,83 @@ And the subscription could be setup as follows:
 	  value = l.key           // "56" in the above example
 	  alert(key + ": " + value)
    })
+
+
+.. _websocket_subscribe_rdm_discovery:
+
+subscribe_rdm_discovery
+=======================
+
+Subscribe for results from RDM discovery operations.
+
+``subscribe_rdm_discovery(callback)``
+
+The callback is called every time an RDM device is found during an RDM discovery operation, and to announce when the RDM discovery operation is finished or has been cancelled. The callback is passed an object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``message_type``
+     - string
+     - Categorises the message, defining what ``data`` is present, if any (see below).
+   * - ``universe``
+     - string
+     - The universe on which the RDM operation is acting, in the `Universe Key String Format`_.
+   * - ``data``
+     - object
+     - Optional. Data appropriate for the message type.
+
+Device found
+------------
+
+``"message_type" : "device_found"``
+
+The ``data`` object will have the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``device_info``
+     - :doc:`../http-api/objects/rdm-device-info`
+     - RDM device info from the discovered device.
+   * - ``fixture_num``
+     - integer
+     - User number of the fixture in the project with the same DMX address and footprint as the discovered device, or `null` if there is no matching fixture in the project.
+
+Discovery finished
+------------------
+
+``"message_type" : "finished"``
+
+The ``data`` object will not be present, or will be empty.
+
+Discovery cancelled
+-------------------
+
+``"message_type" : "cancelled"``
+
+The ``data`` object will have the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``error``
+     - string
+     - A description of why the discovery was cancelled.
+
+Universe Key String Format
+**************************
+
+.. include:: ../snippets/universe-key-string-format-rdm.rst

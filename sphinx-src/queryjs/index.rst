@@ -20,6 +20,7 @@ Reference for the query.js library.
    override
    project
    protocol
+   rdm-discovery
    remote-device
    replication
    scene
