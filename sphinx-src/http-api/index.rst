@@ -24,6 +24,7 @@ Reference for controller HTTP API.
    project
    protocol
    rdm-discovery
+   rdm-get
    remote-device
    replication
    reset

@@ -308,6 +308,287 @@ The ``data`` object will have the following attributes:
      - string
      - A description of why the discovery was cancelled.
 
+
+.. _websocket_subscribe_rdm_get_set:
+
+subscribe_rdm_get_set
+=====================
+
+Subscribe for results from RDM Get and Set operations.
+
+``subscribe_rdm_get_set(callback)``
+
+The callback is called to provide the response from RDM Get and Set operations, and to announce when the RDM operation is finished or has been cancelled. The callback is passed an object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``message_type``
+     - string
+     - Categorises the message, defining what ``data`` is present, if any (see below).
+   * - ``universe``
+     - string
+     - The universe on which the RDM operation is acting, in the `Universe Key String Format`_.
+   * - ``device_id``
+     - string
+     - Format is ``{manuId}:{deviceId}(:{subId})``
+       where ``{manuId}`` is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. ``072c``;
+       ``{deviceId}`` is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. ``0004fe02``;
+       ``{subId}`` is an optional unsigned decimal integer.
+   * - ``pid``
+     - string
+     - RDM PID as a human-readable string, e.g. ``DEVICE_INFO``, or a string containing the hex representation of the enum value of the PID as defined by the RDM standard, e.g. ``"c1"``.
+   * - ``data``
+     - object
+     - Optional. Data appropriate for the message type.
+
+Get Finished
+------------
+
+``"message_type" : "get_finished"``
+
+The GET operation indicated by the PID has finished. No ``data`` object is expected.
+
+Set Finished
+------------
+
+``"message_type" : "set_finished"``
+
+The SET operation indicated by the PID has finished. No ``data`` object is expected.
+
+Get/Set result error
+--------------------
+
+``"message_type" : "result_error"``
+
+The ``data`` object will have the following attributes:
+
+.. list-table::
+   :widths: 2 2 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``error``
+     - string
+     - Description of the error with the response.
+
+Get/Set operation cancelled
+---------------------------
+
+``"message_type" : "get_cancelled"``
+``"message_type" : "set_cancelled"``
+
+The ``data`` object will have the following attributes:
+
+.. list-table::
+   :widths: 2 2 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``error``
+     - string
+     - Description of why the operation was cancelled.
+
+Get/Set Result
+--------------
+
+``"message_type" : "result"``
+
+Provides the results of the operation, parsed from the response from the device. The ``data`` object will be appropriate for the PID. If ``pid`` is a human-readable string, e.g. ``DEVICE_INFO`` then ``data`` is described under `RDM PID result data`_. Otherwise, if ``pid`` is the hex representation of the enum value of a PID, then ``data`` will have one key, ``raw``, the value of which will be the base64-encoded raw payload data received from the device.
+
+RDM PID result data
+^^^^^^^^^^^^^^^^^^^
+
+When the object passed to the ``subscribe_rdm_get_set`` callback has ``"message_type": "result"`` and where ``pid`` is a human-readable string, e.g. ``DEVICE_INFO``, the format of the ``data`` object is described in one of the following sections.
+
+Get Communication Status (COMMS_STATUS)
+"""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``COMMS_STATUS``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``short_message`` - number (16 bit)
+* ``length_mismatch`` - number (16 bit)
+* ``checksum_fail`` - number (16 bit)
+
+Get Status Messages (STATUS_MESSAGES)
+"""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``STATUS_MESSAGES``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``status_messages`` attribute with an array value, the items of which will each have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``sub_device_id`` - number (16 bit)
+* ``status_type`` - number (8 bit)
+* ``status_message_id`` - number (16 bit)
+* ``data_value_1`` - number (16 bit)
+* ``data_value_2`` - number (16 bit)
+
+Get Supported Parameters (SUPPORTED_PARAMETERS)
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``SUPPORTED_PARAMETERS``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``supported_parameters`` attribute with an array value. The array will contain numbers, corresponding to the 16 bit parameter IDs supported by the RDM device, as described in the RDM specification.
+
+Get Parameter Description (PARAMETER_DESCRIPTION)
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``PARAMETER_DESCRIPTION``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``pid_requested`` - number (16 bit)
+* ``pdl_size`` - number (8 bit)
+* ``data_type`` - number (8 bit)
+* ``command_class`` - number (8 bit)
+* ``type`` - number (8 bit)
+* ``unit`` - number (8 bit)
+* ``prefix`` - number (8 bit)
+* ``min_valid_value`` - number (32 bit)
+* ``max_valid_value`` - number (32 bit)
+* ``default_value`` - number (32 bit)
+* ``description`` - string (ASCII, max 32 characters)
+
+Get Device Info (DEVICE_INFO)
+"""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``DEVICE_INFO``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``rdm_protocol_version`` - number (16 bit)
+* ``device_model_id`` - number (16 bit)
+* ``product_category`` - number (16 bit)
+* ``software_version_id`` - number (32 bit)
+* ``dmx512_footprint`` - number (16 bit)
+* ``dmx512_personality`` - number (16 bit)
+* ``start_address`` - number (16 bit)
+* ``sub_device_count`` - number (16 bit)
+* ``sensor_count`` - number (8 bit)
+
+Get Device Model Description (DEVICE_MODEL_DESCRIPTION)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``DEVICE_MODEL_DESCRIPTION``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``model_description`` attribute with a string value. The string will be the ASCII model description, 0-32 characters, as described in the RDM specification.
+
+Get Manufacturer Label (MANUFACTURER_LABEL)
+"""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``MANUFACTURER_LABEL``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``manufacturer_label`` attribute with a string value. The string will be the ASCII manufacturer description, 0-32 characters, as described in the RDM specification.
+
+Get/Set Device Label (DEVICE_LABEL)
+"""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``DEVICE_LABEL``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``device_label`` attribute with a string value. The string will be the current ASCII device label, 0-32 characters, as described in the RDM specification.
+
+No ``data`` is expected in the response for a SET operation.
+
+Get/Set Factory Defaults (FACTORY_DEFAULTS)
+"""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``FACTORY_DEFAULTS``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``factory_defaults`` attribute with a boolean value, indicating whether the device is currently set to is factory defaults.
+
+No ``data`` is expected in the response for a SET operation.
+
+Get Software Version Label (SOFTWARE_VERSION_LABEL)
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``SOFTWARE_VERSION_LABEL``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``software_version_label`` attribute with a string value. The string will be the ASCII software version label, 0-32 characters, as described in the RDM specification.
+
+Get Boot Software Version ID (BOOT_SOFTWARE_VERSION_ID)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``BOOT_SOFTWARE_VERSION_ID``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``boot_software_version_id`` attribute with a 32 bit number value, as described in the RDM specification.
+
+Get Boot Software Version Label (BOOT_SOFTWARE_VERSION_LABEL)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``BOOT_SOFTWARE_VERSION_LABEL``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``boot_software_version_label`` attribute with a string value. The string will be the ASCII boot version label, 0-32 characters, as described in the RDM specification.
+
+Get/Set DMX512 Personality (DMX_PERSONALITY)
+""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``DMX_PERSONALITY``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``current_personality`` - number (8 bit)
+* ``num_personalities`` - number (8 bit)
+
+No ``data`` is expected in the response for a SET operation.
+
+Get DMX512 Personality Description (DMX_PERSONALITY_DESCRIPTION)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``DMX_PERSONALITY_DESCRIPTION``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``personality_requested`` - number (8 bit)
+* ``dmx512_slots_required`` - number (16 bit)
+* ``description`` - string (ASCII, 0-32 characters)
+
+Get/Set DMX512 Starting Address (DMX_START_ADDRESS)
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``DMX_START_ADDRESS``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``dmx512_address`` attribute with a 16 bit number value, as described in the RDM specification.
+
+No ``data`` is expected in the response for a SET operation.
+
+Get Slot Info (SLOT_INFO)
+"""""""""""""""""""""""""
+
+Following a successful GET operation for ``SLOT_INFO``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have a ``slot_info`` attribute with an array value, the items of which will each have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``slot_offset`` - number (16 bit)
+* ``slot_type`` - number (8 bit)
+* ``slot_label_id`` - number (16 bit)
+
+Get Slot Description (SLOT_DESCRIPTION)
+"""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``SLOT_DESCRIPTION``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``slot_number_requested`` - number (16 bit)
+* ``description`` - string (ASCII, 0-32 characters)
+
+Get Sensor Definition (SENSOR_DEFINITION)
+"""""""""""""""""""""""""""""""""""""""""
+
+Following a successful GET operation for ``SENSOR_DEFINITION``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``sensor_number_requested`` - number (8 bit)
+* ``type`` - number (8 bit)
+* ``unit`` - number (8 bit)
+* ``prefix`` - number (8 bit)
+* ``range_minimum_value`` - number (16 bit)
+* ``range_maximum_value`` - number (16 bit)
+* ``normal_minimum_value`` - number (16 bit)
+* ``normal_maximum_value`` - number (16 bit)
+* ``recorded_value_support`` - number (8 bit)
+* ``description`` - string (ASCII, 0-32 characters)
+
+Get/Set Sensor (SENSOR_VALUE)
+"""""""""""""""""""""""""""""
+
+Following a successful GET or SET operation for ``SENSOR_VALUE``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``sensor_number_requested`` - number (8 bit)
+* ``present_value`` - number (16 bit)
+* ``lowest_detected_value`` - number (16 bit)
+* ``highest_detected_value`` - number (16 bit)
+* ``recorded_value`` - number (16 bit)
+
+Get/Set Lamp Hours (LAMP_HOURS)
+"""""""""""""""""""""""""""""""
+
+Following a successful GET or SET operation for ``LAMP_HOURS``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``lamp_hours`` - number (32 bit)
+
+Get/Set Lamp State (LAMP_STATE)
+"""""""""""""""""""""""""""""""
+
+Following a successful GET or SET operation for ``LAMP_STATE``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
+
+* ``lamp_state`` - number (8 bit)
+
 Universe Key String Format
 **************************
 
