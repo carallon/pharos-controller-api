@@ -22,6 +22,7 @@ Reference for the query.js library.
    protocol
    rdm-discovery
    rdm-get
+   rdm-set
    remote-device
    replication
    scene
