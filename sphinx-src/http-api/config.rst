@@ -103,10 +103,6 @@ Payload is a JSON object with the following attributes:
      - string
      - Optional. Set the IP address of a third party NTP server
      - ``"192.168.1.1"``
-   * - ``password``
-     - string
-     - Optional. Change the admin password on the controller.
-     - ``"mySup3rS3cr3tP455w0rd!"``
 
 If the response status code is 200 (OK), the response body will be a JSON object with a ``restart`` attribute. The value of ``restart`` is boolean. If ``true``, the controller will reset itself imminently in order to apply the changes.
 
