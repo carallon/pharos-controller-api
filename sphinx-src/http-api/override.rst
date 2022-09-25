@@ -4,6 +4,8 @@ Override
 Methods
 *******
 
+.. _override-http-put:
+
 PUT
 ===
 
@@ -33,18 +35,10 @@ Payload is a JSON object with the following attributes:
      - integer
      - Optional. Intensity to set as part of override: 0-255. Intensity override will not be changed if this attribute isn't provided.
      - ``128``
-   * - ``red``
-     - integer
-     - Optional. Red component to set as part of override: 0-255. Red override will not be changed if this attribute isn't provided.
-     - ``255``
-   * - ``green``
-     - integer
-     - Optional. Green component to set as part of override: 0-255. Green override will not be changed if this attribute isn't provided.
-     - ``255``
-   * - ``blue``
-     - integer
-     - Optional. Blue component to set as part of override: 0-255. Blue override will not be changed if this attribute isn't provided.
-     - ``255``
+   * - ``colour``
+     - `Override Colour`_
+     - Optional. Specifies the colour to set as part of the override.
+     - 
    * - ``temperature``
      - integer
      - Optional. Temperature component to set as part of override: 0-255. Temperature override will not be changed if this attribute isn't provided.
@@ -57,6 +51,66 @@ Payload is a JSON object with the following attributes:
      - string
      - Optional. Crossfade path to use when applying the override: ``Default``, ``Linear``, ``Start``, ``End``, ``Braked``, ``Accelerated``, ``Damped``, ``Overshoot``, ``Col At Start``, ``Col At End``, ``Int At Start``, ``Int At End``, ``Colour First``, ``Intensity First``
      - ``"Braked"``
+
+.. _override-colour-json:
+
+Override Colour
+---------------
+
+The value of the ``colour`` attribute in a PUT override request is a JSON object, specifying colour as *either* `RGB`_ or `Hue/Saturation`_ values.
+
+RGB
+^^^
+
+Colour as RGB for ``colour`` in an override :ref:`override-http-put` request:
+
+.. list-table::
+   :widths: 2 2 10 5
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``red``
+     - integer
+     - Optional. Red component to set as part of override: 0-255. Red override will not be changed if this attribute isn't provided.
+     - ``255``
+   * - ``green``
+     - integer
+     - Optional. Green component to set as part of override: 0-255. Green override will not be changed if this attribute isn't provided.
+     - ``255``
+   * - ``blue``
+     - integer
+     - Optional. Blue component to set as part of override: 0-255. Blue override will not be changed if this attribute isn't provided.
+     - ``255``
+
+Hue/Saturation
+^^^^^^^^^^^^^^
+
+Colour as hue/saturation for ``colour`` in an override :ref:`override-http-put` request:
+
+.. list-table::
+   :widths: 2 2 10 5
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``hue``
+     - integer
+     - Hue component to set as part of override: 0-255.
+     - ``0``
+   * - ``saturation``
+     - integer
+     - Saturation component to set as part of override: 0-255.
+     - ``255``
+
+.. note::
+
+   Both ``hue`` and ``saturation`` are required for the request to be valid.
+
 
 DELETE
 ======

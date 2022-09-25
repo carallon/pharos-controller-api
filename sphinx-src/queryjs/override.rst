@@ -29,18 +29,10 @@ Set the Intensity, Red, Green, Blue levels for a group. Propagates to all contro
      - integer
      - Optional. Intensity to set as part of override: 0-255. Intensity override will not be changed if this attribute isn't provided.
      - ``128``
-   * - ``red``
-     - integer
-     - Optional. Red component to set as part of override: 0-255. Red override will not be changed if this attribute isn't provided.
-     - ``255``
-   * - ``green``
-     - integer
-     - Optional. Green component to set as part of override: 0-255. Green override will not be changed if this attribute isn't provided.
-     - ``255``
-   * - ``blue``
-     - integer
-     - Optional. Blue component to set as part of override: 0-255. Blue override will not be changed if this attribute isn't provided.
-     - ``255``
+   * - ``colour``
+     - :ref:`override-colour-json`
+     - Optional. Specifies the colour to set as part of the override. JSON object with the same attributes as the HTTP :ref:`override-http-put` request.
+     - 
    * - ``temperature``
      - integer
      - Optional. Temperature component to set as part of override: 0-255. Temperature override will not be changed if this attribute isn't provided.
