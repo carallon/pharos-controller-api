@@ -17,6 +17,7 @@ Web and Lua API documentation for Pharos controllers.
    :caption: Reference
    :hidden:
 
-   web-api/index
+   http-api/index
+   queryjs/index
    websockets/index
    lua-api/index
