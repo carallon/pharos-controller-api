@@ -6,27 +6,27 @@ Reference for controller HTTP API.
 .. toctree::
    :hidden:
 
-   system
-   config
-   project
-   replication
-   time
-   timeline
-   scene
-   group
-   controller
-   temperature
-   remote-device
-   text-slots
-   log
-   protocol
-   output
-   input
-   trigger
-   lua-variable
-   content-targets
-   override
-   command
    beacon
    channel
+   config
+   content-targets
+   command
+   controller
+   group
+   input
+   log
+   lua-variable
+   output
+   override
+   project
+   protocol
+   remote-device
+   replication
    reset
+   scene
+   system
+   temperature
+   text-slots
+   time
+   timeline
+   trigger
