@@ -11,6 +11,7 @@ Web and Lua API documentation for Pharos controllers.
    :hidden:
    
    guide/introduction
+   guide/web-api-authentication
    whatsnew
 
 .. toctree::

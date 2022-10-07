@@ -6,6 +6,8 @@ Reference for controller HTTP API.
 .. toctree::
    :hidden:
 
+   authentication/index
+
    beacon
    channel
    config
