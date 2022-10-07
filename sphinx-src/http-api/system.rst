@@ -37,7 +37,7 @@ Returns a JSON object with the following attributes:
    * - ``memory_used``
      - string
      - ``"24056Kb"``
-   * - ``memory_free``
+   * - ``memory_available``
      - string
      - ``"103884Kb"``
    * - ``storage_size``
