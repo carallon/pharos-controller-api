@@ -7,7 +7,7 @@ Functions
 set_text_slot
 =============
 
-Set the value of a text slot used in the project.
+Set the value of a text slot used in the project, which will propagate to all controllers in a project.
 
 ``set_text_slot(params, callback)``
 

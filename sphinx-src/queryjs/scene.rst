@@ -9,6 +9,8 @@ start_scene
 
 ``start_scene(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
@@ -30,6 +32,8 @@ release_scene
 =============
 
 ``release_scene(params, callback)``
+
+Propagates to all controllers in a project.
 
 ``params`` is expected to be an object with the following attributes:
 
@@ -57,6 +61,8 @@ toggle_scene
 
 ``toggle_scene(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
@@ -83,6 +89,8 @@ release_all_scenes
 
 ``release_all_scenes(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
@@ -107,7 +115,7 @@ For ``callback`` please see `JavaScript Command Callback`_.
 release_all
 ===========
 
-Release all timelines and scenes.
+Release all timelines and scenes. Propagates to all controllers in a project.
 
 ``release_all(params, callback)``
 

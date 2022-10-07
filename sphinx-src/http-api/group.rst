@@ -9,7 +9,7 @@ Methods
 POST
 ====
 
-Control a group; currently the only supported action is to master the intensity of a group (applied as a multiplier to output levels).
+Control a group; currently the only supported action is to master the intensity of a group (applied as a multiplier to output levels). Action will propagate to all controllers in a project.
 
 ``POST /api/group``
 

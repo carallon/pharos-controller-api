@@ -9,6 +9,8 @@ start_timeline
 
 ``start_timeline(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
@@ -30,6 +32,8 @@ release_timeline
 ================
 
 ``release_timeline(params, callback)``
+
+Propagates to all controllers in a project.
 
 ``params`` is expected to be an object with the following attributes:
 
@@ -57,6 +61,8 @@ toggle_timeline
 
 ``toggle_timeline(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
@@ -83,6 +89,8 @@ pause_timeline
 
 ``pause_timeline(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
@@ -105,6 +113,8 @@ resume_timeline
 
 ``resume_timeline(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
@@ -125,7 +135,7 @@ For ``callback`` please see `JavaScript Command Callback`_.
 pause_all
 =========
 
-Pause all timelines in the project which are currently running.
+Pause all timelines in the project which are currently running. Propagates to all controllers in a project.
 
 ``pause_all(callback)``
 
@@ -134,7 +144,7 @@ For ``callback`` please see `JavaScript Command Callback`_.
 resume_all
 ==========
 
-Resume all timelines in the project which are currently paused.
+Resume all timelines in the project which are currently paused. Propagates to all controllers in a project.
 
 ``resume_all(callback)``
 
@@ -144,6 +154,8 @@ release_all_timelines
 =====================
 
 ``release_all_timelines(params, callback)``
+
+Propagates to all controllers in a project.
 
 ``params`` is expected to be an object with the following attributes:
 
@@ -169,7 +181,7 @@ For ``callback`` please see `JavaScript Command Callback`_.
 release_all
 ===========
 
-Release all timelines and scenes.
+Release all timelines and scenes. Propagates to all controllers in a project.
 
 ``release_all(params, callback)``
 
@@ -199,6 +211,8 @@ set_timeline_rate
 
 ``set_timeline_rate(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
@@ -224,6 +238,8 @@ set_timeline_position
 =====================
 
 ``set_timeline_position(params, callback)``
+
+Propagates to all controllers in a project.
 
 ``params`` is expected to be an object with the following attributes:
 

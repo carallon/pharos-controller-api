@@ -11,6 +11,8 @@ master_intensity
 
 ``master_intensity(params, callback)``
 
+Propagates to all controllers in a project.
+
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::

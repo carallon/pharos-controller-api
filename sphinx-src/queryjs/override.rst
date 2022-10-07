@@ -7,7 +7,7 @@ Functions
 set_group_override
 ==================
 
-Set the Intensity, Red, Green, Blue levels for a group.
+Set the Intensity, Red, Green, Blue levels for a group. Propagates to all controllers in a project.
 
 ``set_group_override(params, callback)``
 
@@ -57,7 +57,7 @@ Set the Intensity, Red, Green, Blue levels for a group.
 clear_group_overrides
 =====================
 
-Release any overrides on a group, or all groups.
+Release any overrides on a group, or all groups. Propagates to all controllers in a project.
 
 ``clear_group_overrides(params, callback)``
 
@@ -83,7 +83,7 @@ Release any overrides on a group, or all groups.
 set_fixture_override
 ====================
 
-Set the Intensity, Red, Green, Blue levels for a fixture.
+Set the Intensity, Red, Green, Blue levels for a fixture. Propagates to all controllers in a project.
 
 ``set_fixture_override(params, callback)``
 
@@ -92,7 +92,7 @@ Set the Intensity, Red, Green, Blue levels for a fixture.
 clear_fixture_overrides
 =======================
 
-Release any overrides on a fixture, or all fixtures.
+Release any overrides on a fixture, or all fixtures. Propagates to all controllers in a project.
 
 ``clear_fixture_overrides(params, callback)``
 
@@ -118,7 +118,7 @@ Release any overrides on a fixture, or all fixtures.
 clear_all_overrides
 ===================
 
-Release all overrides.
+Release all overrides. Propagates to all controllers in a project.
 
 ``clear_all_overrides(params, callback)``
 

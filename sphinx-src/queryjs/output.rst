@@ -7,7 +7,7 @@ Functions
 disable_output
 ==============
 
-Disable the output of a specified protocol from the controller.
+Disable the output of a specified protocol from the controller. Propagates to all controllers in a project.
 
 ``disable_output(params, callback)``
 
@@ -29,7 +29,7 @@ Disable the output of a specified protocol from the controller.
 enable_output
 =============
 
-Enable the output of a specified protocol from the controller.
+Enable the output of a specified protocol from the controller. Propagates to all controllers in a project.
 
 ``enable_output(params, callback)``
 

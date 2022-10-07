@@ -7,7 +7,7 @@ Methods
 POST
 ====
 
-Enable/disable the output of a selected protocol from the controller.
+Enable/disable the output of a selected protocol from the controller. Action will propagate to all controllers in a project.
 
 ``POST /api/output``
 

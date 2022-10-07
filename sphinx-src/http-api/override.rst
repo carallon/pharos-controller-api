@@ -7,7 +7,7 @@ Methods
 PUT
 ===
 
-Set the Intensity, Red, Green, Blue levels for a fixture or group.
+Set the Intensity, Red, Green, Blue levels for a fixture or group. Action will propagate to all controllers in a project.
 
 ``PUT /api/override``
 
@@ -61,7 +61,7 @@ Payload is a JSON object with the following attributes:
 DELETE
 ======
 
-Release any overrides on fixtures or groups.
+Release any overrides on fixtures or groups. Action will propagate to all controllers in a project.
 
 ``DELETE /api/override``
 

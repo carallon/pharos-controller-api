@@ -7,7 +7,7 @@ Methods
 POST
 ====
 
-Control a timeline in the project.
+Control a timeline in the project. Action will propagate to all controllers in a project.
 
 ``POST /api/timeline``
 

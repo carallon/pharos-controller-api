@@ -7,7 +7,7 @@ Methods
 POST
 ====
 
-Control a scene in the project.
+Control a scene in the project. Action will propagate to all controllers in a project.
 
 ``POST /api/scene``
 
