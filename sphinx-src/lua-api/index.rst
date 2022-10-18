@@ -210,7 +210,7 @@ get_rio
 Returns a :doc:`rio` object representing a RIO matching the parameters:
 
 * ``type`` can be one of the constants ``RIO80``, ``RIO44`` or ``RIO80``.
-* ``num`` is the remote device number within the Designer project.
+* ``num`` is the remote device number within the |Designer| project.
 
 For example:
 

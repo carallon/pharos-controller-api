@@ -94,6 +94,7 @@ if variant == 'mosaic':
     print('Building Mosaic variant')
     rst_prolog = """
     .. |Vendor| replace:: Mosaic
+    .. |Designer| replace:: Designer
     .. |LPC| replace:: MSC
     .. |LPC X| replace:: MSC X
     .. |TPC| replace:: MTPC
@@ -110,6 +111,7 @@ else:
     print('Building Pharos variant')
     rst_prolog = """
     .. |Vendor| replace:: Pharos
+    .. |Designer| replace:: Designer
     .. |LPC| replace:: LPC
     .. |LPC X| replace:: LPC X
     .. |TPC| replace:: TPC
