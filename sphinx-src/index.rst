@@ -20,5 +20,4 @@ Web and Lua API documentation for Pharos controllers.
 
    http-api/index
    queryjs/index
-   websockets/index
    lua-api/index

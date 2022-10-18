@@ -1,10 +1,10 @@
 Websocket Subscriptions
 #######################
 
-Subscriptions allow data to be pushed to the web client whenever there is a change within the project.
+Websocket subscriptions allow data to be pushed to the web client whenever there is a change within the project. The query.js library includes functions with callbacks to subscribe to each channel and return any data received.
 
-JavaScript
-**********
+Functions
+*********
 
 subscribe_timeline_status
 =========================
@@ -277,7 +277,7 @@ The ``data`` object will have the following attributes:
      - Value Type
      - Description
    * - ``device_info``
-     - :doc:`../http-api/objects/rdm-device-info`
+     - :doc:`../../http-api/objects/rdm-device-info`
      - RDM device info from the discovered device.
    * - ``fixture_num``
      - integer
@@ -592,4 +592,4 @@ Following a successful GET or SET operation for ``LAMP_STATE``, the ``data`` obj
 Universe Key String Format
 **************************
 
-.. include:: ../snippets/universe-key-string-format-rdm.rst
+.. include:: ../../snippets/universe-key-string-format-rdm.rst

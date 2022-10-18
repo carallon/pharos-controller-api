@@ -32,3 +32,4 @@ Reference for the query.js library.
    time
    timeline
    trigger
+   websocket/subscriptions
