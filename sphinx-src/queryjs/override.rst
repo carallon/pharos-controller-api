@@ -4,6 +4,8 @@ Override
 Functions
 *********
 
+.. _set-group-override-queryjs:
+
 set_group_override
 ==================
 
