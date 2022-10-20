@@ -6,6 +6,5 @@ Authentication reference for the controller HTTP API.
 .. toctree::
    :hidden:
 
-   authorise
+   authenticate
    logout
-   token
