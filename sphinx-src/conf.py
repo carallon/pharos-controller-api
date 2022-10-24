@@ -134,10 +134,16 @@ html_title = 'Controller API'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-html_theme_options = {
-    'light_logo':'pharos-logo-light.png',
-    'dark_logo':'pharos-logo-dark.png',
-}
+if variant == 'mosaic':
+    html_theme_options = {
+        'light_logo': 'mosaic-logo-light.png',
+        'dark_logo': 'mosaic-logo-dark.png',
+    }
+else:
+    html_theme_options = {
+        'light_logo': 'pharos-logo-light.png',
+        'dark_logo': 'pharos-logo-dark.png',
+    }
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

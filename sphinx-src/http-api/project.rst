@@ -27,7 +27,7 @@ Returns a JSON object with the following attributes:
      - ``"Help Project"``
    * - ``author``
      - string
-     - ``"Pharos"``
+     - ``"Contoso"``
    * - ``filename``
      - string
      - ``"help_project_v1.pd2"``

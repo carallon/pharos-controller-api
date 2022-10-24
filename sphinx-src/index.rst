@@ -5,11 +5,11 @@
 Controller API
 ##############
 
-Web and Lua API documentation for Pharos controllers.
+Web and Lua API documentation for |Vendor| controllers.
 
 .. toctree::
    :hidden:
-   
+
    guide/introduction
    guide/web-api-authentication
    whatsnew
