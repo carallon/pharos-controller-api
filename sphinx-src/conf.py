@@ -152,12 +152,14 @@ if variant == 'mosaic':
     html_theme_options = {
         'light_logo': 'mosaic-logo-light.png',
         'dark_logo': 'mosaic-logo-dark.png',
+        'top_of_page_button': 'None',
         'footer_icons': html_theme_footer_icons,
     }
 else:
     html_theme_options = {
         'light_logo': 'pharos-logo-light.png',
         'dark_logo': 'pharos-logo-dark.png',
+        'top_of_page_button': 'None',
         'footer_icons': html_theme_footer_icons,
     }
 
