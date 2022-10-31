@@ -139,6 +139,7 @@ html_title = 'Controller API'
 html_theme_options = {
     'light_logo':'pharos-logo-light.png',
     'dark_logo':'pharos-logo-dark.png',
+    'top_of_page_button': 'None',
     'footer_icons': [
         {
             "name": "GitHub",
