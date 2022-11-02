@@ -16,7 +16,7 @@ Returns data about all the remote devices in the project.
 Returns a JSON object with a single ``remote_devices`` attribute, which has an array value. Each item in the array is a Remote Device object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -51,7 +51,7 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
 The Output JSON object has the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -70,7 +70,7 @@ The Output JSON object has the following attributes:
 The Input JSON object has the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

@@ -4,7 +4,7 @@ RDM Universe Key
 Used to specify the target universe for RDM operations. It is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10
+   :widths: 5 2 10
    :header-rows: 1
 
    * - Attribute

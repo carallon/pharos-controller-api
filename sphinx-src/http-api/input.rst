@@ -30,7 +30,7 @@ Returns a JSON object with the following attributes:
 The Input object has the following properties:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -53,7 +53,7 @@ The Input object has the following properties:
 The DMX Input object has the following properties:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

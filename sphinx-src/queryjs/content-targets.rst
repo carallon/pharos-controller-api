@@ -14,7 +14,7 @@ master_content_target_intensity
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

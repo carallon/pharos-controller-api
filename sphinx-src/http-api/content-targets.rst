@@ -16,7 +16,7 @@ Control a content target; currently the only supported action is to master the i
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -56,7 +56,7 @@ Returns information about the current state of all Content Targets in the projec
 Returns a JSON object with a single ``content_targets`` attribute, which has an array value. Each item in the array is a Content Target object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

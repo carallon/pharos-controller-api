@@ -14,7 +14,7 @@ Propagates to all controllers in a project.
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -38,7 +38,7 @@ Propagates to all controllers in a project.
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -66,7 +66,7 @@ Propagates to all controllers in a project.
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -94,7 +94,7 @@ Propagates to all controllers in a project.
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -122,7 +122,7 @@ Release all timelines and scenes. Propagates to all controllers in a project.
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -152,7 +152,7 @@ Returns an object with a single ``scenes`` attribute, which has an array value. 
 ``num`` can be used to filter which scenes are returned and is expected to be a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

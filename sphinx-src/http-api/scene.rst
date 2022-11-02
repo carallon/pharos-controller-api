@@ -14,7 +14,7 @@ Control a scene in the project. Action will propagate to all controllers in a pr
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -99,7 +99,7 @@ Returns data about the scenes in the project and their state on the controller.
 Returns a JSON object with a single ``scenes`` attribute, which has an array value. Each item in the array is a Scene object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

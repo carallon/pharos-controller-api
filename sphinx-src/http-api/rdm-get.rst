@@ -56,7 +56,7 @@ STATUS_MESSAGES
 For the ``STATUS_MESSAGES`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 2 2 10
+   :widths: 5 2 10
    :header-rows: 1
 
    * - Attribute
@@ -72,7 +72,7 @@ PARAMETER_DESCRIPTION
 For the ``PARAMETER_DESCRIPTION`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 2 2 10
+   :widths: 5 2 10
    :header-rows: 1
 
    * - Attribute
@@ -88,7 +88,7 @@ DMX_PERSONALITY_DESCRIPTION
 For the ``DMX_PERSONALITY_DESCRIPTION`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 2 2 10
+   :widths: 5 2 10
    :header-rows: 1
 
    * - Attribute

@@ -16,7 +16,7 @@ Control a group; currently the only supported action is to master the intensity 
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -60,7 +60,7 @@ Returns data about the fixture groups in the project.
 Returns a JSON object with a single ``groups`` attribute, which has an array value. Each item in the array is a Group object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

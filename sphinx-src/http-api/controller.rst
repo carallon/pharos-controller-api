@@ -16,7 +16,7 @@ Returns data about the controllers in the project.
 Returns a JSON object with a single ``controllers`` attribute, which has an array value. Each item in the array is a Controller object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
