@@ -16,7 +16,7 @@ Request to start an RDM Set operation. A ``202`` response will be returned if th
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 5 5 3
+   :widths: 3 3 5 3
    :header-rows: 1
 
    * - Attribute
