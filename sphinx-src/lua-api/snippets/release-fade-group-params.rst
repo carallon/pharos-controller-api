@@ -1,5 +1,5 @@
 .. list-table::
-   :widths: 2 2 10 2
+   :widths: 5 2 10 2
    :header-rows: 1
 
    * - Parameter

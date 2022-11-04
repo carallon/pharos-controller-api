@@ -14,7 +14,7 @@ Disable the output of a specified protocol from the controller. Propagates to al
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -36,7 +36,7 @@ Enable the output of a specified protocol from the controller. Propagates to all
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

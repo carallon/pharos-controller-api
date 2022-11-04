@@ -14,7 +14,7 @@ Set the Intensity, Red, Green, Blue levels for a fixture or group. Action will p
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -68,7 +68,7 @@ Release any overrides on fixtures or groups. Action will propagate to all contro
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

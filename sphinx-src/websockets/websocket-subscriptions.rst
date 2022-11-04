@@ -16,7 +16,7 @@ Subscribe to changes in timeline status.
 The ``callback`` is called each time a timeline changes state on the controller. Each time it is passed an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -58,7 +58,7 @@ Subscribe to changes in scene status.
 The ``callback`` is called each time a scene changes state on the controller. Each time it is passed an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -96,7 +96,7 @@ Subscribe to changes in group level, as set by the Master Intensity action.
 The ``callback`` is called each time the group master level changes on the controller. Each time it is passed an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -134,7 +134,7 @@ Subscribe to changes in remote device online/offline status.
 The ``callback`` is called each time the remote device online/offline status changes. Each time it is passed an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -176,7 +176,7 @@ Subscribe to changes in the device beacon.
 The ``callback`` is called each time the controller beacon status changes. Each time it is passed an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

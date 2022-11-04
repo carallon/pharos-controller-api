@@ -16,7 +16,7 @@ Park an output channel or channels at a specified level.
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -48,7 +48,7 @@ Unpark an output channel or channels.
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

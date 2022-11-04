@@ -14,7 +14,7 @@ Control a timeline in the project. Action will propagate to all controllers in a
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -160,7 +160,7 @@ Returns data about the timelines in the project and their state on the controlle
 Returns a JSON object with a single ``timelines`` attribute, which has an array value. Each item in the array is a Timeline object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

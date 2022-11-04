@@ -25,7 +25,7 @@ Returns an object with a single ``text_slots`` attribute, which has an array val
 ``filter`` can be used to filter which text slots are returned and is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

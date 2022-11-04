@@ -16,7 +16,7 @@ Set the value of a text slot used in the project, which will propagate to all co
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

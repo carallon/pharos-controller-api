@@ -14,7 +14,7 @@ Set the Intensity, Red, Green, Blue levels for a group. Propagates to all contro
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -64,7 +64,7 @@ Release any overrides on a group, or all groups. Propagates to all controllers i
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -99,7 +99,7 @@ Release any overrides on a fixture, or all fixtures. Propagates to all controlle
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -125,7 +125,7 @@ Release all overrides. Propagates to all controllers in a project.
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

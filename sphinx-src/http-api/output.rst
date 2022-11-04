@@ -14,7 +14,7 @@ Enable/disable the output of a selected protocol from the controller. Action wil
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -61,7 +61,7 @@ If the queried controller is an |LPC| 1, the universe is DMX 2, DMX Proxy has be
 Otherwise a JSON object with the following attributes is returned:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

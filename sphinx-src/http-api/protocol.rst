@@ -16,7 +16,7 @@ Returns all the universes in the project on the queried controller.
 Returns a JSON object with a single ``outputs`` attribute, which has an array value. Each item in the array is a Protocol object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -47,7 +47,7 @@ Returns a JSON object with a single ``outputs`` attribute, which has an array va
 Each Universe object has the following properties:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -66,7 +66,7 @@ Each Universe object has the following properties:
 Each DMX Proxy object has the following properties:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -116,7 +116,7 @@ For KiNET:
 For RIO DMX:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -135,7 +135,7 @@ For RIO DMX:
 For |EDN|:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute

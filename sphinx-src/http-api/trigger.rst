@@ -16,7 +16,7 @@ Fire a trigger in the project.
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -51,7 +51,7 @@ Returns the triggers in the project.
 Returns a JSON object with a single ``triggers`` attribute, which has an array value. Each item in the array is a Trigger object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
@@ -94,7 +94,7 @@ Returns a JSON object with a single ``triggers`` attribute, which has an array v
 The Condition and Action objects have the following properties:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 5
    :header-rows: 1
 
    * - Attribute
