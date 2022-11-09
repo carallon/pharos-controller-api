@@ -28,16 +28,16 @@ Set the Intensity, Red, Green, Blue levels for a group. Propagates to all contro
      - Group or fixture number, depending on ``target``. Group 0 means the *All Fixtures* group.
      - ``1``
    * - ``intensity``
-     - integer
-     - Optional. Intensity to set as part of override: 0-255. Intensity override will not be changed if this attribute isn't provided.
+     - integer or string
+     - Optional. Either an integer (0-255) representing the intensity to set as part of override **or** the string ``"snapshot"`` to capture the current intensity of the fixture(s) and set this as the override value. Intensity override will not be changed if this attribute isn't provided.
      - ``128``
    * - ``colour``
-     - :ref:`override-colour-json`
-     - Optional. Specifies the colour to set as part of the override. JSON object with the same attributes as the HTTP :ref:`override-http-put` request.
+     - :ref:`override-colour-json` or string
+     - Optional. Specifies the colour to set as part of the override. Either an :ref:`override-colour-json` or the string ``"snapshot"`` to capture the current colour of the fixture(s) and set this as the override. JSON object with the same attributes as the HTTP :ref:`override-http-put` request.
      - 
    * - ``temperature``
-     - integer
-     - Optional. Temperature component to set as part of override: 0-255. Temperature override will not be changed if this attribute isn't provided.
+     - integer or string
+     - Optional. Either an integer (0-255) representing the temperature component to set as part of override **or** the string ``"snapshot"`` to capture the current temperature component of the fixture(s) and set this as the override value. Temperature override will not be changed if this attribute isn't provided.
      - ``128``
    * - ``fade``
      - float

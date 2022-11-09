@@ -6,6 +6,7 @@ v6.0
 
 * Breaking change to HTTP authentication, using new :doc:`http-api/authentication/authenticate` endpoint.
 * Breaking change to setting colour overrides with new :ref:`override-colour-json` object in :ref:`HTTP <override-http-put>` and :ref:`JavaScript <set-group-override-queryjs>`.
+* New snapshot functionality when setting colour overrides in :ref:`HTTP <override-http-put>` and :ref:`JavaScript <set-group-override-queryjs>`.
 * Add :doc:`http-api/rdm-discovery` HTTP endpoint and :doc:`queryjs/rdm-discovery` JavaScript function.
 * Add :doc:`http-api/rdm-get` HTTP endpoint and :doc:`queryjs/rdm-get` JavaScript function.
 * Add :doc:`http-api/rdm-set` HTTP endpoint and :doc:`queryjs/rdm-set` JavaScript function.

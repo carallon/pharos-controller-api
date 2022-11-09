@@ -1917,13 +1917,18 @@ components:
       type: object
       properties:
         intensity:
-          $ref: '#/components/schemas/LevelIn'
+          oneOf:
+            - $ref: '#/components/schemas/LevelIn'
+            - $ref: '#/components/schemas/SnapshotOverride'
         colour:
-          anyOf:
+          oneOf:
             - $ref: '#/components/schemas/ColourInRGB'
             - $ref: '#/components/schemas/ColourInHS'
+            - $ref: '#/components/schemas/SnapshotOverride'
         temperature:
-          $ref: '#/components/schemas/LevelIn'
+          oneOf:
+            - $ref: '#/components/schemas/LevelIn'
+            - $ref: '#/components/schemas/SnapshotOverride'
     ColourInRGB:
       type: object
       properties:
@@ -1943,6 +1948,9 @@ components:
           $ref: '#/components/schemas/LevelIn'
         saturation:
           $ref: '#/components/schemas/LevelIn'
+    SnapshotOverride:
+      type: string
+      enum: [snapshot]
     ColourOutRGB:
       type: object
       properties:
