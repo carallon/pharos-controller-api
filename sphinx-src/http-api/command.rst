@@ -18,7 +18,7 @@ Run a Lua script or pass a command to the command line parser on the controller.
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10
+   :widths: 3 3 10
    :header-rows: 1
 
    * - Attribute

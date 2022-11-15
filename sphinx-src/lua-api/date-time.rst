@@ -7,7 +7,7 @@ Properties
 **********
 
 .. list-table::
-   :widths: 3 2 5
+   :widths: 3 5 3
    :header-rows: 1
 
    * - Property

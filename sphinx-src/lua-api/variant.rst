@@ -8,7 +8,7 @@ Within Lua Scripting (as with other scripting languages) it is possible to store
 
 Lua typically doesn't differentiate between the contents of a variable (unlike some programming languages) and the type (integer, string, boolean) of the variable can change at any time.
 
-Pharos has added an object to the scripting environment called a ``Variant``, which can be used to contain the data with an assignment as to the type of data that is contained. This means that a single ``Variant`` can be utilised and handled differently depending on the data that is contained and how it is being used.
+|Vendor| has added an object to the scripting environment called a ``Variant``, which can be used to contain the data with an assignment as to the type of data that is contained. This means that a single ``Variant`` can be utilised and handled differently depending on the data that is contained and how it is being used.
 
 Definition
 **********

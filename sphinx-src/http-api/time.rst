@@ -16,7 +16,7 @@ Returns data about the time stored in the controller.
 Returns a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 4 3 8 5
    :header-rows: 1
 
    * - Attribute

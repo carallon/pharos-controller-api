@@ -4,7 +4,7 @@ RDM Device Info
 Where an RDM Device Info object is returned from an API request, it will have the following attributes:
 
 .. list-table::
-   :widths: 2 2 10 5
+   :widths: 5 2 10 4
    :header-rows: 1
 
    * - Parameter
