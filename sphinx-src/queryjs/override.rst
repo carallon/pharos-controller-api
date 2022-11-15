@@ -14,7 +14,7 @@ Set the Intensity, Red, Green, Blue levels for a group. Propagates to all contro
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 5 2 10 5
+   :widths: 4 2 10 4
    :header-rows: 1
 
    * - Attribute
