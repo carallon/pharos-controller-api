@@ -10,9 +10,9 @@ Reference for controller HTTP API.
 
    beacon
    channel
+   command
    config
    content-targets
-   command
    controller
    group
    input
