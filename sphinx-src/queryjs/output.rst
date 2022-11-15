@@ -14,7 +14,7 @@ Disable the output of a specified protocol from the controller. Propagates to al
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 5 2 10 5
+   :widths: 4 3 10 5
    :header-rows: 1
 
    * - Attribute
@@ -36,7 +36,7 @@ Enable the output of a specified protocol from the controller. Propagates to all
 ``params`` is expected to be an object with the following attributes:
 
 .. list-table::
-   :widths: 5 2 10 5
+   :widths: 4 3 10 5
    :header-rows: 1
 
    * - Attribute
@@ -60,7 +60,7 @@ Returns an object with the same attributes as in the HTTP :ref:`output-http-get`
 ``universeKey`` can be a string (see `Universe Key String Format`_) or it can be an object with the following attributes:
 
 .. list-table::
-   :widths: 3 3 10
+   :widths: 4 2 10
    :header-rows: 1
 
    * - Attribute

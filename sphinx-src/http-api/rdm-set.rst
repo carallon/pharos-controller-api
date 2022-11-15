@@ -16,7 +16,7 @@ Request to start an RDM Set operation. A ``202`` response will be returned if th
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 3 3 5 3
+   :widths: 5 3 5 3
    :header-rows: 1
 
    * - Attribute
@@ -56,7 +56,7 @@ DEVICE_LABEL
 For the ``DEVICE_LABEL`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 5 2 10
+   :widths: 4 3 10
    :header-rows: 1
 
    * - Attribute
@@ -72,7 +72,7 @@ IDENTIFY_DEVICE
 For the ``IDENTIFY_DEVICE`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 5 2 10
+   :widths: 4 3 10
    :header-rows: 1
 
    * - Attribute
@@ -88,7 +88,7 @@ DMX_START_ADDRESS
 For the ``DMX_START_ADDRESS`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 5 2 10
+   :widths: 4 3 10
    :header-rows: 1
 
    * - Attribute
@@ -104,7 +104,7 @@ DMX_PERSONALITY
 For the ``DMX_PERSONALITY`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 5 2 10
+   :widths: 4 3 10
    :header-rows: 1
 
    * - Attribute
@@ -120,7 +120,7 @@ SENSOR_VALUE
 For the ``SENSOR_VALUE`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 5 2 10
+   :widths: 4 3 10
    :header-rows: 1
 
    * - Attribute
@@ -136,7 +136,7 @@ LAMP_HOURS
 For the ``LAMP_HOURS`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 5 2 10
+   :widths: 4 3 10
    :header-rows: 1
 
    * - Attribute
@@ -152,7 +152,7 @@ LAMP_STATE
 For the ``LAMP_STATE`` PID, the ``meta`` object should have the following parameters:
 
 .. list-table::
-   :widths: 5 2 10
+   :widths: 4 3 10
    :header-rows: 1
 
    * - Attribute

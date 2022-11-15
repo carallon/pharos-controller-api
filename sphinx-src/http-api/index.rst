@@ -23,9 +23,9 @@ The endpoints provided in the HTTP API for querying and controlling the controll
 
    beacon
    channel
+   command
    config
    content-targets
-   command
    controller
    factory-reset
    group

@@ -16,7 +16,7 @@ Set the Intensity, Red, Green, Blue levels for a fixture or group. Action will p
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 5 2 10 5
+   :widths: 4 3 10 4
    :header-rows: 1
 
    * - Attribute
@@ -65,7 +65,7 @@ RGB
 Colour as RGB for ``colour`` in an override :ref:`override-http-put` request:
 
 .. list-table::
-   :widths: 5 2 10 5
+   :widths: 4 3 10 4
    :header-rows: 1
 
    * - Attribute
@@ -91,7 +91,7 @@ Hue/Saturation
 Colour as hue/saturation for ``colour`` in an override :ref:`override-http-put` request:
 
 .. list-table::
-   :widths: 5 2 10 5
+   :widths: 4 3 10 4
    :header-rows: 1
 
    * - Attribute
@@ -122,7 +122,7 @@ Release any overrides on fixtures or groups. Action will propagate to all contro
 Payload is a JSON object with the following attributes:
 
 .. list-table::
-   :widths: 5 2 10 5
+   :widths: 4 3 10 4
    :header-rows: 1
 
    * - Attribute
