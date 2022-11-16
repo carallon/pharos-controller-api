@@ -1300,6 +1300,8 @@ components:
           value:
             oneOf:
               - type: integer
+                minimum: 0
+                maximum: 100
               - type: boolean
     Trigger:
       type: object

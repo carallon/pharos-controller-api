@@ -333,7 +333,7 @@ get_input
 
 ``get_input(idx)``
 
-Returns the state of the controller's input numbered ``idx`` as a boolean (for digital inputs) or an integer (for analog inputs).
+Returns the state of the controller's input numbered ``idx`` as a boolean (for digital inputs) or an integer (for analog inputs, 0-100).
 
 For example:
 

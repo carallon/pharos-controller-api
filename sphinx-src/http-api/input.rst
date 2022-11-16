@@ -47,7 +47,7 @@ The Input object has the following properties:
      - ``"Contact Closure"``
    * - ``value``
      - integer or boolean
-     - Value type depends on input type - ``Analog`` inputs return an integer, 0-255; other types return a bool.
+     - Value type depends on input type - ``Analog`` inputs return an integer, 0-100; other types return a bool.
      - ``true``
 
 The DMX Input object has the following properties:
