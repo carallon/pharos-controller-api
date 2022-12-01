@@ -33,7 +33,7 @@ Where an RDM Device Info object is returned from an API request, it will have th
    * - ``software_version_id``
      - integer
      - Software version ID for the device, which is a 32-bit value determined by the manufacturer. It may use any encoding scheme such that the controller may identify devices containing the same software versions. Any devices from the same manufacturer with differing software will not report the same software version ID.
-     - 
+     -
    * - ``dmx512_footprint``
      - integer (0-512)
      - The DMX footprint of the device - the number of consecutive DMX slots required to patch the device. If the device is a sub-device, then the value is the DMX footprint for that sub-device. If the device is the root device, it is the footprint for the root device itself.

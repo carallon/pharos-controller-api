@@ -47,7 +47,7 @@ The ``system`` namespace has the following properties:
      - ``"Software Reset"``
    * - ``last_boot_time``
      - :doc:`date-time`
-     - 
+     -
    * - ``ip_address``
      - string
      - ``"192.168.1.3"``

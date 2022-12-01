@@ -23,15 +23,19 @@ The endpoints provided in the HTTP API for querying and controlling the controll
 
    beacon
    channel
+   cloud
    command
    config
    content-targets
    controller
+   dali
+   dali-interface
    factory-reset
    group
    input
    log
    lua-variable
+   mode
    output
    override
    project
@@ -43,12 +47,15 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    replication
    reset
    scene
+   space
    system
    temperature
    text-slots
    time
    timeline
    trigger
+   user
+   user-groups
 
 .. toctree::
    :hidden:

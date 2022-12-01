@@ -373,7 +373,7 @@ For example:
 
 .. code-block:: lua
 
-   -- Use with a Touch Colour Move Trigger 
+   -- Use with a Touch Colour Move Trigger
    red = get_trigger_variable(1).integer
    green = get_trigger_variable(2).integer
    blue = get_trigger_variable(3).integer
@@ -405,7 +405,7 @@ For example:
 
 .. code-block:: lua
 
-   dofile(get_resource_path("my_lua_file.lua")) 
+   dofile(get_resource_path("my_lua_file.lua"))
 
 
 .. _Lua_get_content_target:

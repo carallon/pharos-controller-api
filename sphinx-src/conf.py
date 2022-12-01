@@ -44,7 +44,6 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Controller API'
 copyright = u'2022 Pharos Architectural Controls Ltd'
 author = u'Carallon Ltd'
 
@@ -75,6 +74,9 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
+# Exclude warnings about documents not included in toctree
+suppress_warnings = ['toc.excluded']
+
 # Get vendor variant
 # Check if we're building on RTD, in which case use project name to determine variant
 if 'READTHEDOCS' in os.environ:
@@ -88,6 +90,9 @@ if 'READTHEDOCS' in os.environ:
         variant = 'pharos'
 else:
     variant = os.environ.get('VARIANT', 'pharos').lower()
+
+# Get product type
+product = os.environ.get('PRODUCT', 'designer').lower()
 
 # Substitutions
 if variant == 'mosaic':
@@ -125,12 +130,44 @@ else:
     .. |EDN 10| replace:: EDN 10
     """
 
+# Include/Exclude based on product type
+if product == 'expert':
+    print('Building for Expert product')
+    rst_prolog += """
+    .. |Product| replace:: Expert
+    """
+    project = u'Expert API v' + version
+    tags.add('expert')
+    # Items which are removed from the Expert documentation
+    exclude_patterns.append('lua-api/*')
+    exclude_patterns.append('queryjs/*')
+    exclude_patterns.append('*/command.rst')
+    exclude_patterns.append('*/content-targets.rst')
+    exclude_patterns.append('*/group.rst')
+    exclude_patterns.append('*/lua-variable.rst')
+    exclude_patterns.append('*/replication.rst')
+    exclude_patterns.append('*/text-slots.rst')
+    exclude_patterns.append('*/timeline.rst')
+    exclude_patterns.append('*/trigger.rst')
+    exclude_patterns.append('*/temperature.rst')
+    exclude_patterns.append('*/enumerated-rio-types.rst')
+
+if product == 'designer':
+    print('Building for Designer product')
+    rst_prolog += """
+    .. |Product| replace:: Designer
+    """
+    project = u'Designer API v' + version
+    tags.add('designer')
+    exclude_patterns.append('*/mode.rst')
+    exclude_patterns.append('*/space.rst')
+
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.
 #
 html_theme = 'furo'
-html_title = 'Controller API'
+html_title = project
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
