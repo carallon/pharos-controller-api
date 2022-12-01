@@ -1,0 +1,22 @@
+name: Documentation Check
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository content
+        uses: actions/checkout@v3
+
+      - name: Setup Python Version
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+
+      - name: Install Python dependencies
+        run: pip install -r sphinx-src/requirements.txt
+
+      - name: Build HTML docs
+        run: make html
