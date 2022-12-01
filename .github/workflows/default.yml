@@ -19,7 +19,7 @@ jobs:
         run: pip install -r sphinx-src/requirements.txt
 
       - name: Build HTML docs
-        run: make html
+        run: export SPHINXBUILD=sphinx-build && make html
       
       - name: Setup TMate Session (Failure Only)
         if: ${{ failure() }}
