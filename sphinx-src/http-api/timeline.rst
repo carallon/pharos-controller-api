@@ -189,7 +189,7 @@ Returns a JSON object with a single ``timelines`` attribute, which has an array 
      - ``"internal"``
    * - ``timecode_format``
      - string
-     - Timecode format
+     - Incoming timecode format on source bus
      - ``"SMPTE30"``
    * - ``audio_band``
      - integer
