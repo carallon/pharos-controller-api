@@ -41,12 +41,12 @@ Payload is a JSON object with the following attributes:
    * - ``meta``
      - object
      - Optional. Metadata for the PID, i.e. query params (see `Meta`_).
-     - 
+     -
    * - ``max_rx_length``
      - integer
      - Optional. Expected length of the response data. Only relevant if a raw PID value has been provided for ``pid``. If not provided then the controller must wait for a timeout before handling a response to ensure all response data has been received from the device.
-     - 
-     
+     -
+
 Meta
 ----
 

@@ -21,7 +21,7 @@ Properties
    * - ``master_intensity_level``
      - :doc:`variant`
      - The intensity level that this group is currently being mastered to
-     - 
+     -
 
 For example:
 

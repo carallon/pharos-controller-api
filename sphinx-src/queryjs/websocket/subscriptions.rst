@@ -228,9 +228,9 @@ And the subscription could be setup as follows:
 .. code-block:: js
 
    Query.subscribe_lua(l => {
-	  key = Object.keys(l)[0] // "slider_level" in the above example
-	  value = l.key           // "56" in the above example
-	  alert(key + ": " + value)
+    key = Object.keys(l)[0] // "slider_level" in the above example
+    value = l.key           // "56" in the above example
+    alert(key + ": " + value)
    })
 
 

@@ -26,6 +26,13 @@ or on Windows:
 
 This will create the html output for Pharos in the `build` directory (which will be created if building for the first time).
 
+### Building a specific product
+
+The system can generate documentation for either the Designer or Expert product lines. To specify a product, set `PRODUCT` in your environment, e.g.
+
+      set PRODUCT=designer
+      make.bat html
+
 ### Building a specific variant
 
 To build a different variant, e.g. Mosaic, set `VARIANT` in your environment, e.g.

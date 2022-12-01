@@ -69,7 +69,7 @@ Properties
    * - ``custom_properties``
      - table
      - Table keys and values correspond to custom property names and values
-     - 
+     -
 
 For example:
 

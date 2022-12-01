@@ -23,7 +23,7 @@ To use a token returned in a JSON object to authorise a request, set the ``Autho
 
 If the user cannot be authenticated because the username or password are incorrect then a redirect response will be returned, pointing to the value of the ``Referer`` header in the request.
 
-The response will be a 400 error if either attribute is missing or a value is of an invalid type. 
+The response will be a 400 error if either attribute is missing or a value is of an invalid type.
 
 original_url
 ------------

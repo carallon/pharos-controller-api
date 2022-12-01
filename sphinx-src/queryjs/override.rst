@@ -34,7 +34,7 @@ Set the Intensity, Red, Green, Blue levels for a group. Propagates to all contro
    * - ``colour``
      - :ref:`override-colour-json` or string
      - Optional. Specifies the colour to set as part of the override. Either an :ref:`override-colour-json` or the string ``"snapshot"`` to capture the current colour of the fixture(s) and set this as the override. JSON object with the same attributes as the HTTP :ref:`override-http-put` request.
-     - 
+     -
    * - ``temperature``
      - integer or string
      - Optional. Either an integer (0-255) representing the temperature component to set as part of override **or** the string ``"snapshot"`` to capture the current temperature component of the fixture(s) and set this as the override value. Temperature override will not be changed if this attribute isn't provided.

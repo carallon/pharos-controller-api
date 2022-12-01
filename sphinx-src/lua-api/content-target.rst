@@ -19,7 +19,7 @@ Properties
      - Description
    * - ``master_intensity_level``
      - :doc:`variant`
-     - 
+     -
    * - ``rotation_offset``
      - float
      - |VLC+| only
