@@ -13,10 +13,14 @@ jobs:
       - name: Setup Python Version
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: '3.11'
 
       - name: Install Python dependencies
         run: pip install -r sphinx-src/requirements.txt
 
       - name: Build HTML docs
         run: make html
+      
+      - name: Setup TMate Session (Failure Only)
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
