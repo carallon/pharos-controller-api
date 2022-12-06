@@ -18,9 +18,12 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r sphinx-src/requirements.txt
 
+      - name: Lint Sphinx Documents
+        run: sphinx-lint
+
       - name: Build HTML docs
         run: export SPHINXBUILD=sphinx-build && make html
-      
+
       - name: Setup TMate Session (Failure Only)
         if: ${{ failure() }}
         uses: mxschmitt/action-tmate@v3
