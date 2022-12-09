@@ -5,7 +5,7 @@
    * - Attribute
      - Value Type
      - Description
-   * - ``user``
+   * - ``username``
      - string
      - The username of the user.
    * - ``password``
