@@ -32,7 +32,7 @@ Properties
      - ``1``
    * - ``timecode_format``
      - string
-     - Timecode format
+     - Incoming timecode format on source bus
      - ``"SMPTE30"``
    * - ``audio_band``
      - integer
