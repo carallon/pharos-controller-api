@@ -39,6 +39,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    output
    override
    project
+   project-file
    protocol
    rdm-discovery
    rdm-get
