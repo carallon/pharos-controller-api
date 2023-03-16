@@ -52,7 +52,7 @@ Properties
      - ``5000``
    * - ``state``
      - integer
-     - Integer value of constants: ``Timeline.NONE``, ``Timeline.RUNNING``, ``Timeline.PAUSED``, ``Timeline.HOLDING_AT_END`` or ``Timeline.RELEASED``
+     - Integer value of the state - see `Timeline States`_ below for definitions
      - ``1``
    * - ``onstage``
      - boolean
@@ -74,6 +74,31 @@ Properties
 For example:
 
 .. include:: code-examples/timeline.rst
+
+Timeline States
+===============
+
+A timeline will be in one of the following states:
+
+* ``Timeline.NONE``
+
+  * The timeline has never been run (since the last reset of the controller).
+
+* ``Timeline.RUNNING``
+
+  * The timeline is running (although might not be actively controlling outputs - see the ``onstage`` property).
+
+* ``Timeline.PAUSED``
+
+  * The timeline has been paused by another action.
+
+* ``Timeline.HOLDING_AT_END``
+
+  * The timeline has reached the end, and is holding.
+
+* ``Timeline.RELEASED``
+
+  * The timeline has been run and has now been released.
 
 Member functions
 ****************
