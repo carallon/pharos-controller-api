@@ -16,6 +16,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import datetime
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
@@ -44,7 +45,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-copyright = u'2022 Pharos Architectural Controls Ltd'
+current_year = datetime.date.today().year
+copyright = f'{current_year} Pharos Architectural Controls Ltd'
 author = u'Carallon Ltd'
 
 # The version info for the project you're documenting, acts as replacement for
