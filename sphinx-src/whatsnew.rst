@@ -21,9 +21,6 @@ v6.0
 
     * Breaking change to setting colour overrides with new :ref:`override-colour-json` object in :ref:`HTTP <override-http-put>`.
     * New snapshot functionality when setting colour overrides in :ref:`HTTP <override-http-put>`.
-    * Add :doc:`http-api/rdm-discovery` HTTP endpoint.
-    * Add :doc:`http-api/rdm-get` HTTP endpoint.
-    * Add :doc:`http-api/rdm-set` HTTP endpoint.
 
 .. only:: designer
 

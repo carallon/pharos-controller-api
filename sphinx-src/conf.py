@@ -154,6 +154,12 @@ if product == 'expert':
     exclude_patterns.append('*/trigger.rst')
     exclude_patterns.append('*/temperature.rst')
     exclude_patterns.append('*/enumerated-rio-types.rst')
+    exclude_patterns.append('*/rdm-discovery.rst')
+    exclude_patterns.append('*/rdm-get.rst')
+    exclude_patterns.append('*/rdm-set.rst')
+    exclude_patterns.append('*/objects/rdm-device-info.rst')
+    exclude_patterns.append('*/objects/rdm-universe-key.rst')
+    exclude_patterns.append('*/universe-key-string-format-rdm.rst')
 
 if product == 'designer':
     print('Building for Designer product')
