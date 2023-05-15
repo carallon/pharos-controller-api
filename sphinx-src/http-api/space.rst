@@ -82,3 +82,13 @@ Payload is a JSON object with the following attributes:
      - number
      - Optional. The master level to apply, in percent.
      - ``80``
+
+For example, to set the intensity master to 42.2% for space 2, the request payload is:
+
+.. code-block:: json
+
+  {
+    "num": 2,
+    "action": "master_intensity",
+    "level": 42.2
+  }
