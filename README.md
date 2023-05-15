@@ -30,14 +30,42 @@ This will create the html output for Pharos in the `build` directory (which will
 
 The system can generate documentation for either the Designer or Expert product lines. To specify a product, set `PRODUCT` in your environment, e.g.
 
-      set PRODUCT=designer
-      make.bat html
+using Linux or macOS:
+
+    PRODUCT=designer make html
+
+using Windows Command Prompt:
+
+    set PRODUCT=designer
+    make.bat html
+
+using PowerShell:
+
+    $env:PRODUCT = 'designer'
+    ./make.bat html
+
+Currently supported products are:
+
+* `designer` for Pharos/Mosaic Designer (the default)
+* `expert` for Pharos Expert
 
 ### Building a specific variant
 
 To build a different variant, e.g. Mosaic, set `VARIANT` in your environment, e.g.
 
+using Linux or macOS:
+
     VARIANT=mosaic make html
+
+using Windows Command Prompt:
+
+    set VARIANT=mosaic
+    make.bat html
+
+using PowerShell:
+
+    $env:VARIANT = 'mosaic'
+    ./make.bat html
 
 Currently supported variants are:
 
