@@ -873,6 +873,28 @@ paths:
         '400':
           description: Bad Request
   /user:
+    get:
+      summary: Get the username and access level of user whose username matches
+               the username param or currently authenticated user if none given.
+               404 error if a non-existant username is given. Non-admin users may
+               only request their own info.
+      parameters:
+        - name: username
+          in: query
+          required: false
+          schema:
+           $ref: '#/components/schemas/Username'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserInfo'
+        '401':
+          description: Unauthorised
+        '404':
+          description: Not Found
     post:
       summary: Create user with access level 'control' and set password
       description: >
@@ -1666,6 +1688,16 @@ components:
           $ref: '#/components/schemas/Username'
         password:
           $ref: '#/components/schemas/Password'
+    UserInfo:
+      type: object
+      required:
+        - username
+        - access
+      properties:
+        username:
+          $ref: '#/components/schemas/Username'
+        access:
+          $ref: '#/components/schemas/AccessGroups'
     User:
       type: object
       required:
