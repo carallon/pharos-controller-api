@@ -29,6 +29,46 @@ For example:
    input = rio:get_input(1)
 
 
+.. _Lua_rio_get_input_count:
+
+get_input_count
+===============
+
+``get_input_count()``
+
+Returns the number of input ports this RIO has.
+
+
+.. _Lua_rio_get_input_type:
+
+get_input_type
+==============
+
+``get_input_type(inputNum)``
+
+Returns an integer equal to the one of the constants ``ANALOG``, ``DIGITAL``, ``CONTACT_CLOSURE`` according to the configuration of the input port with number ``inputNum``, or ``nil`` if ``inputNum`` does not correspond to a port.
+
+
+.. _Lua_rio_get_input_threshold:
+
+get_input_threshold
+===================
+
+``get_input_threshold(inputNum)``
+
+Returns an InputThreshold object describing the threshold configurations for the input port with number ``inputNum``, or ``nil`` if ``inputNum`` does not correspond to a port.
+
+
+.. _Lua_rio_get_output_count:
+
+get_output_count
+================
+
+``get_output_count()``
+
+Returns the number of output ports this RIO has.
+
+
 .. _Lua_rio_get_output:
 
 get_output

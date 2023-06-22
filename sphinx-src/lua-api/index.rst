@@ -160,6 +160,54 @@ For example:
 .. include:: code-examples/current-controller.rst
 
 
+.. _Lua_get_remote_devices:
+
+get_remote_devices
+----------------------
+
+Returns a table of remote devices on this controller. The keys are integers with values equal to the global constants which correspond to the remote device type (e.g. ``RIO44``). The values are integers representing the assigned device number.
+
+
+.. _Lua_get_input_count:
+
+get_input_count
+===============
+
+``get_input_count()``
+
+Returns the number of general purpose input ports this controller has.
+
+
+.. _Lua_get_input_type:
+
+get_input_type
+==============
+
+``get_input_type(inputNum)``
+
+Returns an integer equal to the one of the constants ``ANALOG``, ``DIGITAL``, ``CONTACT_CLOSURE`` according to the configuration of this controller's general purpose input port with number ``inputNum``, or ``nil`` if ``inputNum`` does not correspond to a port.
+
+
+.. _Lua_get_input_threshold:
+
+get_input_threshold
+===================
+
+``get_input_threshold(inputNum)``
+
+Returns an InputThreshold object describing the threshold configurations for this controller's general purpose input port with number ``inputNum``, or ``nil`` if ``inputNum`` does not correspond to a port.
+
+
+.. _Lua_get_output_count:
+
+get_output_count
+================
+
+``get_output_count()``
+
+Returns the number of relay output ports this controller has.
+
+
 .. _Lua_get_network_primary:
 
 get_network_primary
@@ -552,6 +600,14 @@ For example:
 
    log(LOG_CRITICAL, "This is a critical message!") -- logs a message at Critical log level
    log("This is a normal message.") -- logs a message at Normal log level.
+
+
+.. _Lua_reset:
+
+reset
+---
+
+Reboots the controller.
 
 
 .. _Lua_set_log_level:
