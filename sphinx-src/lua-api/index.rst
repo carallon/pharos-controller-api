@@ -178,7 +178,7 @@ For example:
 get_remote_devices
 ----------------------
 
-Returns a table of remote devices on this controller. The keys are integers with values equal to the global constants which correspond to the remote device type (e.g. ``RIO44``). The values are integers representing the assigned device number.
+Returns a table of remote devices on this controller. The keys are integers with values equal to the global constants which correspond to the remote device type (e.g. ``RIO44``). The values are tables of integers representing the assigned device number.
 
 
 .. _Lua_get_input_count:
