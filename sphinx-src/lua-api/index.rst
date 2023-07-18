@@ -577,6 +577,38 @@ get_ntp_ip_address
 
 Returns the IP address of the NTP server as a string.
 
+.. _Lua_get_hash_string:
+
+get_hash_string
+------------------
+
+``get_hash_string(string, method)``
+
+Returns hashed string using the one of specified cryptographic methods:
+
+* ``HASH_MD4`` (0)
+* ``HASH_MD5`` (1)
+* ``HASH_SHA1`` (2)
+* ``HASH_SHA224`` (3)
+* ``HASH_SHA256`` (4)
+* ``HASH_SHA384`` (5)
+* ``HASH_SHA512`` (6)
+
+.. _Lua_get_hash_table:
+
+get_hash_table
+------------------
+
+``get_hash_table(table, method)``
+
+Returns hashed byte table using the specified cryptographic method.
+
+.. code-block:: lua
+
+   -- Hash the bytes using MD5
+   local bytes = {0x1, 0x2, 0x3, 0x4, 0x5, 0x6}
+   local digest = get_hash_table(bytes, HASH_MD5)
+   -- 'digest' now contains '{0x6a, 0xc1, 0xe5, 0x6b, 0xc7, 0x8f, 0x03, 0x10, 0x59, 0xbe, 0x7b, 0xe8, 0x54, 0x52, 0x2c, 0x4c}'
 
 Actions
 =======
