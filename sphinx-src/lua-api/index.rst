@@ -39,6 +39,45 @@ The following standard Libraries are imported
 * `Mathematical functions <https://www.lua.org/manual/5.3/manual.html#6.7>`_
 * `Input and output <https://www.lua.org/manual/5.3/manual.html#6.8>`_
 
+Input and output (IO)
+=====================
+
+.. attention::
+   It's important to understand some of the limitations of writing to permanent storage when using the IO library.
+
+**Frequency and size of writes should be limited for reliability and performance.**
+
+Flash storage (i.e. SD Card) has an almost unlimited number of read operations, but a limited number of write operations.
+Exceeding the write count can degrade the storage device, leading to data loss or failure.
+
+While flash storage is faster than legacy magnetic media (e.g. HDD, floppy disks), it's markedly slower than RAM (aka Memory).
+To prevent performance degradation the IO library buffers the data in RAM until being committed to the storage at some point in the future by the underlying operating system (OS).
+While the standard IO library provides ``io.flush()``, this function simply passes the buffer to the OS ready to be committed when the OS is ready.
+
+Should the controller experience a power loss before the file is committed to disk, then at best the data is lost, at worst this could cause corruption to the underlying flash storage.
+To mitigate this, and to provide the designer control over when this process should happen, ``io.open()`` is provided with an extra ``mode`` flag.
+By including the mode flag ``c``, the file will be committed to storage when an ``io.flush()`` or ``io.close()`` command is issued.
+
+While this increases data integrity, it comes with performance degradation;
+large files may take a number of moments for the commit to complete, during this time you may experience a degradation of playback performance.
+
+.. note::
+   For further advice, please contact our support team.
+
+.. code-block:: lua
+
+   --[[ Without commit flag ]]--
+   local file = io.open('myFile.txt', 'w+')
+   file:write('TheQuickBrownFoxJumpsOverTheLazyDog')
+   file:close() -- The file is committed to storage at "some point" in the future.
+
+.. code-block:: lua
+
+   --[[ With commit flag ]]--
+   local file = io.open('myFile.txt', 'w+c')
+   file:write('TheQuickBrownFoxJumpsOverTheLazyDog')
+   file:close() -- The file is committed to storage now.
+
 Functions
 *********
 
