@@ -26,6 +26,19 @@ Lua API
    universe
    variant
 
+Standard Libraries
+******************
+
+The following standard Libraries are imported
+
+* `Basic library <https://www.lua.org/manual/5.3/manual.html#6.1>`_
+* `Package library <https://www.lua.org/manual/5.3/manual.html#6.3>`_
+* `String manipulation <https://www.lua.org/manual/5.3/manual.html#6.4>`_
+* `Basic UTF-8 support <https://www.lua.org/manual/5.3/manual.html#6.5>`_
+* `Table manipulation <https://www.lua.org/manual/5.3/manual.html#6.6>`_
+* `Mathematical functions <https://www.lua.org/manual/5.3/manual.html#6.7>`_
+* `Input and output <https://www.lua.org/manual/5.3/manual.html#6.8>`_
+
 Functions
 *********
 
