@@ -173,7 +173,7 @@ Propagates to all controllers in a project.
      - ``2.0``
    * - ``group``
      - string
-     - Optional. Timeline group name: ``A``, ``B``, ``C`` or ``D``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
+     - Optional. Timeline group name: ``A`` through ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
      - ``"B"``
 
 For ``callback`` please see `JavaScript Command Callback`_.
@@ -201,7 +201,7 @@ Release all timelines and scenes. Propagates to all controllers in a project.
      - ``2.0``
    * - ``group``
      - string
-     - Optional. Timeline/Scene group name: ``A``, ``B``, ``C`` or ``D``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
+     - Optional. Timeline/Scene group name: ``A`` through ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
      - ``"B"``
 
 For ``callback`` please see `JavaScript Command Callback`_.

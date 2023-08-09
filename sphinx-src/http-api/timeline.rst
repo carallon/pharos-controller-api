@@ -35,7 +35,7 @@ Payload is a JSON object with the following attributes:
      - ``2.0``
    * - ``group``
      - string
-     - Optional. Timeline group name: ``A``, ``B``, ``C`` or ``D``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all timelines*.
+     - Optional. Timeline group name: ``A``, ``B``, ``C``, ``D``, ``E``, ``F``, ``G`` or ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all timelines*.
      - ``"B"``
    * - ``rate``
      - string
@@ -177,7 +177,7 @@ Returns a JSON object with a single ``timelines`` attribute, which has an array 
      - ``"Timeline 1"``
    * - ``group``
      - string
-     - Timeline group name (``A``, ``B``, ``C``, ``D`` or empty string)
+     - Timeline group name (``A`` through ``H`` or empty string)
      - ``"A"``
    * - ``length``
      - integer

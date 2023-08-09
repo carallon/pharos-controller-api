@@ -20,7 +20,7 @@ Properties
      - ``"Scene 1"``
    * - ``group``
      - string
-     - Scene group name (``A``, ``B``, ``C``, ``D`` or empty string)
+     - Scene group name (``A`` through ``H`` or empty string)
      - ``"A"``
    * - ``state``
      - integer

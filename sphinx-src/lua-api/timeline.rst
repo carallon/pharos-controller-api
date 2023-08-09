@@ -20,7 +20,7 @@ Properties
      - ``"Timeline 1"``
    * - ``group``
      - string
-     - Timeline group name (``A``, ``B``, ``C``, ``D`` or empty string)
+     - Timeline group name (``A`` through ``H`` or empty string)
      - ``"A"``
    * - ``length``
      - integer
