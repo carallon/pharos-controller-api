@@ -25,11 +25,11 @@ Payload is a JSON object with the following attributes:
      - Value Example
    * - ``target``
      - string
-     - What the override should be applied to: ``group``, ``fixture``.
+     - What the override should be applied to: ``group``, ``fixture``, or (in Expert) ``space``
      - ``"group"``
    * - ``num``
      - integer
-     - Group or fixture number, depending on ``target``. Group 0 means the *All Fixtures* group.
+     - Optional. Group, fixture, or space number depending on ``target``. Group 0 means the *All Fixtures* group.
      - ``1``
    * - ``intensity``
      - integer or string
