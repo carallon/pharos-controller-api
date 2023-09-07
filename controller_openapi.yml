@@ -1042,6 +1042,22 @@ paths:
                 properties:
                   token:
                     $ref: '#/components/schemas/Token'
+  /tag_set:
+    get:
+      summary: List tag sets
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  tag_sets:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/TagSet"
+
 components:
   securitySchemes:
     bearer:
@@ -2042,3 +2058,26 @@ components:
             - accelerated
             - damped
             - overshoot
+    TagSet:
+      type: object
+      properties:
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        num:
+          type: integer
+        name:
+          type: string
+        is_editable:
+          type: boolean
+        active_tag:
+          type: integer
+    Tag:
+      type: object
+      properties:
+        num:
+          type: integer
+        name:
+          type: string
+
