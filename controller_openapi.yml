@@ -804,19 +804,6 @@ paths:
           description: Accepted
         '400':
           description: Bad Request
-  /project_state:
-    post:
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ControlProjectState"
-      responses:
-        '204':
-          description: OK
-        '400':
-          description: Bad Request
   /mode:
     get:
       summary: Get current mode dial position
@@ -1057,7 +1044,18 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/TagSet"
-
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ControlTagSet"
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
 components:
   securitySchemes:
     bearer:
@@ -1735,16 +1733,16 @@ components:
         token:
           type: string
           pattern: '^[\w-=]+\.[\w-=]+\.[\w-=]+$'
-    ControlProjectState:
+    ControlTagSet:
       type: object
       properties:
         num:
           type: integer
         action:
           type: string
-          enum: [set_value]
-        value_num:
-          type: string
+          enum: [set_tag]
+        tag_num:
+          type: integer
     Scene:
       type: object
       properties:
