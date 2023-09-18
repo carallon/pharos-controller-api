@@ -42,7 +42,7 @@ Control a scene in the project.
       - ``2.0``
     * - ``group``
       - string
-      - Optional. Scene group name: ``A``, ``B``, ``C`` or ``D``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all scenes*.
+      - Optional. Scene group name: ``A`` through ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all scenes*.
       - ``"B"``
 
   For example, to start a scene 2, the request payload is:

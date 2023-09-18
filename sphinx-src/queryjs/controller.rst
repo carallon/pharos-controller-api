@@ -15,6 +15,10 @@ For example:
 
 .. code-block:: js
 
-   Query.get_controller_info(controller => {
-     let name = controller[0].name // name of the first controller
-   })
+   Query.get_controller_info(data => {
+        for(index in data.controllers) {
+          console.log("Controller " + index + " name is " + data.controllers[index].name);
+        }
+   });
+
+Will print out the name of each controller to the console.

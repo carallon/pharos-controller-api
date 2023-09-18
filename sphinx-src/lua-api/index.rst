@@ -736,12 +736,6 @@ release_all
 
 Release all timelines and scenes in the project.
 
-Note that you can provide:
-
-* No arguments - this will release all with the default fade time.
-* A fade time, which will be used to release all.
-* Or, both a fade time and a group.
-
 .. include:: snippets/release-fade-group-params.rst
 
 
