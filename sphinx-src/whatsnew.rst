@@ -1,6 +1,15 @@
 What's New
 ##########
 
+v7.0
+****
+
+* Add lua controller :ref:`reset function <Lua_reset>`.
+* Add new :ref:`I/O write mode, and document I/O functionality <Lua_io>`.
+* Improve ability to query :doc:`lua-api/rio` devices for inputs and outputs.
+* Add cryptographic hashing functions :ref:`get_hash_string <Lua_get_hash_string>` and :ref:`get_hash_table <Lua_get_hash_table>`.
+* Add ability to retrieve the status of the controller :doc:`lua-api/web-server` from lua.
+
 v6.0
 ****
 
