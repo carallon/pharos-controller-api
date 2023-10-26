@@ -41,3 +41,30 @@ Returns a JSON object with a single ``tag_sets`` attribute, which has an array v
      - object
      - The currently active Tag in the Tag Set
      - ``{"name":"Spring","num":1}``
+
+
+POST
+====
+
+Allows tag sets to be controlled.
+
+``POST /tag_set``
+
+Payload is a JSON object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``num``
+     - integer
+     - The target tag set number.
+   * - ``action``
+     - string
+     - The action to perform on the tag set. ``set_tag`` is the only currently supported action.
+   * - ``tag_num``
+     - integer
+     - The target tag number .

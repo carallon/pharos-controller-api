@@ -25,11 +25,11 @@ Payload is a JSON object with the following attributes:
      - Value Example
    * - ``target``
      - string
-     - What the override should be applied to: ``group``, ``fixture``.
+     - What the override should be applied to: ``group``, ``fixture``, or (in Expert) ``space``
      - ``"group"``
    * - ``num``
      - integer
-     - Group or fixture number, depending on ``target``. Group 0 means the *All Fixtures* group.
+     - Optional. Group, fixture, or space number depending on ``target``. Group 0 means the *All Fixtures* group.
      - ``1``
    * - ``intensity``
      - integer or string
@@ -73,16 +73,16 @@ Colour as RGB for ``colour`` in an override :ref:`override-http-put` request:
      - Description
      - Value Example
    * - ``red``
-     - integer
-     - Optional. Red component to set as part of override: 0-255. Red override will not be changed if this attribute isn't provided.
+     - integer or string
+     - Optional. Red component to set as part of override: 0-255, or a percentage (0-100) followed by the % sign. Red override will not be changed if this attribute isn't provided.
      - ``255``
    * - ``green``
-     - integer
-     - Optional. Green component to set as part of override: 0-255. Green override will not be changed if this attribute isn't provided.
+     - integer or string
+     - Optional. Green component to set as part of override: 0-255, or a percentage (0-100) followed by the % sign. Green override will not be changed if this attribute isn't provided.
      - ``255``
    * - ``blue``
-     - integer
-     - Optional. Blue component to set as part of override: 0-255. Blue override will not be changed if this attribute isn't provided.
+     - integer or string
+     - Optional. Blue component to set as part of override: 0-255, or a percentage (0-100) followed by the % sign. Blue override will not be changed if this attribute isn't provided.
      - ``255``
 
 Hue/Saturation
@@ -110,6 +110,77 @@ Colour as hue/saturation for ``colour`` in an override :ref:`override-http-put` 
 .. note::
 
    Both ``hue`` and ``saturation`` are required for the request to be valid.
+
+
+Example Overrides
+^^^^^^^^^^^^^^^^^
+
+Override group 1 to full intensity, using 0-255 values, and set colour to yellow:
+
+.. code-block:: json
+
+  {
+      "target": "group",
+      "num": "1",
+      "intensity": 255,
+      "colour": {
+          "red": 255,
+          "green": 255,
+          "blue": 0
+      }
+  }
+
+Override fixture 1 to 50% intensity and green, using percentages:
+
+.. code-block:: json
+
+  {
+      "target": "fixture",
+      "num": 1,
+      "intensity": "50%",
+      "colour": {
+          "red": "0%",
+          "green": "100%",
+          "blue": "0%"
+      }
+  }
+
+Override fixture 2 to 80% intensity and blue, using hue and saturation:
+
+.. code-block:: json
+
+  {
+      "target": "fixture",
+      "num": 2,
+      "intensity": "50%",
+      "colour": {
+          "hue": 200,
+          "saturation": 240
+      }
+  }
+
+Override group 3 colour temperature of 44 with a fade time of 5 seconds:
+
+.. code-block:: json
+
+  {
+      "target": "group",
+      "num": 3,
+      "intensity": 255,
+      "temperature": 44,
+      "fade": 5.0
+  }
+
+Snapshot the colour and intensity of all fixtures:
+
+.. code-block:: json
+
+  {
+      "target": "group",
+      "num": "0",
+      "intensity": "snapshot",
+      "colour": "snapshot"
+  }
 
 
 DELETE
