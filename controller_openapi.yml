@@ -1640,7 +1640,7 @@ components:
     ControlOutput:
       type: object
       properties:
-        output:
+        protocol:
           type: string
           enum: [dmx, pathport, sacn, art-net, kinet, rio-dmx, edn, edn-spi]
         action:
