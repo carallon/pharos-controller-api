@@ -12,6 +12,7 @@ Lua API
    controller
    date-time
    group
+   input-threshold
    location
    override
    project
@@ -25,6 +26,7 @@ Lua API
    timeline
    universe
    variant
+   web-server
 
 Standard Libraries
 ******************
@@ -38,6 +40,9 @@ The following standard Libraries are imported
 * `Table manipulation <https://www.lua.org/manual/5.3/manual.html#6.6>`_
 * `Mathematical functions <https://www.lua.org/manual/5.3/manual.html#6.7>`_
 * `Input and output <https://www.lua.org/manual/5.3/manual.html#6.8>`_
+
+
+.. _Lua_io:
 
 Input and output (IO)
 =====================
@@ -247,7 +252,7 @@ get_input_threshold
 
 ``get_input_threshold(inputNum)``
 
-Returns an InputThreshold object describing the threshold configurations for this controller's general purpose input port with number ``inputNum``, or ``nil`` if ``inputNum`` does not correspond to a port.
+Returns an :doc:`input-threshold` object describing the threshold configurations for this controller's general purpose input port with number ``inputNum``, or ``nil`` if ``inputNum`` does not correspond to a port.
 
 
 .. _Lua_get_output_count:
@@ -689,7 +694,7 @@ For example:
 .. _Lua_reset:
 
 reset
----
+-----
 
 Reboots the controller.
 
@@ -735,12 +740,6 @@ release_all
 ``release_all([fade,] [group])``
 
 Release all timelines and scenes in the project.
-
-Note that you can provide:
-
-* No arguments - this will release all with the default fade time.
-* A fade time, which will be used to release all.
-* Or, both a fade time and a group.
 
 .. include:: snippets/release-fade-group-params.rst
 

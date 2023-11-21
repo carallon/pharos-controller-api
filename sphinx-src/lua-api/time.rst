@@ -19,8 +19,9 @@ The ``time`` namespace has the following properties:
      - boolean
      - ``true``
    * - ``gmt_offset``
-     - integer
-     - ``1``
+     - integer (minutes)
+     - | ``-300``
+       | 300 Minutes (5 hours) behind
 
 Functions
 *********

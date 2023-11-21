@@ -3,8 +3,6 @@ WebServer
 
 Information about the controller's web server is available in the ``web_server`` namespace. In trigger action scripts the ``web_server`` namespace is added directly to the environment; in IO modules it is in the ``controller`` namespace, i.e. ``controller.web_server``.
 
-A ``WebServer`` object is returned from :ref:`get_web_server`.
-
 Properties
 **********
 

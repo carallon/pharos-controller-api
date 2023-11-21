@@ -1654,7 +1654,7 @@ components:
     ControlOutput:
       type: object
       properties:
-        output:
+        protocol:
           type: string
           enum: [dmx, pathport, sacn, art-net, kinet, rio-dmx, edn, edn-spi]
         action:
@@ -2078,4 +2078,26 @@ components:
           type: integer
         name:
           type: string
+    Token:
+      type: string
+      example: eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJQaGFyb3MiLCJVc2VybmFtZSI6ImJvYiIsImV4cCI6MTYxMjM0MjA4OCwiaWF0IjoxNjEyMzQyMDg4fQ.xRhBsEzpvEkH2AchnwrpifXsW7ZcffQSeAcFTRtqNJM
+    Error:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Unauthorized
+        detail:
+          type: string
+          example: Invalid credentials
+        code:
+          type: string
+          example: 401
+    Errors:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/Error'
 

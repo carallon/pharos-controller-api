@@ -56,7 +56,7 @@ get_input_threshold
 
 ``get_input_threshold(inputNum)``
 
-Returns an InputThreshold object describing the threshold configurations for the input port with number ``inputNum``, or ``nil`` if ``inputNum`` does not correspond to a port.
+Returns an :doc:`input-threshold` object describing the threshold configurations for the input port with number ``inputNum``, or ``nil`` if ``inputNum`` does not correspond to a port.
 
 
 .. _Lua_rio_get_output_count:
