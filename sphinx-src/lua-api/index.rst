@@ -422,7 +422,7 @@ get_edn_universe
 
 Returns a :doc:`universe` object for the |EDN| output matching the parameter:
 
-* ``remote_device_type`` is be one of the constants ``EDN10`` or ``EDN 20``.
+* ``remote_device_type`` is be one of the constants ``EDN10`` or ``EDN20``.
 * ``remote_device_num`` is the remote device number of the |EDN| in the project.
 * ``port_num`` is the DMX output port number of the |EDN|.
 
