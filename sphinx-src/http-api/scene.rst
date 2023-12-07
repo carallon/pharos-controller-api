@@ -41,9 +41,9 @@ Control a scene in the project.
       - Optional. The fade time to apply to a ``release`` action, in seconds, or the scene release that results from a ``toggle`` action. If not provided, the default release fade time will be used.
       - ``2.0``
     * - ``group``
-      - string
-      - Optional. Scene group name: ``A`` through ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all scenes*.
-      - ``"B"``
+      - string **or** integer
+      - Optional. Scene group name or number. If name, prepend the name with ``!`` to apply the action to all groups *except* the specified group. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all scenes*.
+      - ``"Group 1"``, ``"!Group 2"`` or ``3``
 
   For example, to start a scene 2, the request payload is:
 

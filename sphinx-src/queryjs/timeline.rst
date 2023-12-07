@@ -172,9 +172,9 @@ Propagates to all controllers in a project.
      - Optional. Release fade time in seconds. If not provided, the default fade time will be used.
      - ``2.0``
    * - ``group``
-     - string
-     - Optional. Timeline group name: ``A`` through ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
-     - ``"B"``
+     - :doc:`variant`
+     - Optional. Timeline group name or number. If name, prepend the name with ``!`` to apply the action to all groups *except* the specified group.
+     - ``"Group 1"``, ``"!Group 2"`` or ``3``
 
 For ``callback`` please see `JavaScript Command Callback`_.
 
@@ -200,9 +200,9 @@ Release all timelines and scenes. Propagates to all controllers in a project.
      - Optional. Release fade time in seconds. If not provided, the default fade time will be used.
      - ``2.0``
    * - ``group``
-     - string
-     - Optional. Timeline/Scene group name: ``A`` through ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
-     - ``"B"``
+     - :doc:`variant`
+     - Optional. Timeline/Scene group name or number. If name, prepend the name with ``!`` to apply the action to all groups *except* the specified group.
+     - ``"Group 1"``, ``"!Group 2"`` or ``3``
 
 For ``callback`` please see `JavaScript Command Callback`_.
 

@@ -1,6 +1,11 @@
 What's New
 ##########
 
+v8.0
+****
+
+* Release scenes and timelines by group number as well as group name.
+
 v7.0
 ****
 
