@@ -11,4 +11,10 @@ Toggle beacon mode on the controller.
 
 ``POST /api/beacon``
 
-In beacon mode, a controller will flash its LEDs or it screen continuously.
+.. only:: expert
+
+    In beacon mode, a controller will flash its LEDs continuously.
+
+.. only:: designer
+
+    In beacon mode, a controller will flash its LEDs or its screen continuously.

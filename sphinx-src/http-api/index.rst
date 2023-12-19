@@ -50,6 +50,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    scene
    space
    system
+   tag-set
    temperature
    text-slots
    time

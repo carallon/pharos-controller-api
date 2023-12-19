@@ -113,6 +113,10 @@ if variant == 'mosaic':
     .. |EDN| replace:: EDN
     .. |EDN 20| replace:: EDN 20
     .. |EDN 10| replace:: EDN 10
+    .. |SAMPLE_CONTROLLER| replace:: ``MSC``
+    .. |PROTOCOLS| replace:: ``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``
+    .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
+    .. |OVERRIDE_OPTIONS| replace:: group or fixture
     """
 else:
     print('Building Pharos variant')
@@ -131,6 +135,21 @@ else:
     .. |EDN 20| replace:: EDN 20
     .. |EDN 10| replace:: EDN 10
     """
+    if product == 'expert':
+        rst_prolog += """
+    .. |SAMPLE_CONTROLLER| replace:: ``Expert Control``
+    .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
+    .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
+    .. |OVERRIDE_OPTIONS| replace:: fixture or space
+        """
+    else:
+        rst_prolog += """
+    .. |SAMPLE_CONTROLLER| replace:: LPC
+    .. |PROTOCOLS| replace:: ``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``
+    .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
+    .. |OVERRIDE_OPTIONS| replace:: group or fixture
+        """
+
 
 # Include/Exclude based on product type
 if product == 'expert':
@@ -145,6 +164,8 @@ if product == 'expert':
     exclude_patterns.append('queryjs/*')
     exclude_patterns.append('*/command.rst')
     exclude_patterns.append('*/content-targets.rst')
+    exclude_patterns.append('*/dali.rst')
+    exclude_patterns.append('*/dali-interface.rst')
     exclude_patterns.append('*/group.rst')
     exclude_patterns.append('*/lua-variable.rst')
     exclude_patterns.append('*/project-file.rst')
@@ -154,11 +175,18 @@ if product == 'expert':
     exclude_patterns.append('*/trigger.rst')
     exclude_patterns.append('*/temperature.rst')
     exclude_patterns.append('*/enumerated-rio-types.rst')
+    exclude_patterns.append('*/remote-device.rst')
     exclude_patterns.append('*/rdm-discovery.rst')
     exclude_patterns.append('*/rdm-get.rst')
     exclude_patterns.append('*/rdm-set.rst')
+    exclude_patterns.append('*/objects/index.rst')
     exclude_patterns.append('*/objects/rdm-device-info.rst')
     exclude_patterns.append('*/objects/rdm-universe-key.rst')
+    exclude_patterns.append('*/objects/rdm-universe-key.rst')
+    exclude_patterns.append('*/objects/dali-ballast-status.rst')
+    exclude_patterns.append('*/objects/dali-error.rst')
+    exclude_patterns.append('*/objects/dali-power.rst')
+    exclude_patterns.append('*/objects/dali-schedule.rst')
     exclude_patterns.append('*/universe-key-string-format-rdm.rst')
 
 if product == 'designer':

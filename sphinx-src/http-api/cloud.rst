@@ -7,7 +7,7 @@ Methods
 GET
 ===
 
-Returns the state of connectivity to the cloud remote management system.
+Returns the state of connectivity to the remote site.
 
 ``GET /api/cloud``
 
@@ -22,16 +22,16 @@ Returns a JSON object with the following attributes:
      - Description
    * - ``connected``
      - boolean
-     - Whether or not the system is currently connected to the cloud
+     - Whether or not the system is currently connected to the remote site
    * - ``connecting``
      - boolean
-     - Whether or not the system is currently in the process of connecting to the cloud
+     - Whether or not the system is currently in the process of connecting to the remote site
 
 
 POST
 ====
 
-Allows configuration of the parameters for connection to the cloud.
+Allows configuration of the parameters for connection to the remote site.
 
 ``POST /api/cloud``
 

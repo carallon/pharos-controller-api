@@ -22,4 +22,4 @@ Returns a JSON object with the following attributes:
      - Description
    * - ``mode``
      - string
-     - The mode switch position. One of: ``Run``, ``PG1``, ``PG2``, ``PG3``, ``PG4``, ``All``, ``Dali``, ``Dmx2``, ``Dmx1``, ``Off``
+     - The mode switch position. One of: ``RUN``, ``PG1``, ``PG2``, ``PG3``, ``PG4``, ``ALL``, ``DALI``, ``DX2``, ``DX1``, ``OFF``
