@@ -1740,7 +1740,7 @@ components:
           type: integer
         action:
           type: string
-          enum: [set_tag]
+          enum: [activate_tag]
         tag_num:
           type: integer
     Scene:
