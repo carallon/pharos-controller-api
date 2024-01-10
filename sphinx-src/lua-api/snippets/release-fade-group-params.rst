@@ -18,5 +18,5 @@
      - ``2.0``
    * - ``group``
      - string
-     - Optional. Group name: ``A`` through ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``.
-     - ``"B"``
+     - Optional. Group name or number. If name, prepend the name with ``!`` to apply the action to all groups *except* the specified group.
+     - ``"Group 1"``, ``"!Group 2"`` or ``3``

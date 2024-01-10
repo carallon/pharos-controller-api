@@ -34,9 +34,9 @@ Payload is a JSON object with the following attributes:
      - Optional. The fade time to apply to a ``release`` action, in seconds, or the timeline release that results from a ``toggle`` action. If not provided, the default release fade time will be used.
      - ``2.0``
    * - ``group``
-     - string
-     - Optional. Timeline group name: ``A``, ``B``, ``C``, ``D``, ``E``, ``F``, ``G`` or ``H``. Prepend the group name with ``!`` to apply the action to all groups *except* the specified group, e.g. ``!A``. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all timelines*.
-     - ``"B"``
+     - string **or** integer
+     - Optional. Timeline group name or number. If name, prepend the name with ``!`` to apply the action to all groups *except* the specified group. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all timelines*.
+     - ``"Group 1"``, ``"!Group 2"`` or ``3``
    * - ``rate``
      - string
      - Required for a ``set_rate`` action; invalid otherwise. Value should be a string containing a floating point number or a bounded integer, where 1.0 means the timeline's default rate.
