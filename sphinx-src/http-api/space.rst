@@ -79,9 +79,9 @@ Payload is a JSON object with the following attributes:
      - The action to perform. Currently ``master_intensity`` is the only supported action.
      - ``"master_intensity"``
    * - ``level``
-     - number
-     - Optional. The master level to apply, in percent.
-     - ``80``
+     - float (0-1)
+     - Optional. The master level to apply.
+     - ``0.8``
 
 For example, to set the intensity master to 42.2% for space 2, the request payload is:
 
@@ -90,5 +90,5 @@ For example, to set the intensity master to 42.2% for space 2, the request paylo
   {
     "num": 2,
     "action": "master_intensity",
-    "level": 42.2
+    "level": 0.422
   }
