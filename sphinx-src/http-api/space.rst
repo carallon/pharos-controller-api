@@ -76,7 +76,7 @@ Payload is a JSON object with the following attributes:
      - ``2``
    * - ``action``
      - string
-     - The action to perform. Currently ``master_intensity`` is the only supported action.
+     - The action to perform. ``master_intensity`` sets the space to ``level``. ``off`` recalls scene off in the space.
      - ``"master_intensity"``
    * - ``level``
      - float (0-1)
@@ -91,4 +91,13 @@ For example, to set the intensity master to 42.2% for space 2, the request paylo
     "num": 2,
     "action": "master_intensity",
     "level": 0.422
+  }
+
+For example, to recall the off scene in space 2, the request payload is:
+
+.. code-block:: json
+
+  {
+    "num": 2,
+    "action": "off"
   }
