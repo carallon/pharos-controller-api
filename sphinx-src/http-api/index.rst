@@ -48,6 +48,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    replication
    reset
    scene
+   schedule
    space
    system
    tag-set

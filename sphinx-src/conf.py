@@ -199,6 +199,7 @@ if product == 'designer':
     exclude_patterns.append('*/mode.rst')
     exclude_patterns.append('*/space.rst')
     exclude_patterns.append('*/tag_set.rst')
+    exclude_patterns.append('*/schedule.rst')
 
 # -- Options for HTML output ----------------------------------------------
 

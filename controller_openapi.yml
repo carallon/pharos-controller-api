@@ -1056,6 +1056,35 @@ paths:
           description: OK
         '400':
           description: Bad Request
+  /schedule:
+    get:
+      summary: Get Schedule Enabled/Suppressed
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  enable:
+                    type: boolean
+    put:
+      summary: Set Schedule Enabled/Suppressed
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                enable:
+                  type: boolean
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
 components:
   securitySchemes:
     bearer:
