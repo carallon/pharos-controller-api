@@ -13,6 +13,35 @@ Authentication
 
    authentication/index
 
+API Versions
+************
+
+This API is available in several versions.
+
+You can retrieve the API version in use by querying the api_version endpoint as described below.
+
+.. only:: designer
+
+  The current API version is set as a property of the project.
+
+  .. note:: The ability to query the API version is available only in |Designer| version 2.12 and above.
+
+GET
+===
+
+Returns the API version in use from the controller.
+
+``GET /api/api_version``
+
+Returns a JSON object with a single attribute, ``version``, which is the integer version in use:
+
+
+.. parsed-literal::
+
+   {
+      "version": |version|
+   }
+
 Querying and Controlling
 ************************
 

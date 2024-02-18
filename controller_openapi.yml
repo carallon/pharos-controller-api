@@ -36,6 +36,19 @@ paths:
           description: Bad Request
         '401':
           description: Unauthorized
+  /api_version:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: integer
+                    example: 8
   /time:
     get:
       responses:
