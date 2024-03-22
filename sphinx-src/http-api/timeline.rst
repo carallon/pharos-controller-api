@@ -128,7 +128,7 @@ To release all timelines except those in group B in 2 seconds, the request paylo
      "fade": 2.0
    }
 
-To set the rate of timeline 5 to half the default rage, the request payload would be:
+To set the rate of timeline 5 to half the default range, the request payload would be:
 
 .. code-block:: json
 
@@ -143,7 +143,7 @@ To set the position of timeline 1 to a third of the way through, the request pay
 .. code-block:: json
 
    {
-     "action": "set_rate",
+     "action": "set_position",
      "num": 1,
      "position": "1:3"
    }
