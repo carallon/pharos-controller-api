@@ -228,7 +228,7 @@ Returns a table of remote devices on this controller. The keys are integers with
 .. _Lua_get_input_count:
 
 get_input_count
-===============
+---------------
 
 ``get_input_count()``
 
@@ -238,7 +238,7 @@ Returns the number of general purpose input ports this controller has.
 .. _Lua_get_input_type:
 
 get_input_type
-==============
+--------------
 
 ``get_input_type(inputNum)``
 
@@ -248,7 +248,7 @@ Returns an integer equal to the one of the constants ``ANALOG``, ``DIGITAL``, ``
 .. _Lua_get_input_threshold:
 
 get_input_threshold
-===================
+-------------------
 
 ``get_input_threshold(inputNum)``
 
@@ -258,7 +258,7 @@ Returns an :doc:`input-threshold` object describing the threshold configurations
 .. _Lua_get_output_count:
 
 get_output_count
-================
+----------------
 
 ``get_output_count()``
 
