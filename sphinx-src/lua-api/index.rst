@@ -235,6 +235,18 @@ For example:
 
 .. include:: code-examples/current-controller.rst
 
+.. _Lua_get_controllers:
+
+get_controllers
+---------------
+
+Returns a table of :doc:`controller` objects for this project.
+
+For example:
+
+.. include:: code-examples/controllers.rst
+
+.. _Lua_get_touch_devices:
 
 .. _Lua_get_remote_devices:
 
