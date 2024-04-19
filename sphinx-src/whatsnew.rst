@@ -4,7 +4,10 @@ What's New
 v8.0
 ****
 
-* Release scenes and timelines by group number as well as group name.
+.. only:: designer
+
+    * Release scenes and timelines by group number as well as group name.
+    * Add ability to :ref:`retrieve API version in use <api_version>`.
 
 v7.0
 ****

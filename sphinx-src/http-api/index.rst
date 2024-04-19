@@ -13,6 +13,8 @@ Authentication
 
    authentication/index
 
+.. _api_version:
+
 API Versions
 ************
 
