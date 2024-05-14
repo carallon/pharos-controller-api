@@ -28,6 +28,40 @@ Propagates to all controllers in a project.
 
 For ``callback`` please see `JavaScript Command Callback`_.
 
+start_scene_release_others
+==========================
+
+``start_scene_release_others(params, callback)``
+
+Starts the scene and releases others.
+
+.. list-table::
+   :widths: 3 3 7 3
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``num``
+     - integer
+     - Scene number
+     - ``5``
+   * - ``group``
+     - string **or** integer
+     - Optional scene group name or number.  If name, prepend the name with ``!`` to apply the action to all scenes *except* those in the specified group. Omit to apply the action to all scenes.
+     - ``"Group 1"``, ``"!Group 2"`` or ``3``
+   * - ``same_group``
+     - boolean
+     - Optional flag to target the same group as the selected scene. This flag has no effect when ``group`` is set.
+     - ``true``
+   * - ``fade``
+     - float
+     - Optional fade time to use when releasing other scenes, in seconds
+     - ``2.0``
+
+For ``callback`` please see `JavaScript Command Callback`_.
+
 release_scene
 =============
 

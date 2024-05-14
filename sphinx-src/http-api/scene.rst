@@ -30,7 +30,7 @@ Control a scene in the project.
       - Value Example
     * - ``action``
       - string
-      - The action to perform on the scene(s): ``start``, ``release``, ``toggle``
+      - The action to perform on the scene(s): ``start``, ``start_release_others``, ``release``, ``toggle``
       - ``"start"``
     * - ``num``
       - integer
@@ -44,14 +44,39 @@ Control a scene in the project.
       - string **or** integer
       - Optional. Scene group name or number. If name, prepend the name with ``!`` to apply the action to all groups *except* the specified group. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all scenes*.
       - ``"Group 1"``, ``"!Group 2"`` or ``3``
+    * - ``same_group``
+      - boolean
+      - Optional flag to target the same group as the selected timeline. This flag has no effect when ``group`` is set.
+      - ``true``
 
-  For example, to start a scene 2, the request payload is:
+  For example, to start scene 2, the request payload is:
 
   .. code-block:: json
 
     {
       "action": "start",
       "num": 2
+    }
+
+  To start scene 2 and release others in group ``B`` in 2 seconds, the request payload is:
+
+  .. code-block:: json
+
+    {
+      "action": "start_release_others",
+      "num": 2,
+      "group": "B",
+      "fade": 2.0
+    }
+
+  To start scene 2 and release others in the same group, the request payload is:
+
+  .. code-block:: json
+
+    {
+      "action": "start_release_others",
+      "num": 2,
+      "same_group": true
     }
 
   To release scene 2 in 3.5 seconds, the request payload would be:

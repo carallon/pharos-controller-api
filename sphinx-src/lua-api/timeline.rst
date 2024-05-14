@@ -120,6 +120,48 @@ Starts the timeline. For example:
    get_timeline(1):start()
 
 
+.. _Lua_timeline_start_release_others:
+
+start_release_others
+====================
+
+``start_release_others(group[, fade[, same_group]])``
+
+Starts the timeline and releases others.
+
+.. list-table::
+   :widths: 3 3 7 3
+   :header-rows: 1
+
+   * - Parameter
+     - Value Type
+     - Description
+     - Value Example
+   * - ``group``
+     - string **or** integer
+     - Optional timeline group name or number.  If name, prepend the name with ``!`` to apply the action to all timelines *except* those in the specified group. Omit to apply the action to all timelines.
+     - ``"Group 1"``, ``"!Group 2"`` or ``3``
+   * - ``fade``
+     - float
+     - Optional fade time to use when releasing other timelines, in seconds
+     - ``2.0``
+   * - ``same_group``
+     - boolean
+     - Optional flag to target the same group as the selected timeline. This flag has no effect when ``group`` is set.
+     - ``true``
+
+For example:
+
+.. code-block:: lua
+
+   -- start timeline 1 and release all others in the default time
+   get_timeline(1):start_release_others()
+   -- start timeline 1 and release others except those in group B in 2 seconds
+   get_timeline(1):start_release_others('!B', 2.0)
+   -- start timeline 1 and release others in the same group in the default time
+   get_timeline(1):start_release_others(nil, nil, true)
+
+
 .. _Lua_timeline_release:
 
 release

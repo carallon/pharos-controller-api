@@ -26,6 +26,38 @@ Propagates to all controllers in a project.
      - Timeline number
      - ``5``
 
+start_timeline_release_others
+=============================
+
+``start_timeline_release_others(params, callback)``
+
+Starts the timeline and releases others.
+
+.. list-table::
+   :widths: 3 3 7 3
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``num``
+     - integer
+     - Timeline number
+     - ``5``
+   * - ``group``
+     - string **or** integer
+     - Optional timeline group name or number.  If name, prepend the name with ``!`` to apply the action to all timelines *except* those in the specified group. Omit to apply the action to all timelines.
+     - ``"Group 1"``, ``"!Group 2"`` or ``3``
+   * - ``same_group``
+     - boolean
+     - Optional flag to target the same group as the selected timeline. This flag has no effect when ``group`` is set.
+     - ``true``
+   * - ``fade``
+     - float
+     - Optional fade time to use when releasing other timelines, in seconds
+     - ``2.0``
+
 For ``callback`` please see `JavaScript Command Callback`_.
 
 release_timeline

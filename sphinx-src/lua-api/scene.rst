@@ -59,6 +59,48 @@ Starts the scene. For example:
    get_scene(1):start()
 
 
+.. _Lua_scene_start_release_others:
+
+start_release_others
+====================
+
+``start_release_others(group[, fade[, same_group]])``
+
+Starts the scene and releases others.
+
+.. list-table::
+   :widths: 3 3 7 3
+   :header-rows: 1
+
+   * - Parameter
+     - Value Type
+     - Description
+     - Value Example
+   * - ``group``
+     - string **or** integer
+     - Optional scene group name or number.  If name, prepend the name with ``!`` to apply the action to all scenes *except* those in the specified group. Omit to apply the action to all scenes.
+     - ``"Group 1"``, ``"!Group 2"`` or ``3``
+   * - ``fade``
+     - float
+     - Optional fade time to use when releasing other scenes, in seconds
+     - ``2.0``
+   * - ``same_group``
+     - boolean
+     - Optional flag to target the same group as the selected timeline. This flag has no effect when ``group`` is set.
+     - ``true``
+
+For example:
+
+.. code-block:: lua
+
+   -- start scene 1 and release all others in the default time
+   get_scene(1):start_release_others()
+   -- start scene 1 and release others except those in group B in 2 seconds
+   get_scene(1):start_release_others('!B', 2.0)
+   -- start scene 1 and release others in the same group in the default time
+   get_scene(1):start_release_others(nil, nil, true)
+
+
 .. _Lua_scene_release:
 
 release

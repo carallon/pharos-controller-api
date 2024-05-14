@@ -1630,11 +1630,13 @@ components:
           type: integer
         action:
           type: string
-          enum: [start, release, toggle, pause, resume, set_rate, set_position]
+          enum: [start, start_release_others, release, toggle, pause, resume, set_rate, set_position]
         fade:
           type: integer
         group:
           type: string
+        same_group:
+          type: boolean
         rate:
           type: number
         position:
@@ -1646,11 +1648,13 @@ components:
           type: integer
         action:
           type: string
-          enum: [start, release, toggle]
+          enum: [start, start_release_others, release, toggle]
         fade:
           type: integer
         group:
           type: string
+        same_group:
+          type: boolean
     ControlGroup:
       type: object
       properties:

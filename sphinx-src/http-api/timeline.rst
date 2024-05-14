@@ -23,7 +23,7 @@ Payload is a JSON object with the following attributes:
      - Value Example
    * - ``action``
      - string
-     - The action to perform on the timeline(s): ``start``, ``release``, ``toggle``, ``pause``, ``resume``, ``set_rate``, ``set_position``
+     - The action to perform on the timeline(s): ``start``, ``start_release_others``, ``release``, ``toggle``, ``pause``, ``resume``, ``set_rate``, ``set_position``
      - ``"start"``
    * - ``num``
      - integer
@@ -37,6 +37,10 @@ Payload is a JSON object with the following attributes:
      - string **or** integer
      - Optional. Timeline group name or number. If name, prepend the name with ``!`` to apply the action to all groups *except* the specified group. This attribute is valid for a ``release`` action without a specified ``num``, meaning *release all timelines*.
      - ``"Group 1"``, ``"!Group 2"`` or ``3``
+   * - ``same_group``
+     - boolean
+     - Optional flag to target the same group as the selected timeline. This flag has no effect when ``group`` is set.
+     - ``true``
    * - ``rate``
      - string
      - Required for a ``set_rate`` action; invalid otherwise. Value should be a string containing a floating point number or a bounded integer, where 1.0 means the timeline's default rate.
@@ -46,13 +50,34 @@ Payload is a JSON object with the following attributes:
      - Required for a ``set_position`` action; invalid otherwise. Value should be a string containing a floating point number or a bounded integer, representing a fraction of the timeline length.
      - ``"0.1"`` or ``"10:100"``
 
-For example, to start a timeline 2, the request payload is:
+For example, to start timeline 2, the request payload is:
 
 .. code-block:: json
 
    {
      "action": "start",
      "num": 2
+   }
+
+To start timeline 2 and release others in group ``B`` in 2 seconds, the request payload is:
+
+.. code-block:: json
+
+   {
+     "action": "start_release_others",
+     "num": 2,
+     "group": "B",
+     "fade": 2.0
+   }
+
+To start timeline 2 and release others in the same group, the request payload is:
+
+.. code-block:: json
+
+   {
+     "action": "start_release_others",
+     "num": 2,
+     "same_group": true
    }
 
 To release timeline 2 in 3.5 seconds, the request payload would be:
