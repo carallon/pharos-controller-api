@@ -20,8 +20,8 @@ Properties
      - ``"Scene 1"``
    * - ``group``
      - string
-     - Scene group name (``A`` through ``H`` or empty string)
-     - ``"A"``
+     - Scene group name
+     - ``"Group 1"``
    * - ``state``
      - integer
      - Integer value of constants: ``Scene.NONE``, ``Scene.STARTED`` or ``Scene.RELEASED``

@@ -20,8 +20,8 @@ Properties
      - ``"Timeline 1"``
    * - ``group``
      - string
-     - Timeline group name (``A`` through ``H`` or empty string)
-     - ``"A"``
+     - Timeline group name
+     - ``"Group 1"``
    * - ``length``
      - integer
      - Timeline length, in milliseconds
