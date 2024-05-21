@@ -1304,6 +1304,21 @@ paths:
           description: OK
         '400':
           description: Bad Request
+  /ping:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Ping"
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
 components:
   securitySchemes:
     bearer:
@@ -2358,4 +2373,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Error'
-
+    Ping:
+      type: object
+      properties:
+        target:
+          type: ip address or hostname
+        interface:
+          type: integer

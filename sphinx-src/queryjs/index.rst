@@ -62,6 +62,7 @@ The functions provided in query.js for querying and controlling the controller a
    lua-variable
    output
    override
+   ping
    project
    protocol
    rdm-discovery

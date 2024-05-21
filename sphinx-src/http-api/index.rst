@@ -72,6 +72,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    project
    project-file
    protocol
+   ping
    rdm-discovery
    rdm-get
    rdm-set

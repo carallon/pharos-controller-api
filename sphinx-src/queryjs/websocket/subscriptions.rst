@@ -233,6 +233,54 @@ And the subscription could be setup as follows:
     alert(key + ": " + value)
    })
 
+.. _websocket_subscribe_ping:
+
+subscribe_ping
+==============
+
+Subscribe to ping responses.
+
+``subscribe_ping(callback)``
+
+The ``callback`` is called each time the controller receives a ping response initiated by the web api. Each time it is passed an object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10 4
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``target``
+     - string
+     - The target IP Address of the ping
+     - ``8.8.8.8``
+   * - ``reply_ms``
+     - integer
+     - Optional. The round trip time (ms) of the reply.
+     - ``8``
+   * - ``timeout_ms``
+     - integer
+     - Optional. The reply didn't arrive, in after this interval (ms).
+     - ``1000``
+
+``reply_ms`` and ``timeout_ms`` are mutually exclusive.
+
+For example:
+
+.. code-block:: js
+
+   Query.subscribe_ping(p => {
+      if (p.hasOwnProperty('reply_ms'))
+      {
+        alert("Ping reply in " + p.reply_ms + "ms from " + p.target)
+      }
+      else if (p.hasOwnProperty('timeout_ms'))
+      {
+        alert("Ping timeout after " + p.timeout_ms + "ms sending to " + p.target)
+      }
+   })
 
 .. _websocket_subscribe_rdm_discovery:
 
