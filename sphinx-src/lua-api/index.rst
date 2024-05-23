@@ -83,6 +83,25 @@ large files may take a number of moments for the commit to complete, during this
    file:write('TheQuickBrownFoxJumpsOverTheLazyDog')
    file:close() -- The file is committed to storage now.
 
+.. _constants:
+
+Constants
+*********
+
+At various places throughout the Lua API, values are available as *constants*; that means there are pre-defined Lua variables which you can use in your code.
+
+For example:
+
+.. code-block:: lua
+
+   state = get_timeline(1).state
+
+   if state == Timeline.RELEASED then
+     -- do something if the timeline is released
+   end
+
+Although these constants are numeric values, it's better to use the constant name as shown above for readability and future proofing.
+
 Functions
 *********
 
