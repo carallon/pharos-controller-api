@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  version: "8"
+  version: "9"
   title: Pharos Control API
 servers:
   - url: "http://localhost/api"
