@@ -595,14 +595,22 @@ For example:
 get_log_level
 -------------
 
-Returns the current log level of the controller, which can be one of the following constants:
+Returns the current log level of the controller.
 
-* ``LOG_DEBUG``
-* ``LOG_TERSE``
-* ``LOG_NORMAL``
-* ``LOG_EXTENDED``
-* ``LOG_VERBOSE``
-* ``LOG_CRITICAL``
+Log levels are integers, available as :ref:`constants <constants>`, but can be used for numeric comparisons as well, for example:
+
+.. code-block:: lua
+
+   if get_log_level() >= LOG_NORMAL then
+      log('Extra Logging for levels Normal, Terse and Debug')
+   end
+
+* ``LOG_DEBUG`` (5)
+* ``LOG_TERSE`` (4)
+* ``LOG_NORMAL`` (3)
+* ``LOG_EXTENDED`` (2)
+* ``LOG_VERBOSE`` (1)
+* ``LOG_CRITICAL`` (0)
 
 .. note::
 
