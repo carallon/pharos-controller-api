@@ -2,5 +2,5 @@
 host=code.office.carallon.com
 port=29418
 defaultremote=origin
-defaultbranch=v9
+defaultbranch=master
 project=pharos/controller-api
