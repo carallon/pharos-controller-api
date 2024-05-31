@@ -1,6 +1,6 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
-  version: 6.0.0
+  version: "8"
   title: Pharos Control API
 servers:
   - url: "http://localhost/api"
@@ -36,6 +36,19 @@ paths:
           description: Bad Request
         '401':
           description: Unauthorized
+  /api_version:
+    get:
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: integer
+                    example: 8
   /time:
     get:
       responses:
@@ -1638,9 +1651,9 @@ components:
         same_group:
           type: boolean
         rate:
-          type: number
+          $ref: '#/components/schemas/LevelInBounded'
         position:
-          type: number
+          $ref: '#/components/schemas/LevelInBounded'
     ControlScene:
       type: object
       properties:
@@ -1664,7 +1677,7 @@ components:
           type: string
           enum: [master_intensity]
         level:
-          type: number
+          $ref: '#/components/schemas/LevelInBounded'
         fade:
           type: integer
         delay:
@@ -1679,7 +1692,7 @@ components:
           type: string
           enum: [master_intensity]
         level:
-          type: number
+          $ref: '#/components/schemas/LevelInBounded'
         fade:
           type: integer
         delay:
@@ -1813,7 +1826,7 @@ components:
           type: string
           enum: [master_intensity]
         level:
-          $ref: '#/components/schemas/LevelIn'
+          $ref: '#/components/schemas/LevelInBounded'
     RdmDeviceInfo:
       type: object
       properties:
@@ -2067,6 +2080,12 @@ components:
           maximum: 255
         - type: string
           pattern: '^\d{1,3}(\.\d+)?%$'
+    LevelInBounded:
+      oneOf:
+        - type: number
+        - type: string
+          pattern: '^\d+:\d+$'
+          description: Bounded integer
     LevelOut:
       type: integer
       minimum: 0

@@ -79,9 +79,9 @@ Payload is a JSON object with the following attributes:
      - The action to perform. ``master_intensity`` sets the space to ``level``. ``off`` recalls scene off in the space.
      - ``"master_intensity"``
    * - ``level``
-     - float (0-1)
+     - float or string containing a bounded integer
      - Optional. The master level to apply.
-     - ``0.8``
+     - ``0.8 or "80:100"``
 
 For example, to set the intensity master to 42.2% for space 2, the request payload is:
 

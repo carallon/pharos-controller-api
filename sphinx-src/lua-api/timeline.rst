@@ -78,27 +78,30 @@ For example:
 Timeline States
 ===============
 
-A timeline will be in one of the following states:
+The timeline state is one of the following states (available as Lua :ref:`constants <constants>`) :
 
-* ``Timeline.NONE``
+.. list-table::
+   :widths: 20 10 70
+   :header-rows: 1
 
-  * The timeline has never been run (since the last reset of the controller).
-
-* ``Timeline.RUNNING``
-
-  * The timeline is running (although might not be actively controlling outputs - see the ``onstage`` property).
-
-* ``Timeline.PAUSED``
-
-  * The timeline has been paused by another action.
-
-* ``Timeline.HOLDING_AT_END``
-
-  * The timeline has reached the end, and is holding.
-
-* ``Timeline.RELEASED``
-
-  * The timeline has been run and has now been released.
+   * - State
+     - Value
+     - Description
+   * - ``Timeline.NONE``
+     - 0
+     - The timeline has never been run (since the last reset of the controller).
+   * - ``Timeline.RUNNING``
+     - 1
+     - The timeline is running (although might not be actively controlling outputs - see the ``onstage`` property).
+   * - ``Timeline.PAUSED``
+     - 2
+     - The timeline has been paused by another action.
+   * - ``Timeline.HOLDING_AT_END``
+     - 3
+     - The timeline has reached the end, and is holding.
+   * - ``Timeline.RELEASED``
+     - 4
+     - The timeline has been run and has now been released.
 
 Member functions
 ****************

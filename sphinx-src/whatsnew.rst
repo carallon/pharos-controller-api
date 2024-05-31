@@ -11,6 +11,7 @@ What's New
     ****
 
     * Release scenes and timelines by group number as well as group name.
+    * Add ability to :ref:`retrieve API version in use <api_version>`.
 
     v7.0
     ****

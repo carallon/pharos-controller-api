@@ -83,6 +83,25 @@ large files may take a number of moments for the commit to complete, during this
    file:write('TheQuickBrownFoxJumpsOverTheLazyDog')
    file:close() -- The file is committed to storage now.
 
+.. _constants:
+
+Constants
+*********
+
+At various places throughout the Lua API, values are available as *constants*; that means there are pre-defined Lua variables which you can use in your code.
+
+For example:
+
+.. code-block:: lua
+
+   state = get_timeline(1).state
+
+   if state == Timeline.RELEASED then
+     -- do something if the timeline is released
+   end
+
+Although these constants are numeric values, it's better to use the constant name as shown above for readability and future proofing.
+
 Functions
 *********
 
@@ -576,14 +595,22 @@ For example:
 get_log_level
 -------------
 
-Returns the current log level of the controller, which can be one of the following constants:
+Returns the current log level of the controller.
 
-* ``LOG_DEBUG``
-* ``LOG_TERSE``
-* ``LOG_NORMAL``
-* ``LOG_EXTENDED``
-* ``LOG_VERBOSE``
-* ``LOG_CRITICAL``
+Log levels are integers, available as :ref:`constants <constants>`, but can be used for numeric comparisons as well, for example:
+
+.. code-block:: lua
+
+   if get_log_level() >= LOG_NORMAL then
+      log('Extra Logging for levels Normal, Terse and Debug')
+   end
+
+* ``LOG_DEBUG`` (5)
+* ``LOG_TERSE`` (4)
+* ``LOG_NORMAL`` (3)
+* ``LOG_EXTENDED`` (2)
+* ``LOG_VERBOSE`` (1)
+* ``LOG_CRITICAL`` (0)
 
 .. note::
 
