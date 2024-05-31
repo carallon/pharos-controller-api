@@ -64,7 +64,7 @@ Payload is a JSON object with the following attributes:
      - The target tag set number.
    * - ``action``
      - string
-     - The action to perform on the tag set. ``set_tag`` is the only currently supported action.
+     - The action to perform on the tag set. ``activate_tag`` is the only currently supported action.
    * - ``tag_num``
      - integer
-     - The target tag number .
+     - The target tag number.

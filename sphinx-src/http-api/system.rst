@@ -24,7 +24,7 @@ Returns a JSON object with the following attributes:
      - Value Example
    * - ``hardware_type``
      - string
-     - "|LPC|"
+     - |SAMPLE_CONTROLLER|
    * - ``channel_capacity``
      - integer
      - ``512``

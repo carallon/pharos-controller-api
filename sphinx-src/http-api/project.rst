@@ -30,7 +30,7 @@ Returns a JSON object with the following attributes:
      - ``"Contoso"``
    * - ``filename``
      - string
-     - ``"help_project_v1.pd2"``
+     - |SAMPLE_PROJECT_NAME|
    * - ``unique_id``
      - string
      - ``"{6b48627a-1d5e-4b2f-81e2-481e092a6a79}"``

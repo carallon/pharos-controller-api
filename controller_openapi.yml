@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   version: "8"
   title: Pharos Control API
@@ -1069,6 +1069,35 @@ paths:
           description: OK
         '400':
           description: Bad Request
+  /schedule:
+    get:
+      summary: Get Schedule Enabled/Suppressed
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  enable:
+                    type: boolean
+    put:
+      summary: Set Schedule Enabled/Suppressed
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                enable:
+                  type: boolean
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
 components:
   securitySchemes:
     bearer:
@@ -1620,9 +1649,9 @@ components:
         group:
           type: string
         rate:
-          type: number
+          $ref: '#/components/schemas/LevelInBounded'
         position:
-          type: number
+          $ref: '#/components/schemas/LevelInBounded'
     ControlScene:
       type: object
       properties:
@@ -1644,7 +1673,7 @@ components:
           type: string
           enum: [master_intensity]
         level:
-          type: number
+          $ref: '#/components/schemas/LevelInBounded'
         fade:
           type: integer
         delay:
@@ -1659,7 +1688,7 @@ components:
           type: string
           enum: [master_intensity]
         level:
-          type: number
+          $ref: '#/components/schemas/LevelInBounded'
         fade:
           type: integer
         delay:
@@ -1753,7 +1782,7 @@ components:
           type: integer
         action:
           type: string
-          enum: [set_tag]
+          enum: [activate_tag]
         tag_num:
           type: integer
     Scene:
@@ -1793,7 +1822,7 @@ components:
           type: string
           enum: [master_intensity]
         level:
-          $ref: '#/components/schemas/LevelIn'
+          $ref: '#/components/schemas/LevelInBounded'
     RdmDeviceInfo:
       type: object
       properties:
@@ -2047,6 +2076,12 @@ components:
           maximum: 255
         - type: string
           pattern: '^\d{1,3}(\.\d+)?%$'
+    LevelInBounded:
+      oneOf:
+        - type: number
+        - type: string
+          pattern: '^\d+:\d+$'
+          description: Bounded integer
     LevelOut:
       type: integer
       minimum: 0
