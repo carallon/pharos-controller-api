@@ -70,11 +70,11 @@ Payload is a JSON object with the following attributes:
       - Value Example
     * - ``target``
       - string
-      - What the override should be applied to. ``fixture`` or ``space``
-      - ``"fixture"``
+      - What the override should be applied to. At the moment only ``space`` is supported.
+      - ``"space"``
     * - ``num``
       - integer
-      - Fixture number.
+      - Space number.
       - ``1``
     * - ``intensity``
       - integer or string
