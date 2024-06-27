@@ -1756,18 +1756,10 @@ components:
           type: integer
         https_port:
           type: integer
-        year:
-          type: integer
-        month:
-          type: integer
-        day:
-          type: integer
-        hour:
-          type: integer
-        minute:
-          type: integer
-        second:
-          type: integer
+        datetime:
+          type: string
+          format: date-time
+          example: "2024-06-27T09:30"
         watchdog_enabled:
           type: boolean
         log_level:

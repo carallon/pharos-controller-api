@@ -55,30 +55,10 @@ Payload is a JSON object with the following attributes:
      - integer
      - Optional. Set the port opened for HTTPS access to the controller's web server
      - ``443``
-   * - ``year``
-     - integer
-     - Optional. Set the year of the current date on the controller's clock
-     - ``2021``
-   * - ``month``
-     - integer
-     - Optional. Set the month of the current date on the controller's clock (1-12)
-     - ``4``
-   * - ``day``
-     - integer
-     - Optional. Set the day of the current date on the controller's clock (1-31)
-     - ``25``
-   * - ``hour``
-     - integer
-     - Optional. Set the hour component of the current time on the controller's clock (0-23)
-     - ``13``
-   * - ``minute``
-     - integer
-     - Optional. Set the minute component of the current time on the controller's clock (0-59)
-     - ``21``
-   * - ``second``
-     - integer
-     - Optional. Set the second component of the current time on the controller's clock (0-59)
-     - ``46``
+   * - ``datetime``
+     - string
+     - Optional. Set the current date and time on the controller's clock (ISO 8601 string). Fractional seconds and time zone offset will be ignored.
+     - ``2024-06-27T09:30``
    * - ``watchdog_enabled``
      - boolean
      - Optional. Set whether the controller's hardware watchdog is enabled
@@ -157,30 +137,10 @@ Returns a JSON object with the following attributes:
      - integer
      - Port opened for HTTPS access to the controller's web server
      - ``443``
-   * - ``year``
-     - integer
-     - Year of the current date, according to the controller's clock
-     - ``2021``
-   * - ``month``
-     - integer
-     - Month of the current date, according to the controller's clock (1-12)
-     - ``4``
-   * - ``day``
-     - integer
-     - Day of the current date, according to the controller's clock (1-31)
-     - ``25``
-   * - ``hour``
-     - integer
-     - Hour component of the current time, according to the controller's clock (0-23)
-     - ``13``
-   * - ``minute``
-     - integer
-     - Minute component of the current time, according to the controller's clock (0-59)
-     - ``21``
-   * - ``second``
-     - integer
-     - Second component of the current time, according to the controller's clock (0-59)
-     - ``46``
+   * - ``datetime``
+     - string
+     - Current date and time (ISO 8601 string), according to the controller's clock. Fractional seconds and time zone offset are not included.
+     - ``2024-06-27T09:30``
    * - ``watchdog_enabled``
      - boolean
      - Whether the controller's hardware watchdog is enabled
