@@ -2142,7 +2142,9 @@ components:
             SLOT_INFO,
             SLOT_DESCRIPTION,
             SENSOR_DEFINITION,
-            SENSOR_VALUE
+            SENSOR_VALUE,
+            CURVE,
+            CURVE_DESCRIPTION
             ]
         meta:
           oneOf:

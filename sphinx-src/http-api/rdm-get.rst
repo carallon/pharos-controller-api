@@ -126,6 +126,23 @@ For the ``SENSOR_DEFINITION`` and ``SENSOR_VALUE`` PIDs, the ``meta`` object sho
    * - ``sensor_number_requested``
      - integer
 
+CURVE_DESCRIPTION
+^^^^^^^^^^^^^^^^^
+
+For the ``CURVE_DESCRIPTION`` PID, the ``meta`` object should have the following parameters:
+
+.. list-table::
+   :widths: 5 2 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``curve_requested``
+     - integer
+     - Index of the requested dimmer curve.
+
+
 .. _rdm-get-http-post-supported-rdm-pids:
 
 Supported RDM PIDs
@@ -154,6 +171,8 @@ The following PIDs are directly supported for RDM Get operations:
 * ``SENSOR_VALUE``
 * ``LAMP_HOURS``
 * ``LAMP_STATE``
+* ``CURVE``
+* ``CURVE_DESCRIPTION``
 
 
 .. _rdm-get-descriptions-http-post:
