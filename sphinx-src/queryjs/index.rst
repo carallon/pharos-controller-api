@@ -56,6 +56,7 @@ The functions provided in query.js for querying and controlling the controller a
    config
    content-targets
    controller
+   fan-speed
    group
    input
    log
