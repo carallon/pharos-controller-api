@@ -401,6 +401,13 @@ Get Finished
 
 The GET operation indicated by the PID has finished. No ``data`` object is expected.
 
+Get Descriptions Finished
+-------------------------
+
+``"message_type" : "get_descriptions_finished"``
+
+The Get Descriptions operation indicated by the PID has finished. No ``data`` object is expected.
+
 Set Finished
 ------------
 
@@ -408,7 +415,7 @@ Set Finished
 
 The SET operation indicated by the PID has finished. No ``data`` object is expected.
 
-Get/Set result error
+Get/Get Descriptions/Set result error
 --------------------
 
 ``"message_type" : "result_error"``
@@ -426,10 +433,11 @@ The ``data`` object will have the following attributes:
      - string
      - Description of the error with the response.
 
-Get/Set operation cancelled
+Get/Get Descriptions/Set operation cancelled
 ---------------------------
 
 ``"message_type" : "get_cancelled"``
+``"message_type" : "get_descriptions_cancelled"``
 ``"message_type" : "set_cancelled"``
 
 The ``data`` object will have the following attributes:
@@ -445,12 +453,21 @@ The ``data`` object will have the following attributes:
      - string
      - Description of why the operation was cancelled.
 
-Get/Set Result
+Get/Get Descriptions/Set Result
 --------------
 
 ``"message_type" : "result"``
 
 Provides the results of the operation, parsed from the response from the device. The ``data`` object will be appropriate for the PID. If ``pid`` is a human-readable string, e.g. ``DEVICE_INFO`` then ``data`` is described under `RDM PID result data`_. Otherwise, if ``pid`` is the hex representation of the enum value of a PID, then ``data`` will have one key, ``raw``, the value of which will be the base64-encoded raw payload data received from the device.
+
+Get Descriptions result data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Following a successful :ref:`RDM Get Descriptions<rdm-get-descriptions-http-post>` operation, the ``data`` object in the ``subscribe_rdm_get_set`` callback will have the following attributes.
+
+* ``descriptions`` - array of objects
+
+Each object in the ``descriptions`` array is structured as described by the `RDM PID result data` for the requested ``pid``.
 
 RDM PID result data
 ^^^^^^^^^^^^^^^^^^^

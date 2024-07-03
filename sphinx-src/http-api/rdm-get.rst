@@ -36,7 +36,7 @@ Payload is a JSON object with the following attributes:
      - ``"072c:0004fe02"``
    * - ``pid``
      - string
-     - RDM PID for the Get operation. Can be one of the `Supported RDM PIDs`_ or the raw PID value as a hex string, e.g. ``"FF"``.
+     - RDM PID for the Get operation. Can be one of the :ref:`rdm-get-http-post-supported-rdm-pids` or the raw PID value as a hex string, e.g. ``"FF"``.
      - ``"DEVICE_INFO"``
    * - ``meta``
      - object
@@ -126,13 +126,10 @@ For the ``SENSOR_DEFINITION`` and ``SENSOR_VALUE`` PIDs, the ``meta`` object sho
    * - ``sensor_number_requested``
      - integer
 
-Universe Key String Format
-**************************
-
-.. include:: ../snippets/universe-key-string-format-rdm.rst
+.. _rdm-get-http-post-supported-rdm-pids:
 
 Supported RDM PIDs
-******************
+------------------
 
 The following PIDs are directly supported for RDM Get operations:
 
@@ -157,3 +154,53 @@ The following PIDs are directly supported for RDM Get operations:
 * ``SENSOR_VALUE``
 * ``LAMP_HOURS``
 * ``LAMP_STATE``
+
+
+.. _rdm-get-descriptions-http-post:
+
+POST
+====
+
+Request to start an RDM operation to enumerate all descriptions for a parameter. A ``202`` response will be returned if the request has been successfully queued. Results are available via a websocket subscription (see :ref:`websocket_subscribe_rdm_get_set`).
+
+``POST /api/rdm/get_descriptions``
+
+Payload is a JSON object with the following attributes:
+
+.. list-table::
+   :widths: 5 3 5 3
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``universe``
+     - string in `Universe Key String Format`_ or :doc:`objects/rdm-universe-key`
+     - The universe on which to perform the RDM Get Descriptions operation.
+     - ``"dmx:2"``
+   * - ``destination_uid``
+     - string
+     - Format is ``{manuId}:{deviceId}(:{subId})``
+       where ``{manuId}`` is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. ``072c``;
+       ``{deviceId}`` is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. ``0004fe02``;
+       ``{subId}`` is an optional unsigned decimal integer.
+     - ``"072c:0004fe02"``
+   * - ``pid``
+     - string
+     - RDM PID for the Get Descriptions operation. This must be one of the :ref:`rdm-get-descriptions-http-post-supported-rdm-pids`.
+     - ``"DMX_PERSONALITY"``
+
+.. _rdm-get-descriptions-http-post-supported-rdm-pids:
+
+Supported RDM PIDs
+------------------
+
+The following PIDs are supported for RDM Get Descriptions operations:
+
+* ``DMX_PERSONALITY``
+
+Universe Key String Format
+**************************
+
+.. include:: ../snippets/universe-key-string-format-rdm.rst

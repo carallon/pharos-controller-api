@@ -978,6 +978,21 @@ paths:
           description: Accepted
         '400':
           description: Bad Request
+  /rdm/get_descriptions:
+    post:
+      tags:
+        - RDM Get
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartRdmGetDescriptionsOperation"
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
   /rdm/set:
     post:
       tags:
@@ -2146,6 +2161,17 @@ components:
             - $ref: '#/components/schemas/RdmSetRaw'
         max_rx_length:
           type: integer
+    StartRdmGetDescriptionsOperation:
+      type: object
+      properties:
+        universe:
+          $ref: "#/components/schemas/UniverseId"
+        destination_uid:
+          type: string
+        pid:
+          type: string
+          enum:
+            - DMX_PERSONALITY
     AccessGroup:
       type: string
       description: Group to be assigned to a user
