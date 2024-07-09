@@ -416,7 +416,7 @@ Set Finished
 The SET operation indicated by the PID has finished. No ``data`` object is expected.
 
 Get/Get Descriptions/Set result error
---------------------
+-------------------------------------
 
 ``"message_type" : "result_error"``
 
@@ -434,7 +434,7 @@ The ``data`` object will have the following attributes:
      - Description of the error with the response.
 
 Get/Get Descriptions/Set operation cancelled
----------------------------
+--------------------------------------------
 
 ``"message_type" : "get_cancelled"``
 ``"message_type" : "get_descriptions_cancelled"``
@@ -454,7 +454,7 @@ The ``data`` object will have the following attributes:
      - Description of why the operation was cancelled.
 
 Get/Get Descriptions/Set Result
---------------
+-------------------------------
 
 ``"message_type" : "result"``
 
