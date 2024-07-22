@@ -190,6 +190,9 @@ if product == 'expert':
     exclude_patterns.append('*/objects/dali-power.rst')
     exclude_patterns.append('*/objects/dali-schedule.rst')
     exclude_patterns.append('*/universe-key-string-format-rdm.rst')
+    exclude_patterns.append('*/access-control.rst')
+    exclude_patterns.append('*/htaccess.rst')
+    exclude_patterns.append('*/webconfig.rst')
 
 if product == 'designer':
     print('Building for Designer product')
