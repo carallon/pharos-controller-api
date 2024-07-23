@@ -963,6 +963,21 @@ paths:
           description: Accepted
         '400':
           description: Bad Request
+  /rdm/discovery/unpatched:
+    get:
+      tags:
+        - RDM Discovery
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/RdmDeviceInfo"
   /rdm/get:
     post:
       tags:
