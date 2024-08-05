@@ -180,6 +180,7 @@ if product == 'expert':
     exclude_patterns.append('*/rdm-discovery.rst')
     exclude_patterns.append('*/rdm-get.rst')
     exclude_patterns.append('*/rdm-set.rst')
+    exclude_patterns.append('*/status-monitor.rst')
     exclude_patterns.append('*/objects/index.rst')
     exclude_patterns.append('*/objects/rdm-device-info.rst')
     exclude_patterns.append('*/objects/rdm-universe-key.rst')

@@ -83,6 +83,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    scene
    schedule
    space
+   status-monitor
    system
    tag-set
    temperature

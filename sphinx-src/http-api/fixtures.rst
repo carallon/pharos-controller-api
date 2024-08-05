@@ -1,5 +1,9 @@
+.. _fixtures:
+
 Fixtures
 ########
+
+All properties described below relating to a fixture or device's status are obtained by the :ref:`status-monitor`.
 
 Fixtures Overview
 *****************

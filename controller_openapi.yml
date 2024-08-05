@@ -55,6 +55,8 @@ tags:
     description: (Expert only)
   - name: Space
     description: (Expert only)
+  - name: Status Monitor
+    description: (Designer only)
   - name: System
   - name: Tag Set
     description: (Expert only)
@@ -1442,6 +1444,34 @@ paths:
           description: Bad Request
         '404':
           description: Not Found
+  /status_monitor:
+    post:
+      tags:
+        - Status Monitor
+      summary: Control the Status Monitor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                    - refresh
+                fixture_number:
+                  type: integer
+                  example: 1
+              required:
+                - action
+      responses:
+        '400':
+          description: Bad Request
+        '202':
+          description: Accepted
+        '409':
+          description: Conflict
 components:
   securitySchemes:
     bearer:
