@@ -62,6 +62,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    dali
    dali-interface
    factory-reset
+   fixtures
    group
    input
    log

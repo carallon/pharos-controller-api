@@ -166,6 +166,7 @@ if product == 'expert':
     exclude_patterns.append('*/content-targets.rst')
     exclude_patterns.append('*/dali.rst')
     exclude_patterns.append('*/dali-interface.rst')
+    exclude_patterns.append('*/fixtures.rst')
     exclude_patterns.append('*/group.rst')
     exclude_patterns.append('*/lua-variable.rst')
     exclude_patterns.append('*/project-file.rst')
