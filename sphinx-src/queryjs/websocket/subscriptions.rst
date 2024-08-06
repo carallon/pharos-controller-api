@@ -654,6 +654,81 @@ Following a successful GET or SET operation for ``LAMP_STATE``, the ``data`` obj
 
 * ``lamp_state`` - number (8 bit)
 
+subscribe_status_monitor
+========================
+
+Subscribe for status updates to RDM devices and fixtures.
+
+  This subscription is not available on VLC or VLC+.
+
+``subscribe_status_monitor(callback)``
+
+The callback is called to provide status updated from runs of the :ref:`status-monitor`. The callback is passed an object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``message_type``
+     - string
+     - Categorises the message. Currently only ``status_change`` is supported.
+   * - ``device``
+     - object
+     - The physical device which triggered the status change event.
+   * - ``fixture``
+     - object
+     - Optional. The fixture associated with ``device`` that is affected by this status change.
+
+Device
+------
+
+The ``device`` object has the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``device_id``
+     - string
+     - RDM device UID.
+   * - ``rdm``
+     - object
+     - A map of RDM parameters cached from the latest run of the :ref:`status-monitor`, index by parameter ID.
+   * - ``status``
+     - string
+     - ``"online"``, ``"offline"``, ``"loading"``, or ``null`` if unknown.
+   * - ``updated_at``
+     - string
+     - ISO 8601-formatted timestamp of the device's last status update.
+
+Fixture
+-------
+
+The ``fixture`` object has the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``number``
+     - integer
+     - User number of the fixture
+   * - ``status``
+     - string
+     - ``"online"``, ``"partially_offline"``, ``"offline"``, ``"loading"``, or ``null`` if unknown.
+   * - ``updated_at``
+     - string
+     - ISO 8601-formatted timestamp of the fixture's last status update.
+
 Universe Key String Format
 **************************
 
