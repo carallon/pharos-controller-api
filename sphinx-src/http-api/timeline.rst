@@ -45,10 +45,29 @@ Payload is a JSON object with the following attributes:
      - string
      - Required for a ``set_rate`` action; invalid otherwise. Value should be a string containing a floating point number or a bounded integer, where 1.0 means the timeline's default rate.
      - ``"0.1"`` or ``"10:100"``
+
+If the ``action`` is ``set_position``, then **one** of the following is required:
+
+.. list-table::
+   :widths: 3 3 10 5
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
    * - ``position``
      - string
-     - Required for a ``set_position`` action; invalid otherwise. Value should be a string containing a floating point number or a bounded integer, representing a fraction of the timeline length.
+     - Value should be a string containing a floating point number or a bounded integer, representing a fraction of the timeline length.
      - ``"0.1"`` or ``"10:100"``
+   * - ``time``
+     - number
+     - Value represents an absolute time point (seconds) within the timeline.
+     - ``0.1`` or ``180``
+   * - ``flag``
+     - string
+     - The name of the timeline flag, representing an absolute time point within the timeline.
+     - ``Start sparkle`` or ``My Flag 1``
 
 For example, to start timeline 2, the request payload is:
 
@@ -172,6 +191,46 @@ To set the position of timeline 1 to a third of the way through, the request pay
      "num": 1,
      "position": "1:3"
    }
+
+To set the position of timeline 1 to 50% of the way through, the request payload would be:
+
+.. code-block:: json
+
+  {
+    "action": "set_position",
+    "num": 1,
+    "position": "0.5"
+  }
+
+To set the position of timeline 3 to 180 seconds, the request payload would be:
+
+.. code-block:: json
+
+  {
+    "action": "set_position",
+    "num": 3,
+    "time": 180
+  }
+
+To set the position of timeline 4 to 12.34 seconds, the request payload would be:
+
+.. code-block:: json
+
+  {
+    "action": "set_position",
+    "num": 4,
+    "time": 12.34
+  }
+
+To set the position of timeline 5 at the timeline flag named "Start sparkle", the request payload would be:
+
+.. code-block:: json
+
+  {
+    "action": "set_position",
+    "num": 5,
+    "flag": "Start sparkle"
+  }
 
 GET
 ===
