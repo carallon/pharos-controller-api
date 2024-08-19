@@ -170,6 +170,7 @@ if product == 'expert':
     exclude_patterns.append('*/group.rst')
     exclude_patterns.append('*/lua-variable.rst')
     exclude_patterns.append('*/project-file.rst')
+    exclude_patterns.append('*/rdm-devices.rst')
     exclude_patterns.append('*/replication.rst')
     exclude_patterns.append('*/text-slots.rst')
     exclude_patterns.append('*/timeline.rst')

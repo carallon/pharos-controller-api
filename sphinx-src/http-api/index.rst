@@ -75,6 +75,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    protocol
    ping
    rdm-discovery
+   rdm-devices
    rdm-get
    rdm-set
    remote-device

@@ -40,6 +40,8 @@ tags:
   - name: Project File
     description: (Designer only)
   - name: Protocol
+  - name: RDM Devices
+    description: (Designer only)
   - name: RDM Discovery
     description: (Designer only)
   - name: RDM Get
@@ -1392,14 +1394,14 @@ paths:
                   $ref: '#/components/schemas/FixtureStatusDetail'
         '400':
           description: Bad Request
-  /fixtures/{fixtureNumber}/devices:
+  /rdm_devices:
     get:
       tags:
-        - Fixtures
-      summary: Get an overview of a fixture's physical devices including their statuses
+        - RDM Devices
+      summary: Get an overview of RDM devices including their statuses
       parameters:
-        - name: fixtureNumber
-          in: path
+        - name: fixture
+          in: query
           description: Fixture user number
           required: true
           schema:
@@ -1415,18 +1417,12 @@ paths:
                   $ref: '#/components/schemas/DeviceStatus'
         '400':
           description: Bad Request
-  /fixtures/{fixtureNumber}/devices/{deviceId}:
+  /rdm_devices/{deviceId}:
     get:
       tags:
-        - Fixtures
-      summary: Get a single physical device for a fixture including its status
+        - RDM Devices
+      summary: Get a single RDM device including its status
       parameters:
-        - name: fixtureNumber
-          in: path
-          description: Fixture user number
-          required: true
-          schema:
-            type: integer
         - name: deviceId
           in: path
           description: RDM device UID
