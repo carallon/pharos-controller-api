@@ -1406,6 +1406,11 @@ paths:
           required: true
           schema:
             type: integer
+        - name: unpatched
+          in: query
+          description: Return only unpatched devices
+          schema:
+            type: boolean
       responses:
         '200':
           description: OK
