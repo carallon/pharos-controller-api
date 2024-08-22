@@ -1446,6 +1446,32 @@ paths:
         '404':
           description: Not Found
   /status_monitor:
+    get:
+      tags:
+        - Status Monitor
+      summary: Get an overview of the Status Monitor
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  latest_refresh_all:
+                    type: object
+                    nullable: true
+                    properties:
+                      completed_at:
+                        type: string
+                        nullable: true
+                        format: date-time
+                      discovered_device_count:
+                        type: integer
+                        example: 50
+                      unpatched_device_count:
+                        type: integer
+                        example: 3
     post:
       tags:
         - Status Monitor

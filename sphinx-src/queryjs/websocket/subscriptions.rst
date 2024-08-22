@@ -657,7 +657,7 @@ Following a successful GET or SET operation for ``LAMP_STATE``, the ``data`` obj
 subscribe_status_monitor
 ========================
 
-Subscribe for status updates to RDM devices and fixtures.
+Subscribe to status monitor completion events and to status updates for RDM devices and fixtures.
 
   This subscription is not available on VLC or VLC+.
 
@@ -674,7 +674,46 @@ The callback is called to provide status updated from runs of the :ref:`status-m
      - Description
    * - ``message_type``
      - string
-     - Categorises the message. Currently only ``status_change`` is supported.
+     - ``"state"`` or ``"status_change"``.
+
+State
+-----
+
+``"message_type": "state"``
+
+Emitted immediately upon subscription to ``status_monitor`` and after each successful completion of a full status monitor refresh. This message type contains an optional ``latest_refresh_all`` object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``completed_at``
+     - string
+     - ISO 8601-formatted timestamp of the latest full refresh.
+   * - ``discovered_device_count``
+     - integer
+     - Total discovered device count including both patched and unpatched devices.
+   * - ``unpatched_device_count``
+     - integer
+     - Unpatched device count.
+
+Status Change
+-------------
+
+``"message_type": "status_change"``
+
+The following additional attributes are include with this message type:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
    * - ``device``
      - object
      - The physical device which triggered the status change event.
@@ -683,7 +722,7 @@ The callback is called to provide status updated from runs of the :ref:`status-m
      - Optional. The fixture associated with ``device`` that is affected by this status change.
 
 Device
-------
+^^^^^^
 
 The ``device`` object has the following attributes:
 
@@ -708,7 +747,7 @@ The ``device`` object has the following attributes:
      - ISO 8601-formatted timestamp of the device's last status update.
 
 Fixture
--------
+^^^^^^^
 
 The ``fixture`` object has the following attributes:
 

@@ -10,6 +10,38 @@ Status monitor results are accessed through the :ref:`fixtures` and :ref:`rdm-de
 Methods
 *******
 
+GET
+===
+
+Returns an overview of the status monitor.
+
+``GET /api/status_monitor``
+
+Returns a JSON object containing a single ``latest_refresh_all`` attribute with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10 5
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``completed_at``
+     - string
+     - ISO 8601-formatted timestamp of the latest full refresh
+     - ``"2024-06-27T09:30"``
+   * - ``discovered_device_count``
+     - integer
+     - Total discovered device count including both patched and unpatched devices
+     - ``50``
+   * - ``unpatched_device_count``
+     - integer
+     - Unpatched device count
+     - ``3``
+
+The ``latest_refresh_all`` attribute will be ``null`` if a full status monitor refresh has not been performed since boot.
+
 POST
 ====
 
