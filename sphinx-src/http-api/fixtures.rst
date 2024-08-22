@@ -49,11 +49,11 @@ Returns a JSON array of objects with the following attributes:
      - ``"dmx"``
    * - ``status``
      - string
-     - ``"online"``, ``"partially_offline"``, ``"offline"``, ``"loading"``, or ``null`` if unknown
+     - ``"online"``, ``"partially_offline"``, ``"offline"``, ``"loading"``, or ``"unknown"``
      - ``"online"``
    * - ``updated_at``
      - string
-     - ISO 8601-formatted timestamp of the last status update, or ``null`` is unknown
+     - ISO 8601-formatted timestamp of the last status update, or ``null`` if unknown
      - ``2024-06-27T09:30``
 
 Fixture

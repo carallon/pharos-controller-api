@@ -2544,13 +2544,12 @@ components:
           type: integer
     FixtureDeviceStatus:
       type: string
-      nullable: true
       enum:
         - online
         - partially_offline
         - offline
         - loading
-        - null
+        - unknown
     FixtureStatusOverview:
       type: object
       properties:

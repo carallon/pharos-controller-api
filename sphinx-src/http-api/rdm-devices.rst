@@ -37,15 +37,15 @@ Returns a JSON array of objects with the following attributes:
      - ``"1234:56789abc"``
    * - ``patch``
      - string
-     - Combined universe key and address (see `Universe Key String Format`_)
+     - Combined universe key and address (see `Universe Key String Format`_). Only included if ``status`` is ``online``.
      - ``"dmx:2:101"``
    * - ``rdm``
      - object
-     - RDM parameters cached from the latest status monitor run
+     - RDM parameters cached from the latest status monitor run. Only included if ``status`` is ``online``.
      - ``{}``
    * - ``status``
      - string
-     - ``"online"``, ``"offline"``, ``"loading"``, or ``null`` if unknown
+     - ``"online"``, ``"offline"``, ``"loading"``, or ``"unknown"``
      - ``"online"``
    * - ``updated_at``
      - string
