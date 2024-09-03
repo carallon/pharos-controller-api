@@ -1445,6 +1445,42 @@ paths:
           description: Bad Request
         '404':
           description: Not Found
+  /rdm_devices/{deviceId}/patch:
+    put:
+      tags:
+        - RDM Devices
+      summary: Patch an RDM device
+      parameters:
+        - name: deviceId
+          in: path
+          description: RDM device UID
+          required: true
+          schema:
+            $ref: "#/components/schemas/RdmDeviceUid"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                    - replace
+                target_device_id:
+                  $ref: "#/components/schemas/RdmDeviceUid"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+        '400':
+          description: Bad Request
+        '409':
+          description: Conflict
   /status_monitor:
     get:
       tags:

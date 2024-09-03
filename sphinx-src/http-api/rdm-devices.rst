@@ -64,6 +64,32 @@ Get a single RDM device including its status.
 
 Returns a JSON object with the same properties as contained in the :ref:`RDM Devices Overview GET <rdm-devices-overview-http-get>` response.
 
+PUT
+===
+
+Patch an unpatched RDM device.
+
+``PUT /api/rdm_devices/{deviceId}/patch``
+
+The payload is a JSON object with the following attributes:
+
+.. list-table::
+   :widths: 4 3 10 5
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``action``
+     - string
+     - The patch action to perform. Currently only ``replace`` is supported.
+     - ``"replace"``
+   * - ``target_device_id``
+     - string
+     - The RDM UID of the device to replace.
+     - ``"1234:56789abc"``
+
 Universe Key String Format
 **************************
 
