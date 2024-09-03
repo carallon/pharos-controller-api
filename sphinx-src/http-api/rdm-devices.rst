@@ -15,11 +15,11 @@ GET
 
 Get an overview of RDM devices including their statuses.
 
-``GET /api/rdm_devices[?fixture=fixtureNumber][&unpatched=true]``
+``GET /api/rdm_devices[?fixture=fixtureNumber][&offline=true][&unpatched=true]``
 
-``fixture`` can be used the filter the response to devices patched to a single fixture. Set ``unpatched`` to ``true`` to return only unpatched devices.
+``fixture`` can be used the filter the response to devices patched to a single fixture. Set ``offline`` to ``true`` to return only offline devices, or set ``unpatched`` to ``true`` to return only unpatched devices.
 
-One of ``fixture`` or ``unpatched`` is required and may not be provided together.
+One of ``fixture``, ``offline``, or ``unpatched`` is required, and no two parameters may be provided together.
 
 Returns a JSON array of objects with the following attributes:
 

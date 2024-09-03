@@ -1403,9 +1403,13 @@ paths:
         - name: fixture
           in: query
           description: Fixture user number
-          required: true
           schema:
             type: integer
+        - name: offline
+          in: query
+          description: Return only offline devices
+          schema:
+            type: boolean
         - name: unpatched
           in: query
           description: Return only unpatched devices
