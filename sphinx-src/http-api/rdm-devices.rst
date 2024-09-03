@@ -35,6 +35,10 @@ Returns a JSON array of objects with the following attributes:
      - string
      - RDM device UID
      - ``"1234:56789abc"``
+   * - ``fixture_number``
+     - number
+     - User number of the fixture this device is assigned to, or ``null`` if not patched.
+     - ``123``
    * - ``patch``
      - string
      - Combined universe key and address (see `Universe Key String Format`_). Only included if ``status`` is ``online``.

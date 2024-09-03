@@ -2669,6 +2669,10 @@ components:
       properties:
         uid:
           $ref: '#/components/schemas/RdmDeviceUid'
+        fixture_number:
+          type: number
+          example: 123
+          nullable: true
         patch:
           type: string
           example: dmx:2:101
