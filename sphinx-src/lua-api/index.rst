@@ -25,6 +25,7 @@ Lua API
    temperature
    time
    timeline
+   touch-device
    universe
    variant
    web-server
@@ -482,6 +483,27 @@ Returns a :doc:`bps` object with remote device number ``num``.
 For example:
 
 .. include:: code-examples/bps-get-state.rst
+
+
+.. _Lua_get_touch_device:
+
+get_touch_device
+----------------
+
+``get_touch_device(type, num)``
+
+Returns a :doc:`touch-device` object representing a TouchDevice matching the parameters:
+
+* ``type`` can be one of the constants ``TPS``, ``TPS5`` or ``TPS8``.
+* ``num`` is the remote device number within the |Designer| project.
+
+For example:
+
+.. include:: code-examples/touchdevice-set-interface-page.rst
+
+.. note::
+
+   The constants for ``type`` are in the ``controller`` namespace within IO modules, e.g. ``controller.TPS5``.
 
 
 .. _Lua_get_text_slot:
@@ -1005,43 +1027,7 @@ Set the value of the text slot named ``name`` in the project to ``value``, for e
 set_control_value
 -----------------
 
-``set_control_value(name, [index,] value[, emitChange])``
-
-Set the value on a Touch Slider or Colour Picker according to the parameters:
-
-.. list-table::
-   :widths: 3 3 7 3
-   :header-rows: 1
-
-   * - Parameter
-     - Value Type
-     - Description
-     - Value Example
-   * - ``name``
-     - string
-     - The Key of the Touch Control.
-     - ``slider001``
-   * - ``index``
-     - integer (1-3)
-     - Optional. Axis of movement - a slider has 1; a colour picker has 3. Will default to 1 if this parameter isn't specified.
-     - ``1``
-   * - ``value``
-     - integer (0-255)
-     - New value to set.
-     - ``128``
-   * - ``emitChange``
-     - boolean
-     - Optional. Whether to fire associated triggers as a result of the control value change. Defaults to ``false``.
-     - ``true``
-
-For example:
-
-.. code-block:: lua
-
-   -- Set slider001 to half (and don't fire any associated triggers)
-   set_control_value("slider001", 128)
-   -- Set the second axis (green) to full on colour020
-   set_control_value("colour020", 2, 255)
+Same behaviour as for :ref:`Lua_touch_device_set_control_value`, but acts on all touchscreens
 
 
 .. _Lua_set_control_state:
@@ -1049,33 +1035,7 @@ For example:
 set_control_state
 -----------------
 
-``set_control_state(name, state)``
-
-Set the state on a Touch control according to the parameters:
-
-.. list-table::
-   :widths: 3 3 7 3
-   :header-rows: 1
-
-   * - Parameter
-     - Value Type
-     - Description
-     - Value Example
-   * - ``name``
-     - string
-     - The Key of the Touch Control.
-     - ``slider001``
-   * - ``state``
-     - string
-     - The name of the state as defined in the Touch theme.
-     - ``Green``
-
-For example:
-
-.. code-block:: lua
-
-   -- Set slider001 to a state called "Green"
-   set_control_state("slider001", "Green")
+Same behaviour as for :ref:`Lua_touch_device_set_control_state`, but acts on all touchscreens
 
 
 .. _Lua_set_control_caption:
@@ -1083,33 +1043,7 @@ For example:
 set_control_caption
 -------------------
 
-``set_control_caption(name, caption)``
-
-Set the caption on a Touch control according to the parameters:
-
-.. list-table::
-   :widths: 3 3 7 3
-   :header-rows: 1
-
-   * - Parameter
-     - Value Type
-     - Description
-     - Value Example
-   * - ``name``
-     - string
-     - The Key of the Touch Control.
-     - ``button001``
-   * - ``caption``
-     - string
-     - The text to display as the control's caption.
-     - ``On``
-
-For example:
-
-.. code-block:: lua
-
-   -- Set button001's caption to "On"
-   set_control_caption("button001", "On")
+Same behaviour as for :ref:`Lua_touch_device_set_control_caption`, but acts on all touchscreens
 
 .. _Lua_set_touch_button_pressed:
 
@@ -1167,37 +1101,7 @@ For example:
 set_interface_page
 ------------------
 
-``set_interface_page(number[, transition])``
-
-Change the current page on the Touch interface according to the parameters:
-
-.. list-table::
-   :widths: 3 3 7 3
-   :header-rows: 1
-
-   * - Parameter
-     - Value Type
-     - Description
-     - Value Example
-   * - ``number``
-     - integer
-     - Touch interface page to change to.
-     - ``2``
-   * - ``transition``
-     - integer
-     - Optional page transition. Integer value of constants: ``SNAP``, ``PAN_LEFT``, ``PAN_RIGHT``
-     - ``PAN_LEFT``
-
-.. note::
-
-   Must be executed on the |TPC| that hosts the interface.
-
-For example:
-
-.. code-block:: lua
-
-   -- Change the touch screen interface to page 4 with a snap transition
-   set_interface_page(4, SNAP)
+Same behaviour as for :ref:`Lua_touch_device_set_interface_page`, but acts on all touchscreens
 
 
 .. _Lua_set_interface_enabled:
@@ -1205,20 +1109,7 @@ For example:
 set_interface_enabled
 ---------------------
 
-``set_interface_enabled([enabled])``
-
-Enable/disable the touchscreen, according to the optional boolean parameter ``enabled`` (default: ``true``).
-
-.. note::
-
-   Must be executed on the |TPC| that hosts the interface.
-
-For example:
-
-.. code-block:: lua
-
-   -- Disable the touchscreen
-   set_interface_enabled(false)
+Same behaviour as for :ref:`Lua_touch_device_set_interface_enabled`, but acts on all touchscreens
 
 
 .. _Lua_set_interface_locked:
@@ -1226,22 +1117,7 @@ For example:
 set_interface_locked
 --------------------
 
-``set_interface_locked([lock])``
-
-Lock/unlock the touchscreen, according to the optional boolean parameter ``lock`` (default: ``true``).
-
-.. note::
-
-   Must be executed on the |TPC| that hosts the interface.
-
-For example:
-
-.. code-block:: lua
-
-   -- Lock the touchscreen
-   set_interface_locked()
-   -- Unlock the touchscreen
-   set_interface_locked(false)
+Same behaviour as for :ref:`Lua_touch_device_set_interface_locked`, but acts on all touchscreens
 
 
 .. _Lua_push_to_web:
