@@ -30,6 +30,11 @@ Properties
      - boolean
      - Whether this controller is set as the Network Primary in the project
      - ``true``
+   * - ``online``
+     - boolean
+     - Whether this controller is currently online
+     - ``true``
+
 
 For example:
 

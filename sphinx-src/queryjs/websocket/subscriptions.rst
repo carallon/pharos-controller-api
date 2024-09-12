@@ -233,6 +233,54 @@ And the subscription could be setup as follows:
     alert(key + ": " + value)
    })
 
+.. _websocket_subscribe_ping:
+
+subscribe_ping
+==============
+
+Subscribe to ping responses.
+
+``subscribe_ping(callback)``
+
+The ``callback`` is called each time the controller receives a ping response initiated by the web api. Each time it is passed an object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10 4
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``target``
+     - string
+     - The target IP Address of the ping
+     - ``8.8.8.8``
+   * - ``reply_ms``
+     - integer
+     - Optional. The round trip time (ms) of the reply.
+     - ``8``
+   * - ``timeout_ms``
+     - integer
+     - Optional. The reply didn't arrive, in after this interval (ms).
+     - ``1000``
+
+``reply_ms`` and ``timeout_ms`` are mutually exclusive.
+
+For example:
+
+.. code-block:: js
+
+   Query.subscribe_ping(p => {
+      if (p.hasOwnProperty('reply_ms'))
+      {
+        alert("Ping reply in " + p.reply_ms + "ms from " + p.target)
+      }
+      else if (p.hasOwnProperty('timeout_ms'))
+      {
+        alert("Ping timeout after " + p.timeout_ms + "ms sending to " + p.target)
+      }
+   })
 
 .. _websocket_subscribe_rdm_discovery:
 
@@ -353,6 +401,13 @@ Get Finished
 
 The GET operation indicated by the PID has finished. No ``data`` object is expected.
 
+Get Descriptions Finished
+-------------------------
+
+``"message_type" : "get_descriptions_finished"``
+
+The Get Descriptions operation indicated by the PID has finished. No ``data`` object is expected.
+
 Set Finished
 ------------
 
@@ -360,8 +415,8 @@ Set Finished
 
 The SET operation indicated by the PID has finished. No ``data`` object is expected.
 
-Get/Set result error
---------------------
+Get/Get Descriptions/Set result error
+-------------------------------------
 
 ``"message_type" : "result_error"``
 
@@ -378,10 +433,11 @@ The ``data`` object will have the following attributes:
      - string
      - Description of the error with the response.
 
-Get/Set operation cancelled
----------------------------
+Get/Get Descriptions/Set operation cancelled
+--------------------------------------------
 
 ``"message_type" : "get_cancelled"``
+``"message_type" : "get_descriptions_cancelled"``
 ``"message_type" : "set_cancelled"``
 
 The ``data`` object will have the following attributes:
@@ -397,12 +453,21 @@ The ``data`` object will have the following attributes:
      - string
      - Description of why the operation was cancelled.
 
-Get/Set Result
---------------
+Get/Get Descriptions/Set Result
+-------------------------------
 
 ``"message_type" : "result"``
 
 Provides the results of the operation, parsed from the response from the device. The ``data`` object will be appropriate for the PID. If ``pid`` is a human-readable string, e.g. ``DEVICE_INFO`` then ``data`` is described under `RDM PID result data`_. Otherwise, if ``pid`` is the hex representation of the enum value of a PID, then ``data`` will have one key, ``raw``, the value of which will be the base64-encoded raw payload data received from the device.
+
+Get Descriptions result data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Following a successful :ref:`RDM Get Descriptions<rdm-get-descriptions-http-post>` operation, the ``data`` object in the ``subscribe_rdm_get_set`` callback will have the following attributes.
+
+* ``descriptions`` - array of objects
+
+Each object in the ``descriptions`` array is structured as described by the `RDM PID result data` for the requested ``pid``.
 
 RDM PID result data
 ^^^^^^^^^^^^^^^^^^^
@@ -588,6 +653,120 @@ Get/Set Lamp State (LAMP_STATE)
 Following a successful GET or SET operation for ``LAMP_STATE``, the ``data`` object in the ``subscribe_rdm_get_set`` callback argument will have the following attributes, which map to the attributes of the same names in the RDM specification for this response:
 
 * ``lamp_state`` - number (8 bit)
+
+subscribe_status_monitor
+========================
+
+Subscribe to status monitor completion events and to status updates for RDM devices and fixtures.
+
+  This subscription is not available on VLC or VLC+.
+
+``subscribe_status_monitor(callback)``
+
+The callback is called to provide status updated from runs of the :ref:`status-monitor`. The callback is passed an object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``message_type``
+     - string
+     - ``"state"`` or ``"status_change"``.
+
+State
+-----
+
+``"message_type": "state"``
+
+Emitted immediately upon subscription to ``status_monitor`` and after each successful completion of a full status monitor refresh. This message type contains an optional ``latest_refresh_all`` object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``completed_at``
+     - string
+     - ISO 8601-formatted timestamp of the latest full refresh.
+   * - ``discovered_device_count``
+     - integer
+     - Total discovered device count including both patched and unpatched devices.
+   * - ``unpatched_device_count``
+     - integer
+     - Unpatched device count.
+
+Status Change
+-------------
+
+``"message_type": "status_change"``
+
+The following additional attributes are include with this message type:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``device``
+     - object
+     - The physical device which triggered the status change event.
+   * - ``fixture``
+     - object
+     - Optional. The fixture associated with ``device`` that is affected by this status change.
+
+Device
+^^^^^^
+
+The ``device`` object has the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``device_id``
+     - string
+     - RDM device UID.
+   * - ``rdm``
+     - object
+     - A map of RDM parameters cached from the latest run of the :ref:`status-monitor`, index by parameter ID.
+   * - ``status``
+     - string
+     - ``"online"``, ``"offline"``, ``"loading"``, or ``null`` if unknown.
+   * - ``updated_at``
+     - string
+     - ISO 8601-formatted timestamp of the device's last status update.
+
+Fixture
+^^^^^^^
+
+The ``fixture`` object has the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``number``
+     - integer
+     - User number of the fixture
+   * - ``status``
+     - string
+     - ``"online"``, ``"partially_offline"``, ``"offline"``, ``"loading"``, or ``null`` if unknown.
+   * - ``updated_at``
+     - string
+     - ISO 8601-formatted timestamp of the fixture's last status update.
 
 Universe Key String Format
 **************************

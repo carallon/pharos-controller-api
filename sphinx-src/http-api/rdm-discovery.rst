@@ -76,6 +76,16 @@ Returns the cached results of the last RDM discovery operation.
 Returns a JSON object with a ``devices`` attribute, which has an array value. Each item in the array is an :doc:`objects/rdm-device-info` object.
 
 
+GET (Unpatched Devices)
+=======================
+
+Returns unpatched devices from the cached results of the last RDM discovery operation, grouped by universe.
+
+``GET /api/rdm/discovery/unpatched``
+
+Returns a JSON object of unpatched devices. Each key is a string in the `Universe Key String Format`_ and each item is an array of :doc:`objects/rdm-device-info` objects.
+
+
 Universe Key String Format
 **************************
 

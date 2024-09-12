@@ -162,6 +162,22 @@ For the ``LAMP_STATE`` PID, the ``meta`` object should have the following parame
      - integer
      - Operating state to set the lamp to.
 
+CURVE
+^^^^^
+
+For the ``CURVE`` PID, the ``meta`` object should have the following parameters:
+
+.. list-table::
+   :widths: 4 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``curve``
+     - integer
+     - Index of the dimmer curve to set as current.
+
 Raw
 ^^^
 
@@ -186,3 +202,4 @@ The following PIDs are directly supported for RDM Set operations:
 * ``SENSOR_VALUE``
 * ``LAMP_HOURS``
 * ``LAMP_STATE``
+* ``CURVE``

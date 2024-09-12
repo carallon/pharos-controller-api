@@ -63,6 +63,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    dali-interface
    factory-reset
    fan-speed
+   fixtures
    group
    input
    log
@@ -73,7 +74,9 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    project
    project-file
    protocol
+   ping
    rdm-discovery
+   rdm-devices
    rdm-get
    rdm-set
    remote-device
@@ -82,6 +85,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    scene
    schedule
    space
+   status-monitor
    system
    tag-set
    temperature

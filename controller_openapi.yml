@@ -1,15 +1,85 @@
 openapi: 3.0.3
 info:
-  version: "8"
+  version: "9"
   title: Pharos Control API
 servers:
   - url: "http://localhost/api"
 security:
   - bearer: []
   - cookie: []
+tags:
+  - name: Authentication
+  - name: Beacon
+  - name: Channel / Park
+  - name: Cloud
+  - name: Command
+    description: (Designer only)
+  - name: Config
+  - name: Controller
+  - name: Content Targets
+    description: (Designer only)
+  - name: DALI
+    description: (Designer only)
+  - name: DALI Interface
+    description: (Designer only)
+  - name: Factory Reset
+  - name: Fixtures
+    description: (Designer only)
+  - name: Group
+    description: (Designer only)
+  - name: Hardware Reset
+  - name: Input
+  - name: Log
+  - name: Lua Variable
+    description: (Designer only)
+  - name: Mode Switch
+    description: (Expert only)
+  - name: Output
+  - name: Override
+  - name: Project
+  - name: Project File
+    description: (Designer only)
+  - name: Protocol
+  - name: RDM Devices
+    description: (Designer only)
+  - name: RDM Discovery
+    description: (Designer only)
+  - name: RDM Get
+    description: (Designer only)
+  - name: RDM Set
+    description: (Designer only)
+  - name: Remote Device
+    description: (Designer only)
+  - name: Replication
+    description: (Designer only)
+  - name: Scene
+  - name: Schedule
+    description: (Expert only)
+  - name: Space
+    description: (Expert only)
+  - name: Status Monitor
+    description: (Designer only)
+  - name: System
+  - name: Tag Set
+    description: (Expert only)
+  - name: Temperature
+    description: (Designer only)
+  - name: Text Slots
+    description: (Designer only)
+  - name: Time
+  - name: Timeline
+    description: (Designer only)
+  - name: Trigger
+    description: (Designer only)
+  - name: User
+  - name: User Groups
+  - name: (Internal)
+    description: Excluded from user documentation
 paths:
   /authenticate:
     post:
+      tags:
+        - Authentication
       servers:
         - url: "http://localhost"
       security: []
@@ -51,6 +121,8 @@ paths:
                     example: 8
   /time:
     get:
+      tags:
+        - Time
       responses:
         '200':
           description: OK
@@ -60,6 +132,8 @@ paths:
                 $ref: "#/components/schemas/CurrentTime"
   /system:
     get:
+      tags:
+        - System
       responses:
         '200':
           description: OK
@@ -69,6 +143,8 @@ paths:
                 $ref: "#/components/schemas/System"
   /project:
     get:
+      tags:
+        - Project
       responses:
         '200':
           description: OK
@@ -78,6 +154,8 @@ paths:
                 $ref: "#/components/schemas/Project"
   /project/file:
     get:
+      tags:
+        - Project File
       responses:
         '200':
           description: OK
@@ -87,6 +165,8 @@ paths:
                 type: string
                 format: binary
     post:
+      tags:
+        - Project File
       requestBody:
         required: true
         content:
@@ -103,6 +183,8 @@ paths:
           description: Length Required
   /project/reload_dropped:
     post:
+      tags:
+        - (Internal)
       responses:
         '204':
           description: OK
@@ -112,6 +194,8 @@ paths:
           description: Conflict
   /firmware:
     post:
+      tags:
+        - (Internal)
       requestBody:
         required: true
         content:
@@ -126,6 +210,8 @@ paths:
           description: Length Required
   /timeline:
     get:
+      tags:
+        - Timeline
       parameters:
         - in: query
           name: num
@@ -145,6 +231,8 @@ paths:
                     items:
                       $ref: "#/components/schemas/Timeline"
     post:
+      tags:
+        - Timeline
       requestBody:
         required: true
         content:
@@ -158,6 +246,8 @@ paths:
           description: Bad Request
   /scene:
     get:
+      tags:
+        - Scene
       parameters:
         - in: query
           name: num
@@ -177,6 +267,8 @@ paths:
                     items:
                       $ref: "#/components/schemas/StaticScene"
     post:
+      tags:
+        - Scene
       requestBody:
         required: true
         content:
@@ -190,6 +282,8 @@ paths:
           description: Bad Request
   /playlist:
     get:
+      tags:
+        - (Internal)
       responses:
         '200':
           description: OK
@@ -204,6 +298,8 @@ paths:
                       $ref: "#/components/schemas/Playlist"
   /group:
     get:
+      tags:
+        - Group
       parameters:
         - in: query
           name: num
@@ -223,6 +319,8 @@ paths:
                     items:
                       $ref: "#/components/schemas/Group"
     post:
+      tags:
+        - Group
       requestBody:
         required: true
         content:
@@ -236,6 +334,8 @@ paths:
           description: Bad Request
   /content_target:
     get:
+      tags:
+        - Content Targets
       responses:
         '200':
           description: OK
@@ -249,6 +349,8 @@ paths:
                     items:
                       $ref: "#/components/schemas/ContentTarget"
     post:
+      tags:
+        - Content Targets
       requestBody:
         required: true
         content:
@@ -262,6 +364,8 @@ paths:
           description: Bad Request
   /remote_device:
     get:
+      tags:
+        - Remote Device
       responses:
         '200':
           description: OK
@@ -276,6 +380,8 @@ paths:
                       $ref: "#/components/schemas/RemoteDevice"
   /controller:
     get:
+      tags:
+        - Controller
       responses:
         '200':
           description: OK
@@ -290,6 +396,8 @@ paths:
                       $ref: "#/components/schemas/Controller"
   /text_slot:
     get:
+      tags:
+        - Text Slots
       parameters:
         - in: query
           name: names
@@ -309,6 +417,8 @@ paths:
                     items:
                       $ref: "#/components/schemas/TextSlot"
     put:
+      tags:
+        - Text Slots
       requestBody:
         required: true
         content:
@@ -322,6 +432,8 @@ paths:
           description: Bad Request
   /temperature:
     get:
+      tags:
+        - Temperature
       responses:
         '200':
           description: OK
@@ -331,6 +443,8 @@ paths:
                 $ref: "#/components/schemas/Temperature"
   /fan_speed:
     get:
+      tags:
+        - (Internal)
       responses:
         '200':
           description: OK
@@ -340,6 +454,8 @@ paths:
                 $ref: "#/components/schemas/FanSpeed"
   /log:
     get:
+      tags:
+        - Log
       responses:
         '200':
           description: OK
@@ -351,11 +467,15 @@ paths:
                   log:
                     type: string
     delete:
+      tags:
+        - Log
       responses:
         '204':
           description: OK
   /protocol:
     get:
+      tags:
+        - Protocol
       responses:
         '200':
           description: OK
@@ -370,6 +490,8 @@ paths:
                       $ref: "#/components/schemas/OutputProtocol"
   /output:
     get:
+      tags:
+        - Output
       parameters:
         - in: query
           name: universe
@@ -384,6 +506,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/Output"
     post:
+      tags:
+        - Output
       requestBody:
           content:
             application/json:
@@ -402,6 +526,8 @@ paths:
           description: Bad Request
   /input:
     get:
+      tags:
+        - Input
       responses:
         '200':
           description: OK
@@ -411,6 +537,8 @@ paths:
                 $ref: "#/components/schemas/Input"
   /trigger:
     get:
+      tags:
+        - Trigger
       parameters:
         - in: query
           name: type
@@ -429,6 +557,8 @@ paths:
                     items:
                       $ref: "#/components/schemas/Trigger"
     post:
+      tags:
+        - Trigger
       requestBody:
           content:
             application/json:
@@ -447,6 +577,8 @@ paths:
           description: Bad Request
   /dali_interface:
     get:
+      tags:
+        - DALI Interface
       responses:
         '200':
           description: OK
@@ -461,6 +593,8 @@ paths:
                       $ref: "#/components/schemas/DaliInterface"
   /dali:
     get:
+      tags:
+        - DALI
       responses:
         '200':
           description: OK
@@ -469,6 +603,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/Dali"
     post:
+      tags:
+        - DALI
       requestBody:
           content:
             application/json:
@@ -487,6 +623,8 @@ paths:
           description: Bad Request
   /lua:
     get:
+      tags:
+        - Lua Variable
       responses:
         '200':
           description: OK
@@ -496,6 +634,8 @@ paths:
                 type: object
   /replication:
     get:
+      tags:
+        - Replication
       responses:
         '200':
           description: OK
@@ -515,6 +655,8 @@ paths:
                       - type: boolean
   /io_modules:
     get:
+      tags:
+        - (Internal)
       responses:
         '200':
           description: OK
@@ -529,6 +671,8 @@ paths:
                       $ref: "#/components/schemas/IoModule"
   /config:
     get:
+      tags:
+        - Config
       responses:
         '200':
           description: OK
@@ -537,6 +681,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/Config"
     post:
+      tags:
+        - Config
       requestBody:
           content:
             application/json:
@@ -555,6 +701,8 @@ paths:
           description: Bad Request
   /cloud:
     get:
+      tags:
+        - Cloud
       responses:
         '200':
           description: OK
@@ -571,6 +719,8 @@ paths:
                       connected:
                         type: boolean
     post:
+      tags:
+        - Cloud
       requestBody:
           content:
             application/json:
@@ -600,6 +750,8 @@ paths:
           description: Not Implemented
   /channel:
     post:
+      tags:
+        - Channel / Park
       requestBody:
         required: true
         content:
@@ -618,6 +770,8 @@ paths:
         '400':
           description: Bad Request
     delete:
+      tags:
+        - Channel / Park
       requestBody:
         required: true
         content:
@@ -637,6 +791,8 @@ paths:
           description: Bad Request
   /override:
     put:
+      tags:
+        - Override
       requestBody:
         required: true
         content:
@@ -659,6 +815,8 @@ paths:
         '503':
           description: Service Unavailable
     delete:
+      tags:
+        - Override
       requestBody:
         required: true
         content:
@@ -678,6 +836,8 @@ paths:
           description: Bad Request
   /cmdline:
     post:
+      tags:
+        - Command
       requestBody:
         required: true
         content:
@@ -699,11 +859,15 @@ paths:
           description: Not Implemented
   /beacon:
     post:
+      tags:
+        - Beacon
       responses:
         '204':
           description: OK
   /format:
     post:
+      tags:
+        - (Internal)
       responses:
         '204':
           description: OK
@@ -711,16 +875,22 @@ paths:
           description: Internal Server Error
   /reset:
     post:
+      tags:
+        - Hardware Reset
       responses:
         '204':
           description: OK
   /factory_reset:
     post:
+      tags:
+        - Factory Reset
       responses:
         '204':
           description: OK
   /space:
     get:
+      tags:
+        - Space
       responses:
         '200':
           description: OK
@@ -734,6 +904,8 @@ paths:
                     items:
                       $ref: "#/components/schemas/Space"
     post:
+      tags:
+        - Space
       requestBody:
         required: true
         content:
@@ -747,6 +919,8 @@ paths:
           description: Bad Request
   /rdm/discovery:
     get:
+      tags:
+        - RDM Discovery
       parameters:
         - in: query
           name: universe
@@ -768,6 +942,8 @@ paths:
                   token:
                     $ref: "#/components/schemas/Token"
     post:
+      tags:
+        - RDM Discovery
       requestBody:
         required: true
         content:
@@ -780,6 +956,8 @@ paths:
         '400':
           description: Bad Request
     put:
+      tags:
+        - RDM Discovery
       requestBody:
         required: true
         content:
@@ -791,8 +969,25 @@ paths:
           description: Accepted
         '400':
           description: Bad Request
+  /rdm/discovery/unpatched:
+    get:
+      tags:
+        - RDM Discovery
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/RdmDeviceInfo"
   /rdm/get:
     post:
+      tags:
+        - RDM Get
       requestBody:
         required: true
         content:
@@ -804,8 +999,25 @@ paths:
           description: Accepted
         '400':
           description: Bad Request
+  /rdm/get_descriptions:
+    post:
+      tags:
+        - RDM Get
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/StartRdmGetDescriptionsOperation"
+      responses:
+        '202':
+          description: Accepted
+        '400':
+          description: Bad Request
   /rdm/set:
     post:
+      tags:
+        - RDM Set
       requestBody:
         required: true
         content:
@@ -819,6 +1031,8 @@ paths:
           description: Bad Request
   /mode:
     get:
+      tags:
+        - Mode Switch
       summary: Get current mode dial position
       operationId: getWheelMode
       responses:
@@ -834,6 +1048,8 @@ paths:
                     enum: [Run, Dmx1, Dmx2, Dali, All, Off, PG1, PG2, PG3, PG4]
   /setup:
     post:
+      tags:
+        - (Internal)
       requestBody:
         required: true
         content:
@@ -846,6 +1062,8 @@ paths:
         '400':
           description: Bad Request
     put:
+      tags:
+        - (Internal)
       requestBody:
         required: true
         content:
@@ -858,6 +1076,8 @@ paths:
         '400':
           description: Bad Request
     delete:
+      tags:
+        - (Internal)
       requestBody:
         required: true
         content:
@@ -874,6 +1094,8 @@ paths:
           description: Bad Request
   /user:
     get:
+      tags:
+        - User
       summary: Get the username and access level of user whose username matches
                the username param or currently authenticated user if none given.
                404 error if a non-existant username is given. Non-admin users may
@@ -896,6 +1118,8 @@ paths:
         '404':
           description: Not Found
     post:
+      tags:
+        - User
       summary: Create user with access level 'control' and set password
       description: >
         Currently logged in user must supply their password for action to proceed.
@@ -925,6 +1149,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
     put:
+      tags:
+        - User
       summary: Update a user account with a new password and/or access groups
       description: >
         Currently logged in user must supply their password for action to proceed
@@ -952,6 +1178,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/Errors'
     delete:
+      tags:
+        - User
       summary: Delete user
       description: >
         Currently logged in user must supply their password for action to proceed
@@ -988,6 +1216,8 @@ paths:
                 $ref: '#/components/schemas/Errors'
   /user_groups:
     get:
+      tags:
+        - User Groups
       summary: List access permissions
       operationId: getUserGroups
       responses:
@@ -1004,6 +1234,8 @@ paths:
                     $ref: '#/components/schemas/Token'
   /guest_groups:
     get:
+      tags:
+        - User Groups
       summary: List guest permissions
       operationId: getGuestGroups
       responses:
@@ -1019,6 +1251,8 @@ paths:
                   token:
                     $ref: '#/components/schemas/Token'
     post:
+      tags:
+        - User Groups
       summary: Change guest permissions
       operationId: setGuestGroups
       requestBody:
@@ -1044,6 +1278,8 @@ paths:
                     $ref: '#/components/schemas/Token'
   /tag_set:
     get:
+      tags:
+        - Tag Set
       summary: List tag sets
       responses:
         '200':
@@ -1058,6 +1294,8 @@ paths:
                     items:
                       $ref: "#/components/schemas/TagSet"
     post:
+      tags:
+        - Tag Set
       requestBody:
         required: true
         content:
@@ -1071,6 +1309,8 @@ paths:
           description: Bad Request
   /schedule:
     get:
+      tags:
+        - Schedule
       summary: Get Schedule Enabled/Suppressed
       responses:
         '200':
@@ -1083,6 +1323,8 @@ paths:
                   enable:
                     type: boolean
     put:
+      tags:
+        - Schedule
       summary: Set Schedule Enabled/Suppressed
       requestBody:
         required: true
@@ -1098,6 +1340,165 @@ paths:
           description: OK
         '400':
           description: Bad Request
+  /ping:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Ping"
+      responses:
+        '200':
+          description: OK
+        '400':
+          description: Bad Request
+        '500':
+          description: Internal Server Error
+  /fixtures:
+    get:
+      tags:
+        - Fixtures
+      summary: Get an overview of fixtures used in the current project including their statuses
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FixtureStatusOverview'
+        '400':
+          description: Bad Request
+  /fixtures/{fixtureNumber}:
+    get:
+      tags:
+        - Fixtures
+      summary: Get detailed information for a single fixture including its status
+      parameters:
+        - name: fixtureNumber
+          in: path
+          description: Fixture user number
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FixtureStatusDetail'
+        '400':
+          description: Bad Request
+  /rdm_devices:
+    get:
+      tags:
+        - RDM Devices
+      summary: Get an overview of RDM devices including their statuses
+      parameters:
+        - name: fixture
+          in: query
+          description: Fixture user number
+          required: true
+          schema:
+            type: integer
+        - name: unpatched
+          in: query
+          description: Return only unpatched devices
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/DeviceStatus'
+        '400':
+          description: Bad Request
+  /rdm_devices/{deviceId}:
+    get:
+      tags:
+        - RDM Devices
+      summary: Get a single RDM device including its status
+      parameters:
+        - name: deviceId
+          in: path
+          description: RDM device UID
+          required: true
+          schema:
+            $ref: "#/components/schemas/RdmDeviceUid"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeviceStatus'
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+  /status_monitor:
+    get:
+      tags:
+        - Status Monitor
+      summary: Get an overview of the Status Monitor
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  latest_refresh_all:
+                    type: object
+                    nullable: true
+                    properties:
+                      completed_at:
+                        type: string
+                        nullable: true
+                        format: date-time
+                      discovered_device_count:
+                        type: integer
+                        example: 50
+                      unpatched_device_count:
+                        type: integer
+                        example: 3
+    post:
+      tags:
+        - Status Monitor
+      summary: Control the Status Monitor
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                action:
+                  type: string
+                  enum:
+                    - refresh
+                fixture_number:
+                  type: integer
+                  example: 1
+              required:
+                - action
+      responses:
+        '400':
+          description: Bad Request
+        '202':
+          description: Accepted
+        '409':
+          description: Conflict
 components:
   securitySchemes:
     bearer:
@@ -1535,18 +1936,10 @@ components:
           type: integer
         https_port:
           type: integer
-        year:
-          type: integer
-        month:
-          type: integer
-        day:
-          type: integer
-        hour:
-          type: integer
-        minute:
-          type: integer
-        second:
-          type: integer
+        datetime:
+          type: string
+          format: date-time
+          example: "2024-06-27T09:30"
         watchdog_enabled:
           type: boolean
         log_level:
@@ -1827,16 +2220,19 @@ components:
           enum: [master_intensity]
         level:
           $ref: '#/components/schemas/LevelInBounded'
+    RdmDeviceUid:
+      type: string
+      description: >
+        Format must be {manuId}:{deviceId}(:{subId})
+        where {manuId} is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. 072c
+        where {deviceId} is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. 0004fe02
+        where {subId} is an optional unsigned decimal integer.
+      example: 1234:56789abc
     RdmDeviceInfo:
       type: object
       properties:
         uid:
-          type: string
-          description: >
-            Format must be {manuId}:{deviceId}(:{subId})
-            where {manuId} is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. 072c
-            where {deviceId} is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. 0004fe02
-            where {subId} is an optional unsigned decimal integer.
+          $ref: "#/components/schemas/RdmDeviceUid"
         rdm_protocol_version:
           type: integer
           minimum: 0
@@ -1914,7 +2310,9 @@ components:
             SLOT_INFO,
             SLOT_DESCRIPTION,
             SENSOR_DEFINITION,
-            SENSOR_VALUE
+            SENSOR_VALUE,
+            CURVE,
+            CURVE_DESCRIPTION
             ]
         meta:
           oneOf:
@@ -1933,6 +2331,17 @@ components:
             - $ref: '#/components/schemas/RdmSetRaw'
         max_rx_length:
           type: integer
+    StartRdmGetDescriptionsOperation:
+      type: object
+      properties:
+        universe:
+          $ref: "#/components/schemas/UniverseId"
+        destination_uid:
+          type: string
+        pid:
+          type: string
+          enum:
+            - DMX_PERSONALITY
     AccessGroup:
       type: string
       description: Group to be assigned to a user
@@ -2152,4 +2561,84 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Error'
-
+    Ping:
+      type: object
+      properties:
+        target:
+          type: ip address or hostname
+        interface:
+          type: integer
+    FixtureDeviceStatus:
+      type: string
+      enum:
+        - online
+        - partially_offline
+        - offline
+        - loading
+        - unknown
+    FixtureStatusOverview:
+      type: object
+      properties:
+        groups:
+          type: array
+          items:
+            type: string
+          example:
+            - "1 All Exterior"
+        manufacturer:
+          type: string
+          example: Generic
+        name:
+          type: string
+          example: Wall Uplights
+        number:
+          type: integer
+          example: 1
+        patch:
+          type: string
+          example: dmx:2:101
+        protocol:
+          type: string
+          enum:
+            - dali
+            - dmx
+          example: dmx
+        status:
+          $ref: '#/components/schemas/FixtureDeviceStatus'
+        updated_at:
+          type: string
+          nullable: true
+          format: date-time
+    FixtureStatusDetail:
+      allOf:
+        - $ref: '#/components/schemas/FixtureStatusOverview'
+        - type: object
+          properties:
+            type:
+              type: string
+              example: LED - RGBW 8 bit
+            rdm_device_uids:
+              type: array
+              items:
+                $ref: '#/components/schemas/RdmDeviceUid'
+            custom_properties:
+              type: object
+              example:
+                Custom Property 1: foo
+                Custom Property 2: bar
+    DeviceStatus:
+      type: object
+      properties:
+        uid:
+          $ref: '#/components/schemas/RdmDeviceUid'
+        patch:
+          type: string
+          example: dmx:2:101
+        rdm:
+          type: object
+        status:
+          $ref: '#/components/schemas/FixtureDeviceStatus'
+        updated_at:
+          type: string
+          nullable: true
+          format: date-time

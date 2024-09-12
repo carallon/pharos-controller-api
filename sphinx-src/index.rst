@@ -14,6 +14,7 @@ If you're new here then you might start with the :doc:`introduction <guide/intro
 
    guide/introduction
    guide/web-api-authentication
+   guide/access-control
    whatsnew
 
 .. toctree::

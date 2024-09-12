@@ -103,6 +103,28 @@ The timeline state is one of the following states (available as Lua :ref:`consta
      - 4
      - The timeline has been run and has now been released.
 
+Timeline Reference Type
+=======================
+
+The timeline reference type is one of the following (available as Lua :ref:`constants <constants>`) :
+
+.. list-table::
+   :widths: 20 10 70
+   :header-rows: 1
+
+   * - State
+     - Value
+     - Description
+   * - ``Timeline.RELATIVE``
+     - 0
+     - The timeline position value is relative.
+   * - ``Timeline.ABSOLUTE``
+     - 1
+     - The timeline position value is absolute.
+   * - ``Timeline.FLAG``
+     - 2
+     - The timeline position value is obtained from a timeline flag.
+
 Member functions
 ****************
 
@@ -243,19 +265,36 @@ For example:
 set_position
 ============
 
-``set_position(position)``
+There are multiple overloaded calling parameters:
 
-Jumps the position of playback of the timeline. Set the ``position`` as a float or an integer with range, e.g. ``0.1`` or ``Variant(10, 100)`` would set the position to 10% of the timeline length.
+``set_position(position)``
+Legacy behaviour, operates the same as ``set_position(timeline.RELATIVE, position)``
+
+``set_position(timeline.RELATIVE, position)``
+Jumps playback of a timeline to a relative position within the timeline. Set ``position`` as a float or an integer with range, e.g. ``0.1`` or ``Variant(10, 100)`` would set the position to 10% of the timeline length.
+
+``set_position(timeline.ABSOLUTE, position)``
+Jumps playback of a timeline to an absolute position within the timeline. Set ``position`` as a float or an integer, as the absolute timeline position in seconds.
+
+``set_position(timeline.FLAG, flag_name)``
+Jumps playback of a timeline to the position of first matching timeline flag. Set the ``flag_name`` as a string, matching the name of the target timeline flag.
 
 For example:
 
 .. code-block:: lua
 
    -- set the position of timeline 1 to 50% of timeline length
-   get_timeline(1):set_position(0.5)
+   get_timeline(1):set_position(timeline.RELATIVE, 0.5)
    -- set the position of timeline 2 to 20% of timeline length
-   get_timeline(2):set_position(Variant(2,10))
+   get_timeline(2):set_position(timeline.RELATIVE, Variant(2,10))
 
+   -- set the position of timeline 3 to 180 seconds
+  get_timeline(3):set_position(ABSOLUTE, 180)
+  -- set the position of timeline 4 to 12.34 seconds
+  get_timeline(4):set_position(ABSOLUTE, 12.34)
+
+  -- set the position of timeline 5 to the "Start sparkle" flag
+  get_timeline(5):set_position(FLAG,"Start sparkle")
 
 .. _Lua_timeline_set_default_source:
 
