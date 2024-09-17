@@ -11,7 +11,7 @@ What's New
     ****
 
     * Add ability to set absolute timeline positions in :doc:`HTTP <http-api/timeline>` and :doc:`Lua <lua-api/timeline>` APIs.
-    * Add ability to create Lua :doc:`lua-api/date-time` objects, and retrieve astronomical data by day.
+    * Add ability to create Lua :doc:`lua-api/date-time` objects, and retrieve :doc:`astronomical data by day <lua-api/time>`.
     * Change web API :doc:`http-api/config` endpoint for setting time to use ISO 8601 date.
     * Add support for :doc:`http-api/ping`.
     * Add support for :doc:`http-api/status-monitor`.
