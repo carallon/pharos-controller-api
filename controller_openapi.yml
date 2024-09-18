@@ -1471,9 +1471,15 @@ paths:
                 action:
                   type: string
                   enum:
+                    - assign
                     - replace
+                fixture_number:
+                  type: integer
+                  example: 1
                 target_device_id:
                   $ref: "#/components/schemas/RdmDeviceUid"
+              required:
+                - action
       responses:
         '200':
           description: OK

@@ -87,8 +87,40 @@ The payload is a JSON object with the following attributes:
      - Value Example
    * - ``action``
      - string
-     - The patch action to perform. Currently only ``replace`` is supported.
-     - ``"replace"``
+     - The patch action to perform.
+     - ``"assign", or "replace"``
+
+Assign
+------
+
+Assign a new RDM device to a fixture. When ``action`` is ``assign``, the following additional attributes are required:
+
+.. list-table::
+   :widths: 4 3 10 5
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
+   * - ``fixture_number``
+     - number
+     - User number of the fixture this RDM device will be assigned to.
+     - ``123``
+
+Replace
+-------
+
+Replace an offline RDM device. When ``action`` is ``replace``, the following additional attributes are required:
+
+.. list-table::
+   :widths: 4 3 10 5
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
    * - ``target_device_id``
      - string
      - The RDM UID of the device to replace.
