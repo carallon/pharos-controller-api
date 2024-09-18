@@ -11,7 +11,7 @@ GET
 
 Returns an array of DALI interfaces
 
-``GET /api/dali_interfaces``
+``GET /api/dali_interface``
 
 Returns an array of JSON objects with the following attributes:
 
