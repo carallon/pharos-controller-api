@@ -145,6 +145,40 @@ For example:
 
 .. include:: code-examples/location.rst
 
+get_timelines
+-------------
+
+``get_timelines(playbackGroup)``
+
+Returns a list of ``timelineNum`` for the matching ``playbackGroup``.
+If ``playbackGroup`` is omitted, then all ``timelineNum`` will be returned.
+
+``playbackGroup`` can either be the playback group number, or playback group name.
+
+For example:
+
+.. code-block:: lua
+
+   -- get a list of all timelines
+   local allTimelines = get_timelines()
+   log('Timelines in project:')
+   for _, timelineNum in pairs(allTimelines) do
+      log(timelineNum)
+   end
+
+   -- get a list of timelines in playback group 1
+   local timelinesInGroup1 = get_timelines(1)
+   log('Timelines in playback group 1:')
+   for _, timelineNum in pairs(timelinesInGroup1) do
+      log(timelineNum)
+   end
+
+   -- get a list of all timelines in playback group named "A"
+   local timelinesInGroupA = get_timelines('A')
+   log('Timelines in playback group A:')
+   for _, timelineNum in pairs(timelinesInGroupA) do
+      log(timelineNum)
+   end
 
 .. _Lua_get_timeline:
 
@@ -159,6 +193,40 @@ For example:
 
 .. include:: code-examples/timeline.rst
 
+get_scenes
+----------
+
+``get_scenes(playbackGroup)``
+
+Returns a list of ``sceneNum`` for the matching ``playbackGroup``.
+If ``playbackGroup`` is omitted, then all ``sceneNum`` will be returned.
+
+``playbackGroup`` can either be the playback group number, or playback group name.
+
+For example:
+
+.. code-block:: lua
+
+   -- get a list of all scenes
+   local allScenes = get_scenes()
+   log('Scenes in project:')
+   for _, sceneNum in pairs(allScenes) do
+      log(sceneNum)
+   end
+
+   -- get a list of scenes in playback group 1
+   local scenesInGroup1 = get_scenes(1)
+   log('Scenes in playback group 1:')
+   for _, sceneNum in pairs(scenesInGroup1) do
+      log(sceneNum)
+   end
+
+   -- get a list of all scenes in playback group named "A"
+   local scenesInGroupA = get_scenes('A')
+   log('Scenes in playback group A:')
+   for _, sceneNum in pairs(scenesInGroupA) do
+      log(sceneNum)
+   end
 
 .. _Lua_get_scene:
 
