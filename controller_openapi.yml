@@ -1545,6 +1545,28 @@ paths:
           description: Accepted
         '409':
           description: Conflict
+  /playback_group:
+    get:
+      tags:
+        - PlaybackGroup
+      parameters:
+        - in: query
+          name: num
+          required: false
+          schema:
+            $ref: "#/components/schemas/IdList"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  scenes:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/PlaybackGroup"
 components:
   securitySchemes:
     bearer:
@@ -2694,3 +2716,10 @@ components:
           type: string
           nullable: true
           format: date-time
+    PlaybackGroup:
+      type: object
+      properties:
+        name:
+          type: string
+        num:
+          type: integer
