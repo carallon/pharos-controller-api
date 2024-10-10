@@ -15,6 +15,7 @@ Lua API
    input-threshold
    location
    override
+   playback-group
    project
    protocol-interface
    replication
@@ -261,6 +262,36 @@ For example:
 
 
 .. _Lua_get_fixture_override:
+
+get_playback_groups
+-------------------
+
+``get_playback_groups()``
+
+Returns a list of ``playbackGroupNum`` in the current project.
+
+For example:
+
+.. code-block:: lua
+
+   -- get a list of playback groups
+   local playbackGroups = get_playback_groups()
+   log('Playback groups in project:')
+   for _, playbackGroupNum in pairs(playbackGroups) do
+      log(playbackGroupNum)
+   end
+
+get_playback_group
+------------------
+
+``get_playback_group(playbackGroupNum)``
+
+Returns an :doc:`playback-group` object for the playback group with user number ``playbackGroupNum``.
+
+For example:
+
+.. include:: code-examples/playback-group.rst
+
 
 get_fixture_override
 --------------------
