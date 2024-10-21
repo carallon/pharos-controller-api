@@ -140,7 +140,7 @@ else:
     .. |SAMPLE_CONTROLLER| replace:: ``Expert Control``
     .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
-    .. |OVERRIDE_OPTIONS| replace:: fixture or space
+    .. |OVERRIDE_OPTIONS| replace:: space
         """
     else:
         rst_prolog += """

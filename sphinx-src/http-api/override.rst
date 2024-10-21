@@ -232,7 +232,7 @@ Colour as hue/saturation for ``colour`` in an override :ref:`override-http-put` 
 DELETE
 ======
 
-Release any overrides on |OVERRIDE_OPTIONS|.
+Release any overrides on a |OVERRIDE_OPTIONS|.
 
 .. only:: designer
 
@@ -242,23 +242,44 @@ Release any overrides on |OVERRIDE_OPTIONS|.
 
 Payload is a JSON object with the following attributes:
 
-.. list-table::
-   :widths: 4 3 10 4
-   :header-rows: 1
+.. only:: designer
 
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``target``
-     - string
-     - What the overrides should be cleared on: |OVERRIDE_OPTIONS|.
-     - ``"fixture"``
-   * - ``num``
-     - integer
-     - Optional. |OVERRIDE_OPTIONS| number, depending on ``target``. If not provided, ``target`` is ignored and all overrides are cleared.
-     - ``1``
-   * - ``fade``
-     - float
-     - Optional. Fade time in which to release overrides, in seconds.
-     - ``2.0``
+  .. list-table::
+    :widths: 4 3 10 4
+    :header-rows: 1
+
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``target``
+      - string
+      - What the overrides should be cleared on: |OVERRIDE_OPTIONS|.
+      - ``"fixture"``
+    * - ``num``
+      - integer
+      - Optional. |OVERRIDE_OPTIONS| number, depending on ``target``. If not provided, ``target`` is ignored and all overrides are cleared.
+      - ``1``
+    * - ``fade``
+      - float
+      - Optional. Fade time in which to release overrides, in seconds.
+      - ``2.0``
+
+.. only:: expert
+
+  .. list-table::
+    :widths: 4 3 10 4
+    :header-rows: 1
+
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``num``
+      - integer
+      - Space number
+      - ``1``
+    * - ``fade``
+      - float
+      - Optional. Fade time in which to release overrides, in seconds.
+      - ``2.0``
