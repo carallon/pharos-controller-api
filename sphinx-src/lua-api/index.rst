@@ -354,6 +354,20 @@ get_remote_devices
 
 Returns a table of remote devices on this controller. The keys are integers with values equal to the global constants which correspond to the remote device type (e.g. ``RIO44``). The values are tables of integers representing the assigned device number.
 
+For example, this code will log each RIO D associated with the current controller:
+
+.. code-block:: lua
+
+   local remoteDevices = get_remote_devices()
+   for type, deviceTable in pairs(remoteDevices) do
+      if type == RIOD then
+         for _, number in pairs(deviceTable) do
+            log('Found a RIO D, remote device number ' .. number)
+         end
+      end
+   end
+
+.. include:: snippets/remote-device-types.rst
 
 .. _Lua_get_input_count:
 
