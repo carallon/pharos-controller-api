@@ -29,7 +29,7 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
      - ``1``
    * - ``type``
      - string
-     - ``RIO 08``, ``RIO 44``, ``RIO 80``, ``BPS``, ``BPI``, ``RIO A``, or ``RIO D``
+     - One of the remote device types as listed :ref:`below <http-remote-device-types>`.
      - ``"RIO 44"``
    * - ``serial``
      - array
@@ -89,3 +89,12 @@ The Input JSON object has the following attributes:
      - integer or boolean
      - Value type depends on input type - ``Analog`` inputs return an integer, 0-255; other types return a bool.
      - ``true``
+
+.. _http-remote-device-types:
+
+Remote Device Types
+===================
+
+The following remote device types are reported by the HTTP API:
+
+.. include:: snippets/remote-device-types.rst
