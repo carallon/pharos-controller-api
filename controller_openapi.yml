@@ -1199,8 +1199,8 @@ paths:
                 username:
                   $ref: '#/components/schemas/Username'
       responses:
-        '201':
-          description: User deleted
+        '200':
+          description: OK
           content:
             application/json:
               schema:

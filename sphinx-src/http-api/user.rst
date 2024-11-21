@@ -27,7 +27,7 @@ Add a new user. The payload is a JSON object with the following attributes:
      - ``"my_password"``
    * - ``username``
      - string
-     - The name of the new user to add
+     - The name of the new user to add.
      - ``"bob"``
    * - ``password``
      - string
@@ -59,7 +59,7 @@ Update a user account with a new password and/or access groups. The payload is a
      - ``"my_password"``
    * - ``"username"``
      - string
-     - The name of the user to modify
+     - The name of the user to modify.
      - ``"bob"``
    * - ``password``
      - string
@@ -75,7 +75,7 @@ DELETE
 
 ``DELETE /api/user``
 
-Update a user account with a new password and/or access groups. The payload is a JSON object with the following attributes:
+Delete a user account. The payload is a JSON object with the following attributes:
 
 .. list-table::
    :widths: 4 3 10 5
@@ -91,5 +91,5 @@ Update a user account with a new password and/or access groups. The payload is a
      - ``"my_password"``
    * - ``username``
      - string
-     - The name of the user to delete
+     - The name of the user to delete.
      - ``"bob"``
