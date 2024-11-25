@@ -10,6 +10,10 @@ What's New
     v10.0
     *****
 
+    * Add new :ref:`Lua functions<Lua_get_touch_device>` supporting touch devices as remote devices.
+    * Add ability to retrieve the list of :ref:`timelines <Lua_get_timelines>` or :ref:`scenes <Lua_get_scenes>` in a project from Lua.
+    * Add the ability to retrieve the list of playback groups from :ref:`Lua <Lua_get_playback_groups>` or :doc:`HTTP <http-api/playback-group>`.
+
     v9.0
     ****
 

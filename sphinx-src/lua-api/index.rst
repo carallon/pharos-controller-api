@@ -147,6 +147,8 @@ For example:
 
 .. include:: code-examples/location.rst
 
+.. _Lua_get_timelines:
+
 get_timelines
 -------------
 
@@ -194,6 +196,8 @@ Returns a single :doc:`timeline` object for the timeline with user number ``time
 For example:
 
 .. include:: code-examples/timeline.rst
+
+.. _Lua_get_scenes:
 
 get_scenes
 ----------
@@ -262,7 +266,7 @@ For example:
    Passing 0 as ``groupNum`` will return :doc:`group` for the *All Fixtures* group. This can also be used on |VLC| family projects to master the intensity of the entire unit.
 
 
-.. _Lua_get_fixture_override:
+.. _Lua_get_playback_groups:
 
 get_playback_groups
 -------------------
@@ -293,6 +297,7 @@ For example:
 
 .. include:: code-examples/playback-group.rst
 
+.. _Lua_get_fixture_override:
 
 get_fixture_override
 --------------------
