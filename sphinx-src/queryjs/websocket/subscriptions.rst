@@ -147,7 +147,7 @@ The ``callback`` is called each time the remote device online/offline status cha
      - ``1``
    * - ``type``
      - string
-     - One of the remote device types as listed :ref:`below <http-remote-device-types>`
+     - One of the remote device types as listed :ref:`here <http-remote-device-types>`
      - ``"RIO 80"``
    * - ``online``
      - boolean
