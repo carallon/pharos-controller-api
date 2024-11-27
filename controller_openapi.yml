@@ -24,7 +24,6 @@ tags:
     description: (Designer only)
   - name: Factory Reset
   - name: Fixtures
-    description: (Designer only)
   - name: Group
     description: (Designer only)
   - name: Hardware Reset
@@ -41,7 +40,6 @@ tags:
     description: (Designer only)
   - name: Protocol
   - name: RDM Devices
-    description: (Designer only)
   - name: RDM Discovery
     description: (Designer only)
   - name: RDM Get
@@ -58,7 +56,6 @@ tags:
   - name: Space
     description: (Expert only)
   - name: Status Monitor
-    description: (Designer only)
   - name: System
   - name: Tag Set
     description: (Expert only)
@@ -2650,11 +2647,16 @@ components:
       type: object
       properties:
         groups:
+          description: (Designer only)
           type: array
           items:
             type: string
           example:
             - "1 All Exterior"
+        space:
+          description: (Expert only)
+          type: string
+          example: "1: Project Space"
         manufacturer:
           type: string
           example: Generic

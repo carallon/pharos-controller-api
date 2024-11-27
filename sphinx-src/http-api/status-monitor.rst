@@ -3,7 +3,11 @@
 Status Monitor
 ##############
 
-  These endpoints are not available on VLC or VLC+.
+.. only:: designer
+
+  ..
+
+    These endpoints are not available on VLC or VLC+.
 
 Status monitor results are accessed through the :ref:`fixtures` and :ref:`rdm-devices` endpoints.
 

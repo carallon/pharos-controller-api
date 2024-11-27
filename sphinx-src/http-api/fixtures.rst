@@ -19,42 +19,83 @@ Get an overview of fixtures used in the current project including their statuses
 
 Returns a JSON array of objects with the following attributes:
 
-.. list-table::
-   :widths: 5 2 10 5
-   :header-rows: 1
+.. only:: designer
 
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``groups``
-     - array of strings
-     - Names of groups containing this fixture
-     - ``["1 All Exterior"]``
-   * - ``manufacturer``
-     - string
-     - Manufacturer name as defined in the fixture library
-     - ``"Generic"``
-   * - ``number``
-     - integer
-     - User number of the fixture
-     - ``1``
-   * - ``patch``
-     - string
-     - Combined universe key and address (see `Universe Key String Format`_)
-     - ``"dmx:2:101"``
-   * - ``protocol``
-     - string
-     - ``"dali"``, or ``"dmx"``
-     - ``"dmx"``
-   * - ``status``
-     - string
-     - ``"online"``, ``"partially_offline"``, ``"offline"``, ``"loading"``, or ``"unknown"``
-     - ``"online"``
-   * - ``updated_at``
-     - string
-     - ISO 8601-formatted timestamp of the last status update, or ``null`` if unknown
-     - ``2024-06-27T09:30``
+  .. list-table::
+    :widths: 5 2 10 5
+    :header-rows: 1
+
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``groups``
+      - array of strings
+      - Names of groups containing this fixture
+      - ``["1 All Exterior"]``
+    * - ``manufacturer``
+      - string
+      - Manufacturer name as defined in the fixture library
+      - ``"Generic"``
+    * - ``number``
+      - integer
+      - User number of the fixture
+      - ``1``
+    * - ``patch``
+      - string
+      - Combined universe key and address (see `Universe Key String Format`_)
+      - ``"dmx:2:101"``
+    * - ``protocol``
+      - string
+      - ``"dali"``, or ``"dmx"``
+      - ``"dmx"``
+    * - ``status``
+      - string
+      - ``"online"``, ``"partially_offline"``, ``"offline"``, ``"loading"``, or ``"unknown"``
+      - ``"online"``
+    * - ``updated_at``
+      - string
+      - ISO 8601-formatted timestamp of the last status update, or ``null`` if unknown
+      - ``2024-06-27T09:30``
+
+.. only:: expert
+
+  .. list-table::
+    :widths: 5 2 10 5
+    :header-rows: 1
+
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``space``
+      - string
+      - Name of the immediate parent space containing this fixture
+      - ``"1: Project Space"``
+    * - ``manufacturer``
+      - string
+      - Manufacturer name as defined in the fixture library
+      - ``"Generic"``
+    * - ``number``
+      - integer
+      - User number of the fixture
+      - ``1``
+    * - ``patch``
+      - string
+      - Combined universe key and address (see `Universe Key String Format`_)
+      - ``"dmx:2:101"``
+    * - ``protocol``
+      - string
+      - ``"dali"``, or ``"dmx"``
+      - ``"dmx"``
+    * - ``status``
+      - string
+      - ``"online"``, ``"partially_offline"``, ``"offline"``, ``"loading"``, or ``"unknown"``
+      - ``"online"``
+    * - ``updated_at``
+      - string
+      - ISO 8601-formatted timestamp of the last status update, or ``null`` if unknown
+      - ``2024-06-27T09:30``
 
 Fixture
 *******
