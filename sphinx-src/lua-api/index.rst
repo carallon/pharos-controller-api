@@ -1050,56 +1050,22 @@ set_control_caption
 
 Same behaviour as for :ref:`Lua_touch_device_set_control_caption`, but acts on all touchscreens
 
+
 .. _Lua_set_touch_button_pressed:
 
 set_touch_button_pressed
 ------------------------
 
-``set_touch_button_pressed(name, pressed)``
+Same behaviour as for :ref:`Lua_touch_device_set_touch_button_pressed`, but acts on all touchscreens
 
-Sets the pressed or released state of a Touch button according to the parameters:
-
-.. list-table::
-   :widths: 3 3 7 3
-   :header-rows: 1
-
-   * - Parameter
-     - Value Type
-     - Description
-     - Value Example
-   * - ``name``
-     - string
-     - The Key of the Touch Button.
-     - ``button001``
-   * - ``pressed``
-     - boolean
-     - Whether the button is Pressed(true) or Released(false).
-     - ``true``
-
-For example:
-
-.. code-block:: lua
-
-   -- Set button001 to be pressed
-   set_touch_button_pressed("button001", true)
 
 .. _Lua_is_touch_button_pressed:
 
 is_touch_button_pressed
 ------------------------
 
-``is_touch_button_pressed(name)``
+Same behaviour as for :ref:`Lua_touch_device_is_touch_button_pressed`, but acts on all touchscreens
 
-Returns the pressed or released state of a touch button.
-
-For example:
-
-.. code-block:: lua
-
-   -- Enqueue a trigger conditionally based on whether a button is pressed
-   if is_touch_button_pressed("button001") then
-      enqueue_trigger(1)
-   end
 
 .. _Lua_set_interface_page:
 
