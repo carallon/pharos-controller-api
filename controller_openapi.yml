@@ -33,6 +33,8 @@ tags:
     description: (Designer only)
   - name: Mode Switch
     description: (Expert only)
+  - name: nLight
+    description: (Acuity Animate only)
   - name: Output
   - name: Override
   - name: Project
@@ -1564,6 +1566,109 @@ paths:
                     type: array
                     items:
                       $ref: "#/components/schemas/PlaybackGroup"
+  /nlight/output:
+    get:
+      tags:
+        - nLight
+      summary: Live nLight output levels and project target mappings
+      parameters:
+        - in: query
+          name: address
+          required: false
+          schema:
+            $ref: "#/components/schemas/NLightDeviceAddress"
+        - in: query
+          name: with_targets
+          description: Include project objects that are controlled by this nLight output.
+          required: false
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  outputs:
+                    oneOf:
+                      - type: array
+                        description: If `with_targets` is `true`.
+                        minItems: 0
+                        maxItems: 16
+                        items:
+                          $ref: "#/components/schemas/NLightOutputWithProjectTargets"
+                      - type: array
+                        description: If `with_targets` is `false`.
+                        minItems: 0
+                        maxItems: 16
+                        items:
+                          $ref: "#/components/schemas/NLightOutput"
+  /nlight/scene:
+    get:
+      tags:
+        - nLight
+      summary: Live nLight scene levels and project trigger mappings
+      parameters:
+        - in: query
+          name: address
+          required: false
+          schema:
+            $ref: "#/components/schemas/NLightDeviceAddress"
+        - in: query
+          name: with_triggers
+          description: Include project objects that trigger this nLight scene.
+          required: false
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  scenes:
+                    oneOf:
+                      - type: array
+                        description: If `with_triggers` is `true`.
+                        minItems: 0
+                        maxItems: 16
+                        items:
+                          $ref: "#/components/schemas/NLightSceneWithProjectTriggers"
+                      - type: array
+                        description: If `with_triggers` is `false`.
+                        minItems: 0
+                        maxItems: 16
+                        items:
+                          $ref: "#/components/schemas/NLightScene"
+  /nlight/wallpod:
+    get:
+      tags:
+        - nLight
+      summary: Live nLight WallPod levels
+      parameters:
+        - in: query
+          name: address
+          required: false
+          schema:
+            $ref: "#/components/schemas/NLightDeviceAddress"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  wallpods:
+                    type: array
+                    minItems: 0
+                    maxItems: 16
+                    items:
+                      $ref: "#/components/schemas/NLightWallPod"
 components:
   securitySchemes:
     bearer:
@@ -2725,3 +2830,145 @@ components:
           type: string
         num:
           type: integer
+    NLightDeviceAddress:
+      type: integer
+      minimum: 1
+      maximum: 16
+      example: 1
+    NLightOutput:
+      type: object
+      properties:
+        address:
+          $ref: "#/components/schemas/NLightDeviceAddress"
+        name:
+          type: string
+          nullable: true
+          example: "Output01"
+          description: Null if nLight bus not available.
+        level:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 1000
+          example: 1000
+          description: Null if nLight bus not available.
+    NLightOutputWithProjectTargets:
+      allOf:
+        - $ref: "#/components/schemas/NLightOutput"
+        - type: object
+          properties:
+            targets:
+              type: object
+              properties:
+                intensity_masters:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/NLightProjectIntensityMasterMapping"
+                scenes:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/NLightProjectSceneMapping"
+                tag_sets:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/NLightProjectTagSetMapping"
+    NLightScene:
+      type: object
+      properties:
+        address:
+          $ref: "#/components/schemas/NLightDeviceAddress"
+        active:
+          type: boolean
+          nullable: true
+          example: true
+          description: Null if nLight bus not available.
+        name:
+          type: string
+          nullable: true
+          example: "Scene01"
+          description: Null if nLight bus not available.
+    NLightSceneWithProjectTriggers:
+      allOf:
+        - $ref: "#/components/schemas/NLightScene"
+        - type: object
+          properties:
+            triggers:
+              type: object
+              properties:
+                scenes:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/NLightProjectSceneMapping"
+                tags:
+                  type: array
+                  items:
+                    $ref: "#/components/schemas/NLightProjectTagsMapping"
+    NLightWallPod:
+      type: object
+      properties:
+        address:
+          $ref: "#/components/schemas/NLightDeviceAddress"
+        level:
+          type: integer
+          nullable: true
+          minimum: 0
+          maximum: 100
+          example: 100
+          description: Null if nLight bus not available.
+        name:
+          type: string
+          nullable: true
+          example: Wallpod01
+          description: Null if nLight bus not available.
+        pilot:
+          type: boolean
+          nullable: true
+          example: true
+          description: Null if nLight bus not available.
+    NLightProjectIntensityMasterMapping:
+      type: object
+      properties:
+        level:
+          type: integer
+          minimum: 0
+          maximum: 100
+        space:
+          type: string
+          example: "7: Reception"
+    NLightProjectSceneMapping:
+      type: object
+      properties:
+        onstage:
+          type: boolean
+        scene:
+          type: string
+          example: Off
+        space:
+          type: string
+          example: "7: Reception"
+    NLightProjectTagsMapping:
+      type: object
+      properties:
+        active_tag:
+          type: string
+          example: Working
+        tag_set:
+          type: string
+          example: "1: Type of day"
+        tags:
+          type: array
+          items:
+            type: string
+            minItems: 1
+          example:
+            - Non-working
+            - Working
+    NLightProjectTagSetMapping:
+      type: object
+      properties:
+        active_tag:
+          type: string
+          example: "Off"
+        tag_set:
+          type: string
+          example: "1: Type of day"

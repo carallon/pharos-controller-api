@@ -169,6 +169,7 @@ if product == 'expert':
     exclude_patterns.append('*/group.rst')
     exclude_patterns.append('*/htaccess.rst')
     exclude_patterns.append('*/lua-variable.rst')
+    exclude_patterns.append('*/nlight.rst')
     exclude_patterns.append('*/objects/dali-ballast-status.rst')
     exclude_patterns.append('*/objects/dali-error.rst')
     exclude_patterns.append('*/objects/dali-power.rst')
@@ -200,6 +201,7 @@ if product == 'designer':
     project = u'Designer API v' + version
     tags.add('designer')
     exclude_patterns.append('*/mode.rst')
+    exclude_patterns.append('*/nlight.rst')
     exclude_patterns.append('*/schedule.rst')
     exclude_patterns.append('*/space.rst')
     exclude_patterns.append('*/tag_set.rst')
