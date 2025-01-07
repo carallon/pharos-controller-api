@@ -23,6 +23,14 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
      - Value Type
      - Description
      - Value Example
+   * - ``name``
+     - string
+     - The user assigned name of the Remote Device.
+     - ``Ballroom Touch Screen``
+   * - ``name_with_type``
+     - string
+     - A combination of the user assigned name of the device, and the device type.
+     - ``Ballroom Touch Screen (TPS 5)``
    * - ``num``
      - integer
      - Remote device number (address)
