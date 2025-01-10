@@ -6,12 +6,12 @@ A universe key string takes the form:
 
       * ``protocol`` is ``dmx``, ``sacn``, or ``art-net``;
 
-      * ``index`` is the index of the output port, 1 or 2, matching the port on the Expert Control device
+      * ``index`` is the index of the output port, 1 or 2, matching the port on the |Product| controller.
 
 
     For example:
 
-    * ``"dmx:1"`` refers to port 1 on the Expert Controller
+    * ``"dmx:1"`` refers to port 1 on the |Product| Controller
 
 .. only:: designer
 

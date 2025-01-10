@@ -7,7 +7,7 @@ Methods
 GET
 ===
 
-Returns the position of the rotary dial on the front of the Expert controller.
+Returns the position of the rotary dial on the front of the |Product| controller.
 
 ``GET /api/mode``
 

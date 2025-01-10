@@ -87,6 +87,8 @@ if 'READTHEDOCS' in os.environ:
     rtd_project = rtd_project.lower()
     if 'mosaic' in rtd_project:
         variant = 'mosaic'
+    elif 'acuity' in rtd_project:
+        variant = 'acuity'
     else:
         # default to Pharos
         variant = 'pharos'
@@ -118,7 +120,7 @@ if variant == 'mosaic':
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
     .. |OVERRIDE_OPTIONS| replace:: group or fixture
     """
-else:
+elif variant == 'pharos':
     print('Building Pharos variant')
     rst_prolog = """
     .. |Vendor| replace:: Pharos
@@ -149,15 +151,47 @@ else:
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
     .. |OVERRIDE_OPTIONS| replace:: group or fixture
         """
+elif variant == 'acuity':
+    print('Building Acuity variant')
+    copyright = f'{current_year} Acuity Brands'
+    author = u'Acuity Brands'
+    rst_prolog = """
+    .. |Vendor| replace:: Acuity
+    .. |Designer| replace:: Designer
+    .. |LPC| replace:: LPC
+    .. |LPC X| replace:: LPC X
+    .. |TPC| replace:: TPC
+    .. |VLC| replace:: VLC
+    .. |VLC+| replace:: VLC+
+    .. |TPS| replace:: TPS
+    .. |XPC| replace:: XPC
+    .. |EXT| replace:: EXT
+    .. |EDN| replace:: EDN
+    .. |EDN 20| replace:: EDN 20
+    .. |EDN 10| replace:: EDN 10
+    .. |SAMPLE_CONTROLLER| replace:: ``Animate Control``
+    .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
+    .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
+    .. |OVERRIDE_OPTIONS| replace:: space"""
+else:
+    print('Trying to build for non-existant variant')
+    exit(1)
 
 
 # Include/Exclude based on product type
 if product == 'expert':
     print('Building for Expert product')
-    rst_prolog += """
+    if variant == 'acuity':
+        rst_prolog += """
+    .. |Product| replace:: nLight
+        """
+        project = u'nLight API v' + version
+    else:
+        rst_prolog += """
     .. |Product| replace:: Expert
-    """
-    project = u'Expert API v' + version
+        """
+        project = u'Expert API v' + version
+        exclude_patterns.append('*/nlight.rst')
     tags.add('expert')
     # Items which are removed from the Expert documentation
     exclude_patterns.append('*/access-control.rst')
@@ -169,7 +203,6 @@ if product == 'expert':
     exclude_patterns.append('*/group.rst')
     exclude_patterns.append('*/htaccess.rst')
     exclude_patterns.append('*/lua-variable.rst')
-    exclude_patterns.append('*/nlight.rst')
     exclude_patterns.append('*/objects/dali-ballast-status.rst')
     exclude_patterns.append('*/objects/dali-error.rst')
     exclude_patterns.append('*/objects/dali-power.rst')
@@ -236,6 +269,32 @@ if variant == 'mosaic':
     html_theme_options = {
         'light_logo': 'mosaic-logo-light.png',
         'dark_logo': 'mosaic-logo-dark.png',
+        'footer_icons': html_theme_footer_icons,
+    }
+elif variant == 'acuity':
+    html_theme_footer_icons = [
+        {
+            "name": "acuitybrands.com",
+            "url": "https://www.acuitybrands.com",
+            "html": """
+                <svg stroke="currentColor" stroke-width="0" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="m16 8c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8 8 3.58 8 8"
+                    fill="#116c33"
+                />
+                <path
+                    d="m6.15 5.57c-1.11-0.12-2.27-0.04-3.29 0.41-0.43 0.18-0.85 0.62-0.65 1.11 0.28 0.74 1.05 1.11 1.72 1.41 1.66 0.67 3.47 0.95 5.25 0.96 0.21-0.01 0.85-0.03 0.75-0.06-1.51-0.17-3.02-0.53-4.4-1.18-0.57-0.3-1.24-0.67-1.4-1.34-0.11-0.53 0.37-0.93 0.82-1.06 0.39-0.14 0.79-0.2 1.2-0.25zm3.57 0c-1.1-0.09-2.24-0.04-3.3 0.31-0.4 0.12-0.9 0.48-0.69 0.96 0.32 0.64 1.03 0.92 1.65 1.19 1.59 0.61 3.29 0.92 4.99 0.96 0.17 0 0.73-0.01 0.63-0.04-1.42-0.17-2.83-0.54-4.13-1.16-0.47-0.26-1.07-0.56-1.18-1.14-0.03-0.52 0.55-0.76 0.96-0.88 0.35-0.1 0.71-0.16 1.07-0.2zm3.36 3.42c-0.48 0.13-0.97 0.21-1.46 0.26 0.05 0.59 0.11 1.18 0.16 1.77h1.55zm-1.5-0.17c0.47 0.04 1.11 0.22 1.49 0.08l-0.48-3.9h-1.67c-0.66 1.17-1.33 2.35-1.99 3.52 0.46 0.07 1.05 0.34 1.46 0.22l1.01-1.91c0.06 0.66 0.12 1.33 0.18 1.99zm-1.55 0.58c-0.5-0.04-0.99-0.12-1.48-0.22l-1.03 1.84h1.66l0.86-1.61z"
+                    fill="#fff"
+                />
+                </svg>
+            """,
+            "class": "",
+        },
+    ]
+
+    html_theme_options = {
+        'light_logo': 'acuity-logo-light.png',
+        'dark_logo': 'acuity-logo-dark.png',
         'footer_icons': html_theme_footer_icons,
     }
 else:

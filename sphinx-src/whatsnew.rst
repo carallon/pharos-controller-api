@@ -3,7 +3,7 @@ What's New
 
 .. only:: expert
 
-    This API is available in Expert controllers running v1.2.0.
+    This API is available in |Product| controllers running v1.2.0.
 
 .. only:: designer
 

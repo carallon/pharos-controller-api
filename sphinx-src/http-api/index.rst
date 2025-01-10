@@ -69,6 +69,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    log
    lua-variable
    mode
+   nlight
    output
    override
    project
