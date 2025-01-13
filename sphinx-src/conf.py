@@ -101,6 +101,8 @@ product = os.environ.get('PRODUCT', 'designer').lower()
 # Substitutions
 if variant == 'mosaic':
     print('Building Mosaic variant')
+    copyright = f'{current_year} ETC Inc'
+    author = u'ETC Inc'
     rst_prolog = """
     .. |Vendor| replace:: Mosaic
     .. |Designer| replace:: Designer
