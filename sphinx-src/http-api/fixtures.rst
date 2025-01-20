@@ -53,6 +53,10 @@ Returns a JSON array of objects with the following attributes:
       - string
       - ``"online"``, ``"partially_offline"``, ``"offline"``, ``"loading"``, or ``"unknown"``
       - ``"online"``
+    * - ``type``
+      - string
+      - Fixture type as defined in the fixture library
+      - ``LED - RGBW 8 bit``
     * - ``updated_at``
       - string
       - ISO 8601-formatted timestamp of the last status update, or ``null`` if unknown
@@ -97,6 +101,36 @@ Returns a JSON array of objects with the following attributes:
       - ISO 8601-formatted timestamp of the last status update, or ``null`` if unknown
       - ``2024-06-27T09:30``
 
+If the ``with_custom_properties`` query parameter is ``true``, the following additional attribute is included for each fixture.
+
+.. list-table::
+  :widths: 5 2 10 5
+  :header-rows: 1
+
+  * - Attribute
+    - Value Type
+    - Description
+    - Value Example
+  * - ``custom_properties``
+    - object
+    - Object properties and property values correspond to custom property names and values
+    - ``{ "Custom Property 1": "value" }``
+
+If the ``with_rdm_devices`` query parameter is ``true``, the following additional attribute is included for each fixture:
+
+.. list-table::
+  :widths: 5 2 10 5
+  :header-rows: 1
+
+  * - Attribute
+    - Value Type
+    - Description
+    - Value Example
+  * - ``rdm_devices``
+    - array of objects
+    - A list of RDM devices associated with this fixture
+    - ``[ { "uid": "1234:56789abc" } ]``
+
 Fixture
 *******
 
@@ -107,28 +141,7 @@ Get detailed information for a single fixture including its status.
 
 ``GET /api/fixtures/{fixtureNumber}``
 
-Returns a JSON object extending the :ref:`Fixtures Overview GET <fixtures-overview-http-get>` response with the following additional attributes:
-
-.. list-table::
-   :widths: 5 2 10 5
-   :header-rows: 1
-
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``type``
-     - string
-     - Fixture type as defined in the fixture library
-     - ``LED - RGBW 8 bit``
-   * - ``rdm_device_uids``
-     - array of strings
-     - The UIDs of any RDM devices associated with this fixture
-     - ``["1234:56789abc"]``
-   * - ``custom_properties``
-     - object
-     - Object properties and property values correspond to custom property names and values
-     - ``{ "Custom Property 1": "value" }``
+Returns a JSON object with the same properties as contained in the :ref:`Fixtures Overview GET <fixtures-overview-http-get>` response.
 
 Universe Key String Format
 **************************
