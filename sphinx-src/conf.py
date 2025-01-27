@@ -98,6 +98,10 @@ else:
 # Get product type
 product = os.environ.get('PRODUCT', 'designer').lower()
 
+# Set tags to conditionally include content within pages
+tags.add(product)
+tags.add(variant)
+
 # Substitutions
 if variant == 'mosaic':
     print('Building Mosaic variant')
@@ -188,13 +192,14 @@ if product == 'expert':
     .. |Product| replace:: nLight
         """
         project = u'nLight API v' + version
+        exclude_patterns.append('*/beacon.rst')
     else:
         rst_prolog += """
     .. |Product| replace:: Expert
         """
         project = u'Expert API v' + version
+        exclude_patterns.append('*/identify.rst')
         exclude_patterns.append('*/nlight.rst')
-    tags.add('expert')
     # Items which are removed from the Expert documentation
     exclude_patterns.append('*/access-control.rst')
     exclude_patterns.append('*/command.rst')
@@ -234,7 +239,7 @@ if product == 'designer':
     .. |Product| replace:: Designer
     """
     project = u'Designer API v' + version
-    tags.add('designer')
+    exclude_patterns.append('*/identify.rst')
     exclude_patterns.append('*/mode.rst')
     exclude_patterns.append('*/nlight.rst')
     exclude_patterns.append('*/schedule.rst')

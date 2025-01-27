@@ -58,6 +58,7 @@ The functions provided in query.js for querying and controlling the controller a
    controller
    fan-speed
    group
+   identify
    input
    log
    lua-variable

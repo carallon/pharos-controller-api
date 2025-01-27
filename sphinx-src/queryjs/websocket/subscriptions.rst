@@ -166,36 +166,69 @@ For example:
      alert(r.num + ": " + (r.online ? "online" : "offline"))
    })
 
-subscribe_beacon
-================
+.. only:: not acuity
 
-Subscribe to changes in the device beacon.
+  subscribe_beacon
+  ================
 
-``subscribe_beacon(callback)``
+  Subscribe to changes in the device beacon.
 
-The ``callback`` is called each time the controller beacon status changes. Each time it is passed an object with the following attributes:
+  ``subscribe_beacon(callback)``
 
-.. list-table::
-   :widths: 3 3 10 4
-   :header-rows: 1
+  The ``callback`` is called each time the controller beacon status changes. Each time it is passed an object with the following attributes:
 
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``on``
-     - boolean
-     - New beacon status
-     - ``true``
+  .. list-table::
+    :widths: 3 3 10 4
+    :header-rows: 1
 
-For example:
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``on``
+      - boolean
+      - New beacon status
+      - ``true``
 
-.. code-block:: js
+  For example:
 
-   Query.subscribe_beacon(b => {
-     alert(b.on ? "Beacon turned on" : "Beacon turned off")
-   })
+  .. code-block:: js
 
+    Query.subscribe_beacon(b => {
+      alert(b.on ? "Beacon turned on" : "Beacon turned off")
+    })
+
+.. only:: acuity
+
+  subscribe_identify
+  ==================
+
+  Subscribe to changes in the controller's identify state.
+
+  ``subscribe_identify(callback)``
+
+  The ``callback`` is called each time the controller's identify status changes. Each time it is passed an object with the following attributes:
+
+  .. list-table::
+    :widths: 3 3 10 4
+    :header-rows: 1
+
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``on``
+      - boolean
+      - New identify status
+      - ``true``
+
+  For example:
+
+  .. code-block:: js
+
+    Query.subscribe_identify(b => {
+      alert(b.on ? "Identify turned on" : "Identify turned off")
+    })
 
 .. _websocket_subscribe_lua:
 

@@ -65,6 +65,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    fan-speed
    fixtures
    group
+   identify
    input
    log
    lua-variable
