@@ -181,6 +181,10 @@ Control a scene in the project.
       - string
       - Scene name
       - ``"Scene 1"``
+    * - ``group``
+      - string
+      - Scene playback group name
+      - ``"Back of House"``
     * - ``state``
       - string
       - ``none``, ``started``
