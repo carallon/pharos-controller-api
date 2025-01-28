@@ -261,8 +261,8 @@ Returns a JSON object with a single ``timelines`` attribute, which has an array 
      - ``"Timeline 1"``
    * - ``group``
      - string
-     - Timeline group name (``A`` through ``H`` or empty string)
-     - ``"A"``
+     - Timeline playback group name
+     - ``"Back of House"``
    * - ``length``
      - integer
      - Timeline length, in milliseconds
