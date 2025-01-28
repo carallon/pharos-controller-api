@@ -261,7 +261,7 @@ Returns a JSON object with a single ``timelines`` attribute, which has an array 
      - ``"Timeline 1"``
    * - ``group``
      - string
-     - Timeline playback group name
+     - Timeline :doc:`playback-group` name
      - ``"Back of House"``
    * - ``length``
      - integer

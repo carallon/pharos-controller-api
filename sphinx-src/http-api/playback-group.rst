@@ -11,6 +11,8 @@ Methods
 
   Returns data about the playback groups in the project on the controller.
 
+  Playback groups are a method of grouping :doc:`timelines <timeline>` or :doc:`scenes <scene>`.
+
   ``GET /api/playback_group[?num=playbackGroupNumbers]``
 
   ``num`` can be used to filter which scenes are returned and is expected to be either a single number or a string expressing the required playback groups, e.g. ``"1,2,5-9"``.

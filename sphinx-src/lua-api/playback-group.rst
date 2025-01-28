@@ -3,6 +3,8 @@ Playback Group
 
 A ``PlaybackGroup`` object is returned from :ref:`Lua_get_playback_group`.
 
+Playback groups are a method of grouping :doc:`timelines <timeline>` or :doc:`scenes <scene>`.
+
 Properties
 **********
 

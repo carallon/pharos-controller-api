@@ -183,7 +183,7 @@ Control a scene in the project.
       - ``"Scene 1"``
     * - ``group``
       - string
-      - Scene playback group name
+      - Scene :doc:`playback-group` name
       - ``"Back of House"``
     * - ``state``
       - string

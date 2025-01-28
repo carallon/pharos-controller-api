@@ -20,7 +20,7 @@ Properties
      - ``"Timeline 1"``
    * - ``group``
      - string
-     - Timeline group name
+     - Timeline :doc:`playback-group` name
      - ``"Group 1"``
    * - ``length``
      - integer
@@ -164,7 +164,7 @@ Starts the timeline and releases others.
      - Value Example
    * - ``group``
      - string **or** integer
-     - Optional timeline group name or number.  If name, prepend the name with ``!`` to apply the action to all timelines *except* those in the specified group. Omit to apply the action to all timelines.
+     - Optional playback group name or number.  If name, prepend the name with ``!`` to apply the action to all timelines *except* those in the specified group. Omit to apply the action to all timelines.
      - ``"Group 1"``, ``"!Group 2"`` or ``3``
    * - ``fade``
      - float
@@ -172,7 +172,7 @@ Starts the timeline and releases others.
      - ``2.0``
    * - ``same_group``
      - boolean
-     - Optional flag to target the same group as the selected timeline. This flag has no effect when ``group`` is set.
+     - Optional flag to target the same playback group as the selected timeline. This flag has no effect when ``group`` is set.
      - ``true``
 
 For example:
@@ -181,8 +181,8 @@ For example:
 
    -- start timeline 1 and release all others in the default time
    get_timeline(1):start_release_others()
-   -- start timeline 1 and release others except those in group B in 2 seconds
-   get_timeline(1):start_release_others('!B', 2.0)
+   -- start timeline 1 and release others except those in playback group "Back of House" in 2 seconds
+   get_timeline(1):start_release_others('!Back of House', 2.0)
    -- start timeline 1 and release others in the same group in the default time
    get_timeline(1):start_release_others(nil, nil, true)
 
