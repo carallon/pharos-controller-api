@@ -22,6 +22,10 @@ Properties
      - string
      - Timeline group name
      - ``"Group 1"``
+   * - ``group_num``
+     - integer or nil
+     - Timeline :doc:`playback-group` number
+     - ``1``
    * - ``length``
      - integer
      - Timeline length, in milliseconds

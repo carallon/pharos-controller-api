@@ -263,6 +263,10 @@ Returns a JSON object with a single ``timelines`` attribute, which has an array 
      - string
      - Timeline playback group name
      - ``"Back of House"``
+   * - ``group_num``
+     - integer or null
+     - Timeline :doc:`playback-group` number
+     - ``1``
    * - ``length``
      - integer
      - Timeline length, in milliseconds

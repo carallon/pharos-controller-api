@@ -20,8 +20,12 @@ Properties
      - ``"Scene 1"``
    * - ``group``
      - string
-     - Scene group name
+     - Scene :doc:`playback-group` name
      - ``"Group 1"``
+   * - ``group_num``
+     - integer or nil
+     - Playback group number
+     - ``1``
    * - ``state``
      - integer
      - Integer value of constants: ``Scene.NONE``, ``Scene.STARTED`` or ``Scene.RELEASED``

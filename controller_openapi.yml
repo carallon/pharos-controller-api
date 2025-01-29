@@ -1751,6 +1751,9 @@ components:
           type: integer
         group:
           type: string
+        group_num:
+          type: integer
+          nullable: true
         source_bus:
           type: string
           enum: [internal, real_time, timecode_1, timecode_2, timecode_3, timecode_4, timecode_5, timecode_6, audio_1, audio_2, audio_3, audio_4]
@@ -1782,6 +1785,9 @@ components:
           type: boolean
         group:
           type: string
+        group_num:
+          type: integer
+          nullable: true
       additionalProperties: true
     Playlist:
       type: object
