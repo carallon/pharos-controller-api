@@ -55,6 +55,10 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
      - boolean
      - Whether the remote device is detected as being online on the local network
      - ``true``
+   * - ``needs_firmware_reload``
+     - boolean
+     - Whether the remote device requires a firmware reload due to incompatibility with the controller
+     - ``true``
 
 The Output JSON object has the following attributes:
 

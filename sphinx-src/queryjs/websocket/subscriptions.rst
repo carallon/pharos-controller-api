@@ -149,14 +149,18 @@ The ``callback`` is called each time the remote device online/offline status cha
      - string
      - One of the remote device types as listed :ref:`here <http-remote-device-types>`
      - ``"RIO 80"``
-   * - ``online``
-     - boolean
-     - New online state of the remote device
-     - ``true``
    * - ``serial``
      - string
      - Remote device serial number
      - ``"001001"``
+   * - ``online``
+     - boolean
+     - New online state of the remote device
+     - ``true``
+   * - ``needs_firmware_reload``
+     - boolean
+     - Whether the remote device requires a firmware reload due to incompatibility with the controller
+     - ``true``
 
 For example:
 
