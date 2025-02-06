@@ -155,7 +155,7 @@ The ``callback`` is called each time the remote device online/offline status cha
      - ``true``
    * - ``serial``
      - string
-     - Remove device serial number
+     - Remote device serial number
      - ``"001001"``
 
 For example:
