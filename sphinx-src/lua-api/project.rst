@@ -25,6 +25,9 @@ Properties
    * - ``unique_id``
      - string
      - ``"{6b48627a-1d5e-4b2f-81e2-481e092a6a79}"``
+   * - ``upload_date``
+     - :doc:`date-time`
+     - :doc:`date-time` object
 
 For example:
 
