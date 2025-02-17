@@ -39,10 +39,10 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
      - string
      - One of the remote device types as listed :ref:`below <http-remote-device-types>`.
      - ``"RIO 44"``
-   * - ``serial``
+   * - ``physical_devices``
      - array
-     - Array of serial numbers (as strings) of all discovered devices matching the address and type
-     - ``["001234","005678"]``
+     - Physical devices assigned to this remote device. Array of Physical Remote Device objects (see table below).
+     ``[{"needs_firmware_reload": false,"online": true,"serial": "001234"},{"needs_firmware_reload": false,"online": false,"serial": "005678"}]``
    * - ``outputs``
      - array
      - Array of Output objects (see table below); only returned for RIO 44 and RIO 08 on the queried controller
@@ -53,11 +53,28 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
      - ``[{"input":1,"type":"Contact Closure","value":true},{"input":2,"type":"Contact Closure","value":true},{"input":3,"type":"Contact Closure","value":true},{"input":4,"type":"Contact Closure","value":true}]``
    * - ``online``
      - boolean
-     - Whether the remote device is detected as being online on the local network
-     - ``true``
+     - Whether the logical device is assigned to a physical remote device that is online and running a compatible firmware version
+
+The Physical Remote Device JSON object has the following attributes:
+
+.. list-table::
+   :widths: 3 3 10 5
+   :header-rows: 1
+
+   * - ``serial``
+     - string
+     - Serial number of the automatically or manually assigned physical device
+     - ``"001234"``
+   * - ``manual``
+     - boolean
+     - ``true`` if the remote device is manually assigned to the project by its serial number, or ``false`` if it was automatically assigned by remote device number
    * - ``needs_firmware_reload``
      - boolean
      - Whether the remote device requires a firmware reload due to incompatibility with the controller
+     - ``true``
+   * - ``online``
+     - boolean
+     - Whether the remote device is detected as being online on the local network
      - ``true``
 
 The Output JSON object has the following attributes:
