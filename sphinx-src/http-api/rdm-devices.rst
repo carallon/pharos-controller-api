@@ -68,63 +68,65 @@ Get a single RDM device including its status.
 
 Returns a JSON object with the same properties as contained in the :ref:`RDM Devices Overview GET <rdm-devices-overview-http-get>` response.
 
-PUT
-===
+.. only:: not expert
 
-Patch an unpatched RDM device.
+  PUT
+  ===
 
-``PUT /api/rdm_devices/{deviceId}/patch``
+  Patch an unpatched RDM device.
 
-The payload is a JSON object with the following attributes:
+  ``PUT /api/rdm_devices/{deviceId}/patch``
 
-.. list-table::
-   :widths: 4 3 10 5
-   :header-rows: 1
+  The payload is a JSON object with the following attributes:
 
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``action``
-     - string
-     - The patch action to perform.
-     - ``"assign", or "replace"``
+  .. list-table::
+    :widths: 4 3 10 5
+    :header-rows: 1
 
-Assign
-------
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``action``
+      - string
+      - The patch action to perform.
+      - ``"assign", or "replace"``
 
-Assign a new RDM device to a fixture. When ``action`` is ``assign``, the following additional attributes are required:
+  Assign
+  ------
 
-.. list-table::
-   :widths: 4 3 10 5
-   :header-rows: 1
+  Assign a new RDM device to a fixture. When ``action`` is ``assign``, the following additional attributes are required:
 
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``fixture_number``
-     - number
-     - User number of the fixture this RDM device will be assigned to.
-     - ``123``
+  .. list-table::
+    :widths: 4 3 10 5
+    :header-rows: 1
 
-Replace
--------
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``fixture_number``
+      - number
+      - User number of the fixture this RDM device will be assigned to.
+      - ``123``
 
-Replace an offline RDM device. When ``action`` is ``replace``, the following additional attributes are required:
+  Replace
+  -------
 
-.. list-table::
-   :widths: 4 3 10 5
-   :header-rows: 1
+  Replace an offline RDM device. When ``action`` is ``replace``, the following additional attributes are required:
 
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``target_device_id``
-     - string
-     - The RDM UID of the device to replace.
-     - ``"1234:56789abc"``
+  .. list-table::
+    :widths: 4 3 10 5
+    :header-rows: 1
+
+    * - Attribute
+      - Value Type
+      - Description
+      - Value Example
+    * - ``target_device_id``
+      - string
+      - The RDM UID of the device to replace.
+      - ``"1234:56789abc"``
 
 Universe Key String Format
 **************************
