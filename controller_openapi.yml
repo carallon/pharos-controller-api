@@ -1032,21 +1032,6 @@ paths:
           description: Accepted
         '400':
           description: Bad Request
-  /rdm/get_descriptions:
-    post:
-      tags:
-        - RDM Get
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/StartRdmGetDescriptionsOperation"
-      responses:
-        '202':
-          description: Accepted
-        '400':
-          description: Bad Request
   /rdm/parameter_descriptions:
     get:
       summary: Get cached parameter descriptions for each discovered RDM device variant
