@@ -82,6 +82,7 @@ The endpoints provided in the HTTP API for querying and controlling the controll
    rdm-devices
    rdm-get
    rdm-set
+   rdm-parameter-descriptions
    remote-device
    replication
    reset

@@ -46,6 +46,7 @@ tags:
     description: (Designer only)
   - name: RDM Get
     description: (Designer only)
+  - name: RDM Parameter Descriptions
   - name: RDM Set
     description: (Designer only)
   - name: Remote Device
@@ -1013,6 +1014,33 @@ paths:
           description: Accepted
         '400':
           description: Bad Request
+  /rdm/parameter_descriptions:
+    get:
+      summary: Get cached parameter descriptions for each discovered RDM device variant
+      tags:
+        - RDM Parameter Descriptions
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+                  properties:
+                    DMX_PERSONALITY_DESCRIPTION:
+                      type: array
+                      items:
+                        type: string
+                      nullable: true
+              example:
+                25972-517-17170449:
+                  DMX_PERSONALITY_DESCRIPTION:
+                    - 5 Channel
+                    - Direct
+                    - 1 Channel
+                    - RGB
   /rdm/set:
     post:
       tags:

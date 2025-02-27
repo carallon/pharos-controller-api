@@ -221,6 +221,7 @@ if product == 'expert':
     exclude_patterns.append('*/project-file.rst')
     exclude_patterns.append('*/rdm-discovery.rst')
     exclude_patterns.append('*/rdm-get.rst')
+    exclude_patterns.append('*/rdm-parameter-descriptions.rst')
     exclude_patterns.append('*/rdm-set.rst')
     exclude_patterns.append('*/remote-device.rst')
     exclude_patterns.append('*/replication.rst')

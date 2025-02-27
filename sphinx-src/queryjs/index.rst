@@ -70,6 +70,7 @@ The functions provided in query.js for querying and controlling the controller a
    rdm-discovery
    rdm-get
    rdm-set
+   rdm-parameter-descriptions
    remote-device
    replication
    scene
