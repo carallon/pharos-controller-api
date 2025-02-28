@@ -394,6 +394,43 @@ The ``data`` object will have the following attributes:
      - A description of why the discovery was cancelled.
 
 
+.. _websocket_subscribe_rdm_parameter_description:
+
+subscribe_rdm_parameter_description
+===================================
+
+Subscribe for updates to RDM parameter descriptions. Currently only ``DMX_PERSONALITY_DESCRIPTION`` is supported.
+
+``subscribe_rdm_parameter_description(callback)``
+
+The callback is called every time a parameter description for an RDM device variant is updated. The callback is passed an object with the following attributes:
+
+.. list-table::
+   :widths: 3 3 10
+   :header-rows: 1
+
+   * - Attribute
+     - Value Type
+     - Description
+   * - ``description``
+     - string
+     - Description obtained from an RDM device matching the ``variant_key``.
+   * - ``index``
+     - integer or null
+     - The parameter index for enumerable parameters, or ``null`` for unary parameters.
+   * - ``pid``
+     - string
+     - The PID that this object describes.
+   * - ``variant_key``
+     - string
+     - A unique identifier for the RDM device variant. See `Device Variant String Format`_.
+
+Device Variant String Format
+----------------------------
+
+.. include:: ../../snippets/rdm-device-variant-key-string-format.rst
+
+
 .. _websocket_subscribe_rdm_get_set:
 
 subscribe_rdm_get_set
