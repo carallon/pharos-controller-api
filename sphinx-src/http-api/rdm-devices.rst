@@ -55,6 +55,10 @@ Returns a JSON array of objects with the following attributes:
      - string
      - ISO 8601-formatted timestamp of the last status update, or ``null`` if unknown
      - ``2024-06-27T09:30``
+   * - ``variant_key``
+     - string
+     - A unique identifier for the RDM device variant. See `Device Variant String Format`_.
+     - ``"25972-517-17170449"``
 
 RDM Device
 **********
@@ -127,6 +131,11 @@ Returns a JSON object with the same properties as contained in the :ref:`RDM Dev
       - string
       - The RDM UID of the device to replace.
       - ``"1234:56789abc"``
+
+Device Variant String Format
+****************************
+
+.. include:: ../snippets/rdm-device-variant-key-string-format.rst
 
 Universe Key String Format
 **************************

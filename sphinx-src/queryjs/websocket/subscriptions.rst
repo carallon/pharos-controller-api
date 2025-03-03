@@ -425,11 +425,6 @@ The callback is called every time a parameter description for an RDM device vari
      - string
      - A unique identifier for the RDM device variant. See `Device Variant String Format`_.
 
-Device Variant String Format
-----------------------------
-
-.. include:: ../../snippets/rdm-device-variant-key-string-format.rst
-
 
 .. _websocket_subscribe_rdm_get_set:
 
@@ -819,6 +814,9 @@ The ``device`` object has the following attributes:
    * - ``updated_at``
      - string
      - ISO 8601-formatted timestamp of the device's last status update.
+   * - ``variant_key``
+     - string
+     - A unique identifier for the RDM device variant. See `Device Variant String Format`_.
 
 Fixture
 ^^^^^^^
@@ -841,6 +839,11 @@ The ``fixture`` object has the following attributes:
    * - ``updated_at``
      - string
      - ISO 8601-formatted timestamp of the fixture's last status update.
+
+Device Variant String Format
+****************************
+
+.. include:: ../../snippets/rdm-device-variant-key-string-format.rst
 
 Universe Key String Format
 **************************
