@@ -157,6 +157,10 @@ The ``callback`` is called each time the remote device online/offline status cha
      - boolean
      - New online state of the remote device
      - ``true``
+   * - ``firmware_version``
+     - string
+     - The firmware version running on the remote device, or ``null`` if offline
+     - ``"2.8.0"``
    * - ``needs_firmware_reload``
      - boolean
      - Whether the remote device requires a firmware reload due to incompatibility with the controller

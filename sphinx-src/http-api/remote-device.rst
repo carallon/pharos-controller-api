@@ -42,7 +42,7 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
    * - ``physical_devices``
      - array
      - Physical devices assigned to this remote device. Array of Physical Remote Device objects (see table below).
-     ``[{"needs_firmware_reload": false,"online": true,"serial": "001234"},{"needs_firmware_reload": false,"online": false,"serial": "005678"}]``
+     ``[{"firmware_version":"2.8.0","needs_firmware_reload": false,"online": true,"serial": "001234"},{"firmware_version":null,"needs_firmware_reload": false,"online": false,"serial": "005678"}]``
    * - ``outputs``
      - array
      - Array of Output objects (see table below); only returned for RIO 44 and RIO 08 on the queried controller
@@ -68,6 +68,9 @@ The Physical Remote Device JSON object has the following attributes:
    * - ``manual``
      - boolean
      - ``true`` if the remote device is manually assigned to the project by its serial number, or ``false`` if it was automatically assigned by remote device number
+   * - ``firmware_version``
+     - string
+     - The firmware version running on the remote device, or ``null`` if offline
    * - ``needs_firmware_reload``
      - boolean
      - Whether the remote device requires a firmware reload due to incompatibility with the controller

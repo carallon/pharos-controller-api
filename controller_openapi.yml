@@ -1878,6 +1878,8 @@ components:
     PhysicalRemoteDevice:
       type: object
       properties:
+        firmware_version:
+          type: string
         manual:
           type: boolean
         needs_firmware_reload:
