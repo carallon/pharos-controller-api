@@ -1858,10 +1858,6 @@ components:
           type: string
         name_with_type:
           type: string
-        serial:
-          type: array
-          items:
-            type: string
         online:
           type: boolean
         outputs:
@@ -1875,6 +1871,21 @@ components:
                 type: boolean
         inputs:
           $ref: "#/components/schemas/GPIO"
+        physical_devices:
+          type: array
+          items:
+            $ref: "#/components/schemas/PhysicalRemoteDevice"
+    PhysicalRemoteDevice:
+      type: object
+      properties:
+        manual:
+          type: boolean
+        needs_firmware_reload:
+          type: boolean
+        online:
+          type: boolean
+        serial:
+          type: string
     Controller:
       type: object
       properties:
