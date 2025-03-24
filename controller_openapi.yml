@@ -196,6 +196,14 @@ paths:
     post:
       tags:
         - (Internal)
+      parameters:
+        - in: query
+          name: remote_device
+          description: Node key of the target physical remote device formatted as `type:serial`. Omit to target the controller itself.
+          required: false
+          schema:
+            type: string
+            pattern: '^.+:.+$'
       requestBody:
         required: true
         content:
@@ -206,6 +214,8 @@ paths:
       responses:
         '204':
           description: OK
+        '400':
+          description: Bad Request
         '411':
           description: Length Required
   /timeline:
@@ -1881,6 +1891,8 @@ components:
         firmware_version:
           type: string
         manual:
+          type: boolean
+        needs_firmware_hash:
           type: boolean
         needs_firmware_reload:
           type: boolean
