@@ -202,8 +202,7 @@ paths:
           description: Node key of the target physical remote device formatted as `type:serial`. Omit to target the controller itself.
           required: false
           schema:
-            type: string
-            pattern: '^.+:.+$'
+            $ref: "#/components/schemas/NodeKey"
       requestBody:
         required: true
         content:
@@ -218,6 +217,30 @@ paths:
           description: Bad Request
         '411':
           description: Length Required
+    delete:
+      summary: Abort firmware upload for a remote device.
+      description: Abort the active firmware upload for the `remote_device` or remove it from the pending queue.
+      tags:
+        - (Internal)
+      parameters:
+        - in: query
+          name: remote_device
+          description: Node key of the target physical remote device formatted as `type:serial`.
+          required: true
+          schema:
+            $ref: "#/components/schemas/NodeKey"
+      requestBody:
+        required: true
+        content:
+          application/vnd.pharos:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '204':
+          description: OK
+        '400':
+          description: Bad Request
   /timeline:
     get:
       tags:
@@ -3031,3 +3054,6 @@ components:
         tag_set:
           type: string
           example: "1: Type of day"
+    NodeKey:
+      type: string
+      pattern: '^.+:.+$'
