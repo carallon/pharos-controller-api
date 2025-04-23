@@ -23,4 +23,5 @@ If you're new here then you might start with the :doc:`introduction <guide/intro
 
    http-api/index
    queryjs/index
+   websocket/index
    lua-api/index

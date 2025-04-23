@@ -55,19 +55,4 @@ Returns information about the current state of all Content Targets in the projec
 
 Returns a JSON object with a single ``content_targets`` attribute, which has an array value. Each item in the array is a Content Target object with the following attributes:
 
-.. list-table::
-   :widths: 3 3 10 5
-   :header-rows: 1
-
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``name``
-     - string
-     - Content target name
-     - ``"Primary"``
-   * - ``level``
-     - integer
-     - Current intensity master level of the content target, 0-100
-     - ``100``
+.. include:: ../snippets/json-attributes-content-target.rst

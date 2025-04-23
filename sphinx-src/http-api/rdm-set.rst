@@ -28,11 +28,8 @@ Payload is a JSON object with the following attributes:
      - The universe on which to perform the RDM Set operation.
      - ``"dmx:2"``
    * - ``destination_uid``
-     - string
-     - Format is ``{manuId}:{deviceId}(:{subId})``
-       where ``{manuId}`` is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. ``072c``;
-       ``{deviceId}`` is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. ``0004fe02``;
-       ``{subId}`` is an optional unsigned decimal integer.
+     - string in `RDM UID Format`_
+     - The target RDM UID to which the SET command is to be sent.
      - ``"072c:0004fe02"``
    * - ``pid``
      - string
@@ -203,3 +200,8 @@ The following PIDs are directly supported for RDM Set operations:
 * ``LAMP_HOURS``
 * ``LAMP_STATE``
 * ``CURVE``
+
+RDM UID Format
+**************
+
+.. include:: ../snippets/rdm-uid-format.rst

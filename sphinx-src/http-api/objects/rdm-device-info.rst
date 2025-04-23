@@ -13,10 +13,7 @@ Where an RDM Device Info object is returned from an API request, it will have th
      - Value Example
    * - ``uid``
      - string
-     - Format is ``{manuId}:{deviceId}(:{subId})``
-       where ``{manuId}`` is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. ``072c``;
-       ``{deviceId}`` is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. ``0004fe02``;
-       ``{subId}`` is an optional unsigned decimal integer.
+     - UID of the device in `RDM UID Format`_
      - ``"072c:0004fe02"``
    * - ``rdm_protocol_version``
      - integer
@@ -54,3 +51,8 @@ Where an RDM Device Info object is returned from an API request, it will have th
      - integer
      - Number of available sensors in a root device or sub-device. For sub-devices, this value is identical for any sub-device owned by the same root device. When a device or sub-device is fitted with a single sensor, it will return a value of 0x01 for the sensor count. This sensor would then be addressed as sensor number 0x00 when using the other sensor-related parameter messages.
      - ``0``
+
+RDM UID Format
+**************
+
+.. include:: ../../snippets/rdm-uid-format.rst

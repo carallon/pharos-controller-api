@@ -28,11 +28,8 @@ Payload is a JSON object with the following attributes:
      - The universe on which to perform the RDM Get operation.
      - ``"dmx:2"``
    * - ``destination_uid``
-     - string
-     - Format is ``{manuId}:{deviceId}(:{subId})``
-       where ``{manuId}`` is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. ``072c``;
-       ``{deviceId}`` is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. ``0004fe02``;
-       ``{subId}`` is an optional unsigned decimal integer.
+     - string in `RDM UID Format`_
+     - The target RDM UID to which the GET command is to be sent.
      - ``"072c:0004fe02"``
    * - ``pid``
      - string
@@ -178,3 +175,8 @@ Universe Key String Format
 **************************
 
 .. include:: ../snippets/universe-key-string-format-rdm.rst
+
+RDM UID Format
+**************
+
+.. include:: ../snippets/rdm-uid-format.rst

@@ -1,7 +1,7 @@
-Websocket Subscriptions
+WebSocket Subscriptions
 #######################
 
-Websocket subscriptions allow data to be pushed to the web client whenever there is a change within the project. The query.js library includes functions with callbacks to subscribe to each channel and return any data received.
+WebSocket subscriptions allow data to be pushed to the web client whenever there is a change within the project. The query.js library includes functions with callbacks to subscribe to each channel and return any data received.
 
 Functions
 *********
@@ -15,30 +15,7 @@ Subscribe to changes in timeline status.
 
 The ``callback`` is called each time a timeline changes state on the controller. Each time it is passed an object with the following attributes:
 
-.. list-table::
-   :widths: 3 3 10 4
-   :header-rows: 1
-
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``num``
-     - integer
-     - Timeline number
-     - ``1``
-   * - ``state``
-     - string
-     - The new state of the timeline: ``none``, ``running``, ``paused``, ``holding_at_end``, ``released``
-     - ``"running"``
-   * - ``onstage``
-     - boolean
-     - Whether the timeline is currently affecting the output of any fixtures in the project.
-     - ``true``
-   * - ``position``
-     - integer
-     - Current time position of the timeline playback, in milliseconds
-     - ``5000``
+.. include:: ../../snippets/json-attributes-timeline.rst
 
 For example:
 
@@ -57,26 +34,7 @@ Subscribe to changes in scene status.
 
 The ``callback`` is called each time a scene changes state on the controller. Each time it is passed an object with the following attributes:
 
-.. list-table::
-   :widths: 3 3 10 4
-   :header-rows: 1
-
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``num``
-     - integer
-     - Scene number
-     - ``1``
-   * - ``state``
-     - string
-     - The new state of the scene: ``none``, ``started``, ``released``
-     - ``"started"``
-   * - ``onstage``
-     - boolean
-     - Whether the scene is currently affecting the output of any fixtures in the project.
-     - ``true``
+.. include:: ../../snippets/json-attributes-scene.rst
 
 For example:
 
@@ -95,26 +53,7 @@ Subscribe to changes in group level, as set by the Master Intensity action.
 
 The ``callback`` is called each time the group master level changes on the controller. Each time it is passed an object with the following attributes:
 
-.. list-table::
-   :widths: 3 3 10 4
-   :header-rows: 1
-
-   * - Attribute
-     - Value Type
-     - Description
-     - Value Example
-   * - ``num``
-     - integer
-     - Group number
-     - ``1``
-   * - ``name``
-     - string
-     - Group name
-     - ``"Group 1"``
-   * - ``level``
-     - integer
-     - New master intensity level of the group: 0-255
-     - ``128``
+.. include:: ../../snippets/json-attributes-group.rst
 
 For example:
 
@@ -456,10 +395,7 @@ The callback is called to provide the response from RDM Get and Set operations, 
      - The universe on which the RDM operation is acting, in the `Universe Key String Format`_.
    * - ``device_id``
      - string
-     - Format is ``{manuId}:{deviceId}(:{subId})``
-       where ``{manuId}`` is a padded unsigned hexadecimal integer of width 4, lowercase, e.g. ``072c``;
-       ``{deviceId}`` is a padded unsigned hexadecimal integer of width 8, lowercase, e.g. ``0004fe02``;
-       ``{subId}`` is an optional unsigned decimal integer.
+     - The UID of the device targeted by the operation, in `RDM UID Format`_.
    * - ``pid``
      - string
      - RDM PID as a human-readable string, e.g. ``DEVICE_INFO``, or a string containing the hex representation of the enum value of the PID as defined by the RDM standard, e.g. ``"c1"``.
@@ -842,3 +778,8 @@ Universe Key String Format
 **************************
 
 .. include:: ../../snippets/universe-key-string-format-rdm.rst
+
+RDM UID Format
+**************
+
+.. include:: ../../snippets/rdm-uid-format.rst
