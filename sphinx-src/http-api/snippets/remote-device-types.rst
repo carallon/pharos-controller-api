@@ -6,6 +6,7 @@
 * ``RIO A``
 * ``RIO D``
 * ``RIO G4``
+* ``RIO D4``
 * ``EDN 10``
 * ``EDN 20``
 * ``TPS``
