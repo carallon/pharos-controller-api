@@ -39,6 +39,10 @@ Returns a JSON array of objects with the following attributes:
      - number
      - User number of the fixture this device is assigned to, or ``null`` if not patched.
      - ``123``
+   * - ``issues``
+     - array of objects
+     - Issues found with this RDM device. See `Device Issues`_.
+     - ``[{"issue":"address_mismatch","valid":[1,11,51]}]``
    * - ``patch``
      - string
      - Combined universe key and address (see `Universe Key String Format`_). Only included if ``status`` is ``online``.
@@ -131,6 +135,57 @@ Returns a JSON object with the same properties as contained in the :ref:`RDM Dev
       - string
       - The RDM UID of the device to replace.
       - ``"1234:56789abc"``
+
+Device Issues
+*************
+
+.. _rdm-devices-device-issues:
+
+The status monitor tracks patch issues for each patched RDM device. The following issues are detected, discriminated by the ``issue`` field:
+
+Address Mismatch
+================
+
+The DMX start address of the RDM device does not match any patched addresses for the parent fixture on the universe upon which it was discovered.
+
+.. list-table::
+  :widths: 4 3 10 5
+  :header-rows: 1
+
+  * - Attribute
+    - Value Type
+    - Description
+    - Value Example
+  * - ``issue``
+    - string
+    - Issue type discriminator.
+    - ``"address_mismatch"``
+  * - ``valid``
+    - array of integers
+    - Valid DMX start addresses for this device on the current universe.
+    - ``[1,11,51]``
+
+Output Mismatch
+===============
+
+The RDM device was discovered on an output upon which the parent fixture is not patched.
+
+.. list-table::
+  :widths: 4 3 10 5
+  :header-rows: 1
+
+  * - Attribute
+    - Value Type
+    - Description
+    - Value Example
+  * - ``issue``
+    - string
+    - Issue type discriminator.
+    - ``"output_mismatch"``
+  * - ``valid``
+    - array of strings
+    - Valid outputs for this device. See `Universe Key String Format`_.
+    - ``["dmx:1:1","riog4:1:2"]``
 
 Device Variant String Format
 ****************************

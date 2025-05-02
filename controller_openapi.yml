@@ -2807,6 +2807,52 @@ components:
           type: ip address or hostname
         interface:
           type: integer
+    FixtureDeviceIssueKey:
+      type: string
+      enum:
+        - address_mismatch
+        - output_mismatch
+    FixtureDeviceIssueDetail:
+      type: object
+      discriminator:
+        propertyName: issue
+        mapping:
+          address_mismatch: '#/components/schemas/FixtureDeviceIssueDetailAddressMismatch'
+          output_mismatch: '#/components/schemas/FixtureDeviceIssueDetailOutputMismatch'
+      oneOf:
+        - $ref: '#/components/schemas/FixtureDeviceIssueDetailAddressMismatch'
+        - $ref: '#/components/schemas/FixtureDeviceIssueDetailOutputMismatch'
+    FixtureDeviceIssueDetailAddressMismatch:
+      type: object
+      properties:
+        issue:
+          type: string
+          enum:
+            - address_mismatch
+        valid:
+          type: array
+          items:
+            type: integer
+            minimum: 1
+            maximum: 512
+          example:
+            - 1
+            - 11
+            - 51
+    FixtureDeviceIssueDetailOutputMismatch:
+      type: object
+      properties:
+        issue:
+          type: string
+          enum:
+            - output_mismatch
+        valid:
+          type: array
+          items:
+            type: string
+          example:
+            - dmx:2:1
+            - edn10:1:1
     FixtureDeviceStatus:
       type: string
       enum:
@@ -2829,6 +2875,10 @@ components:
           description: (Expert only)
           type: string
           example: "1: Project Space"
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/FixtureDeviceIssueKey'
         manufacturer:
           type: string
           example: Generic
@@ -2879,6 +2929,10 @@ components:
           type: number
           example: 123
           nullable: true
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/FixtureDeviceIssueDetail'
         patch:
           type: string
           example: dmx:2:101

@@ -33,6 +33,10 @@ Returns a JSON array of objects with the following attributes:
       - array of strings
       - Names of groups containing this fixture
       - ``["1 All Exterior"]``
+    * - ``issues``
+      - array of strings
+      - Issue keys collected from devices patched to this fixture (see :ref:`RDM Device Issues <rdm-devices-device-issues>`)
+      - ``["address_mismatch"]``
     * - ``manufacturer``
       - string
       - Manufacturer name as defined in the fixture library

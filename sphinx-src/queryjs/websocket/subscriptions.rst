@@ -792,6 +792,9 @@ The ``device`` object has the following attributes:
    * - ``device_id``
      - string
      - RDM device UID.
+   * - ``issues``
+     - array of objects
+     - Issues found with this RDM device. See :ref:`RDM Device Issues <rdm-devices-device-issues>`.
    * - ``rdm``
      - object
      - A map of RDM parameters cached from the latest run of the :ref:`status-monitor`, index by parameter ID.
@@ -817,6 +820,9 @@ The ``fixture`` object has the following attributes:
    * - Attribute
      - Value Type
      - Description
+   * - ``issues``
+     - array of strings
+     - Issue keys collected from devices patched to this fixture (see :ref:`RDM Device Issues <rdm-devices-device-issues>`)
    * - ``number``
      - integer
      - User number of the fixture
