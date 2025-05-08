@@ -47,7 +47,7 @@ using PowerShell:
 Currently supported products are:
 
 * `designer` for Pharos/Mosaic Designer (the default)
-* `expert` for Pharos Expert
+* `expert` for Pharos Expert and Acuity NDMX3/Pathway Perform
 
 ### Building a specific variant
 
@@ -71,3 +71,4 @@ Currently supported variants are:
 
 * `pharos` for Pharos (the default)
 * `mosaic` for ETC Mosaic
+* `acuity` for Acuity NDMX3/Pathway Perform
