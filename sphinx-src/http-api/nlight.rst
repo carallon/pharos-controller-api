@@ -149,10 +149,10 @@ nLight WallPod object with the following attributes:
     - integer
     - Current level assigned to this WallPod, from ``1``-``100``.
     - ``100``
-  * - ``pilot``
-    - boolean
-    - Current state of this WallPod's pilot light.
-    - ``true``
+  * - ``status``
+    - string
+    - ``unpatched`` if the WallPod is not patched in the current project. Otherwise ``at_target_level``, ``near_target_level`` if within 5% of the target level, otherwise ``outside_target_level``.
+    - ``at_target_level``
 
 
 Project-nLight Mappings

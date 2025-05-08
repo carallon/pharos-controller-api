@@ -2987,10 +2987,15 @@ components:
           nullable: true
           example: Wallpod01
           description: Null if nLight bus not available.
-        pilot:
-          type: boolean
+        status:
+          type: string
+          enum:
+            - unpatched
+            - at_target_level
+            - near_target_level
+            - outside_target_level
           nullable: true
-          example: true
+          example: at_target_level
           description: Null if nLight bus not available.
     NLightProjectIntensityMasterMapping:
       type: object
