@@ -1771,6 +1771,12 @@ components:
         memory_available:
           type: string
           pattern: /\d+ KB/
+        lua_memory_used:
+          type: string
+          pattern: /\d+ KB/
+        lua_memory_allowed:
+          type: string
+          pattern: /\d+ KB/
         storage_size:
           type: string
           pattern: /(\d+ MB)|(Not present)/

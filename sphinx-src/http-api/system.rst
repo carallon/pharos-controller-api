@@ -40,6 +40,12 @@ Returns a JSON object with the following attributes:
    * - ``memory_available``
      - string
      - ``"103884Kb"``
+   * - ``lua_memory_used``
+     - string
+     - ``"40Kb"``
+   * - ``lua_memory_allowed``
+     - string
+     - ``"8912Kb"``
    * - ``storage_size``
      - string
      - ``"1914MB"``
