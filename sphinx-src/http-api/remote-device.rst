@@ -42,7 +42,7 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
    * - ``physical_devices``
      - array
      - Physical devices assigned to this remote device. Array of Physical Remote Device objects (see table below).
-     ``[{"firmware_version":"2.8.0","needs_firmware_reload": false,"online": true,"serial": "001234"},{"firmware_version":null,"needs_firmware_reload": false,"online": false,"serial": "005678"}]``
+     - ``[{"firmware_version":"2.8.0","needs_firmware_reload": false,"online": true,"serial": "001234"},{"firmware_version":null,"needs_firmware_reload": false,"online": false,"serial": "005678"}]``
    * - ``outputs``
      - array
      - Array of Output objects (see table below); only returned for RIO 44 and RIO 08 on the queried controller
@@ -54,6 +54,7 @@ Returns a JSON object with a single ``remote_devices`` attribute, which has an a
    * - ``online``
      - boolean
      - Whether the logical device is assigned to a physical remote device that is online and running a compatible firmware version
+     - ``true``
 
 The Physical Remote Device JSON object has the following attributes:
 
@@ -68,9 +69,11 @@ The Physical Remote Device JSON object has the following attributes:
    * - ``manual``
      - boolean
      - ``true`` if the remote device is manually assigned to the project by its serial number, or ``false`` if it was automatically assigned by remote device number
+     - ``true``
    * - ``firmware_version``
      - string
      - The firmware version running on the remote device, or ``null`` if offline
+     - ``1.0.0``
    * - ``needs_firmware_reload``
      - boolean
      - Whether the remote device requires a firmware reload due to incompatibility with the controller
@@ -116,7 +119,7 @@ The Input JSON object has the following attributes:
    * - ``type``
      - string
      - ``Analog``, ``Digital``, or ``Contact Closure``
-     - ``""Digital"``
+     - ``Digital``
    * - ``value``
      - integer or boolean
      - Value type depends on input type - ``Analog`` inputs return an integer, 0-255; other types return a bool.
