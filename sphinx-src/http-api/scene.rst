@@ -186,9 +186,9 @@ Control a scene in the project.
       - Scene playback group name
       - ``"Back of House"``
     * - ``group_num``
-     - integer or null
-     - Scene :doc:`playback-group` number
-     - ``1``
+      - integer or null
+      - Scene :doc:`playback-group` number
+      - ``1``
     * - ``state``
       - string
       - ``none``, ``started``
