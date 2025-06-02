@@ -1906,8 +1906,6 @@ components:
           type: string
         manual:
           type: boolean
-        needs_firmware_hash:
-          type: boolean
         needs_firmware_reload:
           type: boolean
         online:
