@@ -39,6 +39,8 @@ The ``time`` namespace has the following functions, which each return a :doc:`da
 * ``get_first_quarter()``
 * ``get_full_moon()``
 * ``get_third_quarter()``
+* ``get_moonrise()``
+* ``get_moonset()``
 
 Each of these functions can either be called with no argument, or with a :doc:`date-time` object as an argument.
 
