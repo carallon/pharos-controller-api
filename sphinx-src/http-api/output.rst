@@ -78,12 +78,64 @@ For example:
      - Value Example
    * - ``channels``
      - array
-     - Array of integer (0-255) channel levels
-     - ``[0,0,0,0,0,0,0,0,0,255,255,255...255,0,255]``
+     - Array of string channel levels
+     - ``["0","0"," "," ","253","255",...,"!0","+255"]``
    * - ``disabled``
      - bool
      - Whether the output has been disabled
      - ``false``
+
+Channel Level Strings
+---------------------
+
+A channel level string is formatted as follows:
+
+.. only:: designer
+
+  .. list-table::
+    :widths: 4 6 4
+    :header-rows: 1
+
+    * - Format
+      - Description
+      - Value Example
+    * - ``" "``
+      - Unpatched
+      - ``"{val}"``
+    * - ``"0"``
+      - Patched
+      - ``"0"``
+    * - ``"+{val}"``
+      - Parked
+      - ``"+255"``
+    * - ``"!{val}"``
+      - Overridden
+      - ``"!255"``
+    * - ``"={val}"``
+      - External (eDMX pass-through)
+      - ``"=255"``
+
+.. only:: not designer
+
+  .. list-table::
+    :widths: 4 6 4
+    :header-rows: 1
+
+    * - Format
+      - Description
+      - Value Example
+    * - ``" "``
+      - Unpatched
+      - ``"{val}"``
+    * - ``"0"``
+      - Patched
+      - ``"0"``
+    * - ``"+{val}"``
+      - Parked
+      - ``"+255"``
+    * - ``"!{val}"``
+      - Overridden
+      - ``"!255"``
 
 Universe Key String Format
 **************************
