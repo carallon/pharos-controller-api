@@ -122,6 +122,7 @@ if variant == 'mosaic':
     .. |EDN 20| replace:: EDN 20
     .. |EDN 10| replace:: EDN 10
     .. |SAMPLE_CONTROLLER| replace:: ``MSC``
+    .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"msc-006321"``
     .. |PROTOCOLS| replace:: ``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
     .. |OVERRIDE_OPTIONS| replace:: group or fixture
@@ -146,6 +147,7 @@ elif variant == 'pharos':
     if product == 'expert':
         rst_prolog += """
     .. |SAMPLE_CONTROLLER| replace:: ``Expert Control``
+    .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"xpc-006321"``
     .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
     .. |OVERRIDE_OPTIONS| replace:: space
@@ -153,6 +155,7 @@ elif variant == 'pharos':
     else:
         rst_prolog += """
     .. |SAMPLE_CONTROLLER| replace:: LPC
+    .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"lpc-006321"``
     .. |PROTOCOLS| replace:: ``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
     .. |OVERRIDE_OPTIONS| replace:: group or fixture
@@ -176,6 +179,7 @@ elif variant == 'acuity':
     .. |EDN 20| replace:: EDN 20
     .. |EDN 10| replace:: EDN 10
     .. |SAMPLE_CONTROLLER| replace:: ``Animate Control``
+    .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"animate-006321"``
     .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
     .. |OVERRIDE_OPTIONS| replace:: space"""

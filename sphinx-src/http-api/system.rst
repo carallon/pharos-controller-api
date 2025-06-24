@@ -73,3 +73,27 @@ Returns a JSON object with the following attributes:
    * - ``default_gateway``
      - string
      - ``"192.168.1.3"``
+   * - ``host_name``
+     - string
+     - |SAMPLE_CONTROLLER_HOST_NAME|
+   * - ``domain_name``
+     - string
+     - ``"lighting.lan"``
+   * - ``dns_servers``
+     - array of strings
+     - ``["1.0.0.1","1.1.1.1"]``
+
+.. only:: designer
+
+  On LPC and TPC controllers, the following additional attributes are included:
+
+  .. list-table::
+    :widths: 3 2 5
+    :header-rows: 1
+
+    * - Attribute
+      - Value Type
+      - Value Example
+    * - ``vlan_tag``
+      - integer or null
+      - ``100``
