@@ -1790,10 +1790,13 @@ components:
           $ref: "#/components/schemas/Date"
         ip_address:
           type: string
+          nullable: true
         subnet_mask:
           type: string
+          nullable: true
         default_gateway:
           type: string
+          nullable: true
     Timeline:
       type: object
       properties:
