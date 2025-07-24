@@ -35,7 +35,7 @@ Payload is a JSON object with the following attributes:
       - ``"group"``
     * - ``num``
       - integer
-      - Optional. Group, fixture, or space number depending on ``target``. Group 0 means the *All Fixtures* group.
+      - Optional. Group or Fixture number depending on ``target``. Group 0 means the *All Fixtures* group.
       - ``1``
     * - ``intensity``
       - integer or string
