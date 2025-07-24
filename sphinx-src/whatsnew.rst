@@ -10,6 +10,16 @@ What's New
     v11.0
     *****
 
+    * Add project upload date to :doc:`Lua Project API<lua-api/project>`.
+    * Add additional Host and DNS information to the HTTP :doc:`system endpoint<http-api/system>`.
+    * Add extended information for eDMX pass-through to the HTTP :doc:`output endpoint<http-api/output>`.
+    * Add moonrise and moonset times to the Lua API :doc:`Time object<lua-api/time>`.
+    * Add information about the memory used by the Lua environment to both the :doc:`HTTP<http-api/system>` and :doc:`Lua<lua-api/system>` APIs.
+    * Changes to :doc:`remote device reporting<http-api/remote-device>`:
+        * Allow multiple physical remote devices at the same address.
+        * Report remote device firmware versions.
+    * Add Playback Group number to the Lua :doc:`Scene<lua-api/scene>` and HTTP :doc:`Timeline<lua-api/timeline>` APIs.
+
     v10.0
     *****
 
