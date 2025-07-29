@@ -925,6 +925,12 @@ paths:
     get:
       tags:
         - Space
+      parameters:
+        - in: query
+          name: num
+          schema:
+            $ref: "#!/components/schemas/UserNumber"
+          required: false
       responses:
         '200':
           description: OK
@@ -933,10 +939,8 @@ paths:
               schema:
                 type: object
                 properties:
-                  spaces:
-                    type: array
-                    items:
-                      $ref: "#/components/schemas/Space"
+                  space:
+                    $ref: "#/components/schemas/Space"
     post:
       tags:
         - Space
@@ -1846,6 +1850,9 @@ components:
       in: cookie
       name: session
   schemas:
+    UserNumber:
+      type: integer
+      minimum: 1
     Date:
       type: string
       pattern: /^\d{2} \d{2} \d{4} \d{2}\.\d{2}(\.\d{2})?$/
@@ -2569,19 +2576,23 @@ components:
         name:
           type: string
         num:
-          type: integer
+          $ref: "#/components/schemas/UserNumber"
     Space:
       type: object
       properties:
         name:
           type: string
         num:
-          type: integer
+          $ref: "#/components/schemas/UserNumber"
         intensity_master:
           type: integer
+          minimum: 0
+          maximum: 100
         active_scene:
           $ref: "#/components/schemas/Scene"
         is_modified:
+          type: boolean
+        is_overridden:
           type: boolean
         child_spaces:
           type: array

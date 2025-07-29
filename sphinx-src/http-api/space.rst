@@ -11,9 +11,9 @@ Returns data about the spaces in the project and their state on the controller.
 
 ``GET /api/space[?num=spaceNum]``
 
-``num`` can be used to filter which spaces are returned and is expected to be either a single number or a string expressing the required spaces, e.g. ``"1,2,5-9"``.
+``num`` can be used to filter which space is returned and is expected to be a single number.
 
-Returns a JSON object with a single ``spaces`` attribute, which has an array value. Each item in the array is a Space object with the following attributes:
+Returns a JSON object with a single ``space`` object with the following attributes:
 
 .. list-table::
    :widths: 3 3 10 5
@@ -35,6 +35,10 @@ Returns a JSON object with a single ``spaces`` attribute, which has an array val
      - boolean
      - Whether the space has been modified.
      - ``false``
+   * - ``is_overridden``
+     - boolean
+     - Whether the space has been overridden.
+     - ``false``
    * - ``intensity_master``
      - integer
      - The current intensity master value for the space
@@ -50,7 +54,7 @@ Returns a JSON object with a single ``spaces`` attribute, which has an array val
    * - ``child_spaces``
      - array of objects
      - A list of the child spaces of this space.
-     - ``[{"name":"ChildSpace","num":0}]``
+     - ``[{"name":"ChildSpace","num":2,"intensity_master":100,"is_modified":false,...}]``
 
 
 POST
