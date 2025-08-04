@@ -1,7 +1,7 @@
 Playback Group
 ##############
 
-A ``PlaybackGroup`` object is returned from :ref:`Lua_get_playback_group`.
+A ``PlaybackGroup`` object is returned from :ref:`Lua_get_playback_groups`.
 
 Properties
 **********
