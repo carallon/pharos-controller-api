@@ -32,4 +32,4 @@ Returns a JSON object with keys that correspond to each unique device variant fo
 Device Variant String Format
 ****************************
 
-.. include:: ../../snippets/rdm-device-variant-key-string-format.rst
+.. include:: ../snippets/rdm-device-variant-key-string-format.rst
