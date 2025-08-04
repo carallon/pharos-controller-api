@@ -1098,7 +1098,7 @@ push_to_web
 
 ``push_to_web(name, value)``
 
-Sends data as JSON to clients who are subscribed to the relevant websocket channel, e.g. custom web interfaces using :ref:`websocket_subscribe_lua` in the ``query.js`` library. The parameters are as follows:
+Sends data as JSON to clients who are subscribed to the relevant websocket channel, e.g. custom web interfaces using :ref:`subscribe_lua <websocket_subscribe_lua>` in the ``query.js`` library. The parameters are as follows:
 
 .. list-table::
    :widths: 3 3 7 3
