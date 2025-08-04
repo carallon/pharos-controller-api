@@ -25,10 +25,10 @@ Returns a JSON object with a single ``fan_speed`` attribute, which has either a 
      - Value Example
    * - ``fan_1``
      - integer
-     - The speed of the left-hand fan in RPM 
+     - The speed of the left-hand fan in RPM
      - ``2368``
    * - ``fan_2``
      - integer
-     - The speed of the right-hand fan in RPM 
+     - The speed of the right-hand fan in RPM
      - ``3605``
 
