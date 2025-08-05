@@ -20,7 +20,7 @@ Properties
      - ``"Timeline 1"``
    * - ``group``
      - string
-     - Timeline group name
+     - Timeline :doc:`playback-group` name
      - ``"Group 1"``
    * - ``group_num``
      - integer or nil
@@ -168,7 +168,7 @@ Starts the timeline and releases others.
      - Value Example
    * - ``group``
      - string **or** integer
-     - Optional timeline group name or number.  If name, prepend the name with ``!`` to apply the action to all timelines *except* those in the specified group. Omit to apply the action to all timelines.
+     - Optional playback group name or number.  If name, prepend the name with ``!`` to apply the action to all timelines *except* those in the specified group. Omit to apply the action to all timelines.
      - ``"Group 1"``, ``"!Group 2"`` or ``3``
    * - ``fade``
      - float
@@ -176,7 +176,7 @@ Starts the timeline and releases others.
      - ``2.0``
    * - ``same_group``
      - boolean
-     - Optional flag to target the same group as the selected timeline. This flag has no effect when ``group`` is set.
+     - Optional flag to target the same playback group as the selected timeline. This flag has no effect when ``group`` is set.
      - ``true``
 
 For example:
@@ -185,8 +185,8 @@ For example:
 
    -- start timeline 1 and release all others in the default time
    get_timeline(1):start_release_others()
-   -- start timeline 1 and release others except those in group B in 2 seconds
-   get_timeline(1):start_release_others('!B', 2.0)
+   -- start timeline 1 and release others except those in playback group "Back of House" in 2 seconds
+   get_timeline(1):start_release_others('!Back of House', 2.0)
    -- start timeline 1 and release others in the same group in the default time
    get_timeline(1):start_release_others(nil, nil, true)
 
@@ -272,15 +272,15 @@ set_position
 There are multiple overloaded calling parameters:
 
 ``set_position(position)``
-Legacy behaviour, operates the same as ``set_position(timeline.RELATIVE, position)``
+Legacy behaviour, operates the same as ``set_position(Timeline.RELATIVE, position)``
 
-``set_position(timeline.RELATIVE, position)``
+``set_position(Timeline.RELATIVE, position)``
 Jumps playback of a timeline to a relative position within the timeline. Set ``position`` as a float or an integer with range, e.g. ``0.1`` or ``Variant(10, 100)`` would set the position to 10% of the timeline length.
 
-``set_position(timeline.ABSOLUTE, position)``
+``set_position(Timeline.ABSOLUTE, position)``
 Jumps playback of a timeline to an absolute position within the timeline. Set ``position`` as a float or an integer, as the absolute timeline position in seconds.
 
-``set_position(timeline.FLAG, flag_name)``
+``set_position(Timeline.FLAG, flag_name)``
 Jumps playback of a timeline to the position of first matching timeline flag. Set the ``flag_name`` as a string, matching the name of the target timeline flag.
 
 For example:
@@ -288,17 +288,17 @@ For example:
 .. code-block:: lua
 
    -- set the position of timeline 1 to 50% of timeline length
-   get_timeline(1):set_position(timeline.RELATIVE, 0.5)
+   get_timeline(1):set_position(Timeline.RELATIVE, 0.5)
    -- set the position of timeline 2 to 20% of timeline length
-   get_timeline(2):set_position(timeline.RELATIVE, Variant(2,10))
+   get_timeline(2):set_position(Timeline.RELATIVE, Variant(2,10))
 
    -- set the position of timeline 3 to 180 seconds
-  get_timeline(3):set_position(ABSOLUTE, 180)
+  get_timeline(3):set_position(Timeline.ABSOLUTE, 180)
   -- set the position of timeline 4 to 12.34 seconds
-  get_timeline(4):set_position(ABSOLUTE, 12.34)
+  get_timeline(4):set_position(Timeline.ABSOLUTE, 12.34)
 
   -- set the position of timeline 5 to the "Start sparkle" flag
-  get_timeline(5):set_position(FLAG,"Start sparkle")
+  get_timeline(5):set_position(Timeline.FLAG,"Start sparkle")
 
 .. _Lua_timeline_set_default_source:
 

@@ -82,7 +82,7 @@ Starts the scene and releases others.
      - Value Example
    * - ``group``
      - string **or** integer
-     - Optional scene group name or number.  If name, prepend the name with ``!`` to apply the action to all scenes *except* those in the specified group. Omit to apply the action to all scenes.
+     - Optional playback group name or number.  If name, prepend the name with ``!`` to apply the action to all scenes *except* those in the specified playback group. Omit to apply the action to all scenes.
      - ``"Group 1"``, ``"!Group 2"`` or ``3``
    * - ``fade``
      - float
@@ -99,8 +99,8 @@ For example:
 
    -- start scene 1 and release all others in the default time
    get_scene(1):start_release_others()
-   -- start scene 1 and release others except those in group B in 2 seconds
-   get_scene(1):start_release_others('!B', 2.0)
+   -- start scene 1 and release others except those in playback group "Front of House" in 2 seconds
+   get_scene(1):start_release_others('!Front of House', 2.0)
    -- start scene 1 and release others in the same group in the default time
    get_scene(1):start_release_others(nil, nil, true)
 
