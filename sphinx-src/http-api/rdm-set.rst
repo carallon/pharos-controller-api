@@ -9,7 +9,7 @@ Methods
 POST
 ====
 
-Request to start an RDM Set operation. A ``202`` response will be returned if the request has been successfully queued. Results are available via a websocket subscription (see :ref:`websocket_subscribe_rdm_get_set`).
+Request to start an RDM Set operation. A ``202`` response will be returned if the request has been successfully queued. Results are available via a WebSocket subscription (see :ref:`websocket_subscribe_rdm_get_set`).
 
 ``POST /api/rdm/set``
 

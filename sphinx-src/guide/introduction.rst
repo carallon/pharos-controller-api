@@ -11,4 +11,4 @@ Introduction
 
 .. only:: designer
 
-    In addition, a small :doc:`JavaScript library <../queryjs/index>` is hosted on the controller's web server, which wraps the HTTP requests of the web API and also provides a mechanism to subscribe to the controller's websocket channels via callbacks.
+    In addition, a small :doc:`JavaScript library <../queryjs/index>` is hosted on the controller's web server, which wraps the HTTP requests of the web API and also provides a mechanism to subscribe to the controller's WebSocket channels via callbacks.

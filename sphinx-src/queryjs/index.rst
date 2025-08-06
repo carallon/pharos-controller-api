@@ -1,7 +1,7 @@
 JavaScript Query Library
 ########################
 
-|Vendor| controllers provide a JavaScript library, accessible at ``/default/js/query.js``. Controller projects may have a custom web interface, whose source files may include this library to provide convenient access to the controller HTTP API through JavaScript callbacks and to real time status updates through :doc:`websocket subscriptions <websocket/subscriptions>`.
+|Vendor| controllers provide a JavaScript library, accessible at ``/default/js/query.js``. Controller projects may have a custom web interface, whose source files may include this library to provide convenient access to the controller HTTP API through JavaScript callbacks and to real time status updates through :doc:`WebSocket subscriptions <websocket/subscriptions>`.
 
 Including the Library
 *********************
@@ -28,8 +28,8 @@ Event Handlers
 
 Functions are provided in the library to set event handlers.
 
-* ``set_success_handler(success)`` - function passed as ``success`` will be called when a websocket connection is successfully established with the controller and when a response is received to an HTTP API request.
-* ``set_error_handler(error)`` - function passed as ``error`` will be called when a websocket connection cannot be established with the controller and when an error is encountered as part of making an HTTP API request.
+* ``set_success_handler(success)`` - function passed as ``success`` will be called when a WebSocket connection is successfully established with the controller and when a response is received to an HTTP API request.
+* ``set_error_handler(error)`` - function passed as ``error`` will be called when a WebSocket connection cannot be established with the controller and when an error is encountered as part of making an HTTP API request.
 * ``set_restart_handler(restart)`` - function passed as ``restart`` will be called when the controller has restarted, at which point any users must authenticate again.
 * ``set_redirect_handler(redirect)`` - function passed as ``redirect`` will be called when a request is unauthorized. The function will be passed the url of the default login page as a string, and may choose to return this (the default behaviour) or return the path of a custom login page.
 
@@ -84,7 +84,7 @@ The functions provided in query.js for querying and controlling the controller a
 Subscriptions
 *************
 
-Websocket subscriptions allow data to be pushed to the web client whenever there is a change within the project. The query.js library includes :doc:`functions <websocket/subscriptions>` with callbacks to subscribe to each channel and return any data received.
+WebSocket subscriptions allow data to be pushed to the web client whenever there is a change within the project. The query.js library includes :doc:`functions <websocket/subscriptions>` with callbacks to subscribe to each channel and return any data received.
 
 .. toctree::
    :hidden:

@@ -9,7 +9,7 @@ Methods
 POST
 ====
 
-Request to start a full RDM discovery. A ``202`` response will be returned if the request has been successfully queued. Results are available via a websocket subscription (see :ref:`websocket_subscribe_rdm_discovery`).
+Request to start a full RDM discovery. A ``202`` response will be returned if the request has been successfully queued. Results are available via a WebSocket subscription (see :ref:`websocket_subscribe_rdm_discovery`).
 
 ``POST /api/rdm/discovery``
 
@@ -57,7 +57,7 @@ or, alternatively:
 PUT
 ===
 
-Request to start an RDM discovery update, which is faster if a full RDM discovery has already been performed with a :ref:`rdm-discovery-http-post` request. A ``202`` response will be returned if the request has been successfully queued. Results are available via a websocket subscription (see :ref:`websocket_subscribe_rdm_discovery`).
+Request to start an RDM discovery update, which is faster if a full RDM discovery has already been performed with a :ref:`rdm-discovery-http-post` request. A ``202`` response will be returned if the request has been successfully queued. Results are available via a WebSocket subscription (see :ref:`websocket_subscribe_rdm_discovery`).
 
 ``PUT /api/rdm/discovery``
 
