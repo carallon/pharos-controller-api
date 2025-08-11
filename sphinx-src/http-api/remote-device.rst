@@ -76,7 +76,7 @@ The Physical Remote Device JSON object has the following attributes:
      - ``1.0.0``
    * - ``needs_firmware_reload``
      - boolean
-     - Whether the remote device requires a firmware reload due to incompatibility with the controller
+     - Whether the remote device requires a firmware reload due to incompatibility with the controller, or ``null`` if the device does not support remote firmware reload
      - ``true``
    * - ``online``
      - boolean

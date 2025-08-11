@@ -2053,6 +2053,8 @@ components:
           type: boolean
         needs_firmware_reload:
           type: boolean
+          nullable: true
+          description: Null if the device does not support remote firmware reload
         online:
           type: boolean
         serial:
