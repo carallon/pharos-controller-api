@@ -2354,26 +2354,22 @@ components:
         - type: object
           properties:
             target:
-              type: string
-              enum: [group, fixture]
+              $ref: "#/components/schemas/OverrideTarget"
             num:
-              type: integer
+              $ref: "#/components/schemas/UserNumber"
+            fade:
+              $ref: "#/components/schemas/Fade"
         - $ref: "#/components/schemas/Override"
-        - $ref: "#/components/schemas/Fade"
       required: [target, num]
     ClearOverride:
       type: object
       properties:
         target:
-          type: string
-          enum: [group, fixture]
+          $ref: "#/components/schemas/OverrideTarget"
         num:
-          type: integer
+          $ref: "#/components/schemas/UserNumber"
         fade:
-          type: integer
-          minimum: 0
-          maximum: 3600000
-      required: [target, num]
+          $ref: "#/components/schemas/Fade"
     IdList:
       oneOf:
         - type: array
@@ -2893,24 +2889,27 @@ components:
       type: integer
       minimum: 0
       maximum: 65535
+    OverrideTarget:
+      type: string
+      enum:
+        - fixture
+        - group
+        - space
     Fade:
-      type: object
-      properties:
-        fade:
-          type: integer
-          minimum: 0
-          maximum: 3600000
-        path:
-          type: string
-          enum:
-            - default
-            - linear
-            - start
-            - end
-            - braked
-            - accelerated
-            - damped
-            - overshoot
+      type: integer
+      minimum: 0
+      maximum: 3600000
+    FadePath:
+      type: string
+      enum:
+        - default
+        - linear
+        - start
+        - end
+        - braked
+        - accelerated
+        - damped
+        - overshoot
     TagSet:
       type: object
       properties:
