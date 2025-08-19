@@ -9,11 +9,15 @@ Methods
 PUT
 ===
 
-Set the Intensity, Red, Green, Blue levels for a |OVERRIDE_OPTIONS|.
-
 .. only:: designer
 
+  Set the Intensity, Red, Green, Blue levels and Colour Temperature for a Fixture or Group.
+
   Action will propagate to all controllers in a project.
+
+.. only:: expert
+
+  Set the Intensity, Red, Green, Blue levels and Colour Temperature for a Group or Space.
 
 ``PUT /api/override``
 
@@ -31,7 +35,7 @@ Payload is a JSON object with the following attributes:
       - Value Example
     * - ``target``
       - string
-      - What the override should be applied to: ``group`` or ``fixture``
+      - What the override should be applied to: ``fixture`` or ``group``.
       - ``"group"``
     * - ``num``
       - integer
@@ -70,11 +74,11 @@ Payload is a JSON object with the following attributes:
       - Value Example
     * - ``target``
       - string
-      - What the override should be applied to. At the moment only ``space`` is supported.
+      - What the override should be applied to: ``group`` or ``space``.
       - ``"space"``
     * - ``num``
       - integer
-      - Space number.
+      - Group or Space number depending on ``target``.
       - ``1``
     * - ``intensity``
       - integer or string
@@ -232,11 +236,15 @@ Colour as hue/saturation for ``colour`` in an override :ref:`override-http-put` 
 DELETE
 ======
 
-Release any overrides on a |OVERRIDE_OPTIONS|.
-
 .. only:: designer
 
+  Release any overrides on a Fixture or Group.
+
   Action will propagate to all controllers in a project.
+
+.. only:: expert
+
+  Release any overrides on a Space.
 
 ``DELETE /api/override``
 
@@ -254,11 +262,11 @@ Payload is a JSON object with the following attributes:
       - Value Example
     * - ``target``
       - string
-      - What the overrides should be cleared on: |OVERRIDE_OPTIONS|.
+      - What the overrides should be cleared on: ``fixture`` or ``group``.
       - ``"fixture"``
     * - ``num``
       - integer
-      - Optional. |OVERRIDE_OPTIONS| number, depending on ``target``. If not provided, ``target`` is ignored and all overrides are cleared.
+      - Optional. Fixture or Group number depending on ``target``. If not provided, ``target`` is ignored and all overrides are cleared.
       - ``1``
     * - ``fade``
       - float
@@ -275,9 +283,13 @@ Payload is a JSON object with the following attributes:
       - Value Type
       - Description
       - Value Example
+    * - ``target``
+      - string
+      - What the overrides should be cleared on. Only ``space`` is supported.
+      - ``"space"``
     * - ``num``
       - integer
-      - Space number
+      - Optional Space number. If not provided, ``target`` is ignored and all overrides are cleared.
       - ``1``
     * - ``fade``
       - float

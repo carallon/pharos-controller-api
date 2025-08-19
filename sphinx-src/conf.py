@@ -125,7 +125,6 @@ if variant == 'mosaic':
     .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"msc-006321"``
     .. |PROTOCOLS| replace:: ``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
-    .. |OVERRIDE_OPTIONS| replace:: group or fixture
     """
 elif variant == 'pharos':
     print('Building Pharos variant')
@@ -150,7 +149,6 @@ elif variant == 'pharos':
     .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"xpc-006321"``
     .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
-    .. |OVERRIDE_OPTIONS| replace:: space
         """
     else:
         rst_prolog += """
@@ -158,7 +156,6 @@ elif variant == 'pharos':
     .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"lpc-006321"``
     .. |PROTOCOLS| replace:: ``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
-    .. |OVERRIDE_OPTIONS| replace:: group or fixture
         """
 elif variant == 'acuity':
     print('Building Acuity variant')
@@ -182,7 +179,7 @@ elif variant == 'acuity':
     .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"animate-006321"``
     .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
     .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
-    .. |OVERRIDE_OPTIONS| replace:: space"""
+    """
 else:
     print('Trying to build for non-existant variant')
     exit(1)
