@@ -1,6 +1,8 @@
 Remote Device
 #############
 
+.. include:: snippets/endpoints-require-project.rst
+
 Methods
 *******
 

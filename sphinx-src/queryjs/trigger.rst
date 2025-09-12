@@ -1,6 +1,8 @@
 Trigger
 #######
 
+.. include:: snippets/functions-require-project.rst
+
 Functions
 *********
 

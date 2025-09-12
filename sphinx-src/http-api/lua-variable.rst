@@ -1,6 +1,8 @@
 Lua Variable
 ############
 
+.. include:: snippets/endpoints-require-project.rst
+
 Methods
 *******
 

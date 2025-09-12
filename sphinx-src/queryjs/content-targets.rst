@@ -3,6 +3,8 @@ Content Targets
 
 .. note:: |VLC|/|VLC+| only
 
+.. include:: snippets/functions-require-project.rst
+
 Functions
 *********
 

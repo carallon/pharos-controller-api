@@ -3,6 +3,8 @@
 RDM Devices
 ###########
 
+.. include:: snippets/endpoints-require-project.rst
+
 All properties described below relating to an RDM device's status are obtained by the :ref:`status-monitor`.
 
 RDM Devices Overview

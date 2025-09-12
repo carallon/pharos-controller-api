@@ -1,6 +1,8 @@
 Scene
 #####
 
+.. include:: snippets/endpoints-require-project.rst
+
 Methods
 *******
 

@@ -1,6 +1,8 @@
 DALI Interface
 ##############
 
+.. include:: snippets/endpoints-require-project.rst
+
 The DALI Interface API allows retrieval of a list of DALI interfaces in the system.
 
 Methods

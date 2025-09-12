@@ -1,6 +1,8 @@
 Text Slots
 ##########
 
+.. include:: snippets/endpoints-require-project.rst
+
 Methods
 *******
 

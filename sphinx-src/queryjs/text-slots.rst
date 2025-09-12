@@ -1,6 +1,8 @@
 Text Slots
 ##########
 
+.. include:: snippets/functions-require-project.rst
+
 Functions
 *********
 

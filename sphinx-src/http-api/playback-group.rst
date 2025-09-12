@@ -1,6 +1,8 @@
 Playback Group
 ##############
 
+.. include:: snippets/endpoints-require-project.rst
+
 Methods
 *******
 

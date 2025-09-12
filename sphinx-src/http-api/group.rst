@@ -3,6 +3,8 @@ Group
 
 .. note:: Not applicable to |VLC|/|VLC+|
 
+.. include:: snippets/endpoints-require-project.rst
+
 Methods
 *******
 

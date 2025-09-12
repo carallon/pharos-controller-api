@@ -1,6 +1,8 @@
 DALI
 ####
 
+.. include:: snippets/endpoints-require-project.rst
+
 If the project uses DALI, the DALI API call can be used to get the status of connected DALI ballasts,
 and to allow external systems to mark DALI issues as fixed.
 

@@ -3,6 +3,8 @@ Content Targets
 
 .. note:: |VLC|/|VLC+| only
 
+.. include:: snippets/endpoints-require-project.rst
+
 Methods
 *******
 

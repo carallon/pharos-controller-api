@@ -1,6 +1,8 @@
 Tag Set
 #######
 
+.. include:: snippets/endpoints-require-project.rst
+
 Methods
 *******
 

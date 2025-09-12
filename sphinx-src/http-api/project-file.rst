@@ -9,6 +9,8 @@ Methods
 GET
 ===
 
+.. include:: snippets/endpoint-requires-project.rst
+
 Downloads the currently running project file.
 
 ``GET /api/project/file``

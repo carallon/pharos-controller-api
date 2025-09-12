@@ -3,6 +3,8 @@
 Status Monitor
 ##############
 
+.. include:: snippets/endpoints-require-project.rst
+
 .. only:: designer
 
   ..

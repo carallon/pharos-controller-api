@@ -1,6 +1,8 @@
 nLight
 ######
 
+.. include:: snippets/endpoints-require-project.rst
+
 The nLight API facilitates retrieval of live values from the nLight bus along with their mapped project targets and
 triggers.
 
