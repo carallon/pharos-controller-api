@@ -7,6 +7,9 @@ What's New
 
 .. only:: designer
 
+    v12.0
+    *****
+
     v11.0
     *****
 
