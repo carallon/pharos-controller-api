@@ -309,6 +309,9 @@ Returns a JSON object with a single ``timelines`` attribute, which has an array 
      - integer
      - 1/1000 of a second
      - ``10000``
+   * - ``rate_adjusted``
+     - boolean
+     - Whether the timeline's playback rate has been adjusted from its default
    * - ``priority``
      - string
      - ``high``, ``above_normal``, ``normal``, ``below_normal`` or ``low``
