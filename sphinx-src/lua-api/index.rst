@@ -11,10 +11,12 @@ Lua API
    content-target
    controller
    date-time
+   fixture
    group
    input-threshold
    location
    override
+   patch-point
    playback-group
    project
    protocol-interface
@@ -296,6 +298,51 @@ Returns an :doc:`playback-group` object for the playback group with user number 
 For example:
 
 .. include:: code-examples/playback-group.rst
+
+
+.. _Lua_get_fixtures:
+
+get_fixtures
+------------
+
+``get_fixtures(status)``
+
+Returns a table of fixture user numbers with a matching ``status``, where ``status`` is the integer value of the constants:
+
+.. _Lua_fixture_status:
+
+.. include:: enum/fixture-status.rst
+
+* ``STATUS_ALL`` All fixtures
+
+
+If omitted, ``status`` will default to ``STATUS_ALL``
+
+For example:
+
+.. code-block:: lua
+
+   -- get a list of all offline fixtures
+   local offlineFixtures = get_fixtures(STATUS_OFFLINE)
+   log('Offline fixtures in project:')
+   for _, fixtureNum in pairs(offlineFixtures) do
+      log(fixtureNum)
+   end
+
+
+.. _Lua_get_fixture:
+
+get_fixture
+-----------
+
+``get_fixture(fixtureNum)``
+
+Returns a single :doc:`fixture` object for the fixture with user number ``fixtureNum``.
+
+For example:
+
+.. include:: code-examples/fixture.rst
+
 
 .. _Lua_get_fixture_override:
 
