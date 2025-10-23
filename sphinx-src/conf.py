@@ -234,6 +234,7 @@ if product == 'expert':
     exclude_patterns.append('*/webconfig.rst')
     exclude_patterns.append('lua-api/*')
     exclude_patterns.append('queryjs/*')
+    exclude_patterns.append('websocket/*')
 
 if product == 'designer':
     print('Building for Designer product')
