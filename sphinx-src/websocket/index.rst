@@ -156,126 +156,126 @@ The following functions are provided over the WebSocket - see the notes for furt
      - Notes
    * - :doc:`network-adapters`
      - ``network_adapters``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      -
    * - :doc:`timeline`
      - ``timeline``
-     - ✅
-     - ✅
+     - ✔
+     - ✔
      -
    * - :doc:`scene`
      - ``scene``
-     - ✅
-     - ✅
+     - ✔
+     - ✔
      -
    * - :doc:`group`
      - ``group``
-     - ✅
-     - ✅
+     - ✔
+     - ✔
      -
    * - :doc:`content-target`
      - ``content_target``
-     - ✅
-     - ✅
+     - ✔
+     - ✔
      -
    * - :doc:`remote-device`
      - ``remote-device``
-     - ✅
-     - ✅
+     - ✔
+     - ✔
      -
    * - :doc:`beacon`
      - ``beacon``
-     - ❌
-     - ✅
+     - ✖
+     - ✔
      -
    * - :doc:`log`
      - ``log``
-     - ✅
-     - ✅
+     - ✔
+     - ✔
      -
    * - :doc:`lua`
      - ``lua``
-     - ❌
-     - ✅
+     - ✖
+     - ✔
      -
    * - :doc:`io-module`
      - ``io_module``
-     - ❌
-     - ✅
+     - ✖
+     - ✔
      -
    * - System
      - ``system``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/system` endpoint
    * - Current Time
      - ``current_time``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/time` endpoint
    * - Project
      - ``project``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/project` endpoint
    * - Controller
      - ``controller``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/controller` endpoint
    * - Text Slot
      - ``text_slot``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/text-slots` endpoint
    * - Temperature
      - ``temperature``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/temperature` endpoint
    * - Fan Speed
      - ``fan_speed``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/fan-speed` endpoint
    * - Protocol
      - ``protocol``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/protocol` endpoint
    * - Output
      - ``output``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/output` endpoint
    * - Input
      - ``input``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/input` endpoint
    * - Trigger
      - ``trigger``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/trigger` endpoint
    * - DALI Interface
      - ``dali_interface``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/trigger` endpoint
    * - Replication
      - ``replication``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/replication` endpoint
    * - Config
      - ``config``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/config` endpoint
    * - Playback Group
      - ``playback_group``
-     - ✅
-     - ❌
+     - ✔
+     - ✖
      - Returns the same data as the :doc:`../http-api/playback-group` endpoint

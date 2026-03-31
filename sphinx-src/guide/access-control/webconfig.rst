@@ -69,29 +69,29 @@ This would lead to the following access abilities:
      - Control
      - Status
    * - ``/``
-     - ✅
-     - ✅
-     - ✅
+     - ✔
+     - ✔
+     - ✔
    * - ``/admin``
-     - ✅
-     - ❌
-     - ❌
+     - ✔
+     - ✖
+     - ✖
    * - ``/timeline``
-     - ❌
-     - ✅
-     - ✅
+     - ✖
+     - ✔
+     - ✔
    * - ``/timeline/views`` [#]_
-     - ✅
-     - ✅
-     - ✅
+     - ✔
+     - ✔
+     - ✔
    * - ``/timeline/controls``
-     - ❌
-     - ✅
-     - ❌
+     - ✖
+     - ✔
+     - ✖
    * - ``/timeline/controls/timelineadmin`` [#]_
-     - ✅
-     - ❌
-     - ❌
+     - ✔
+     - ✖
+     - ✖
 
 .. [#] The ``/timeline/views`` folder has no specific restrictions in the ``webconfig`` file so it is available to all users.
 .. [#] The ``/timeline/controls/timelineadmin`` folder specifically allows access by Admin, even though the parent folder doesn't.
