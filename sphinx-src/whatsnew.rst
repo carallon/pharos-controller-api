@@ -10,6 +10,10 @@ What's New
     v12.0
     *****
 
+    * Add support for fixture status information in the :doc:`Lua API<lua-api/fixture>`.
+    * Add information to the HTTP API on whether a timeline has had its rate adjusted (``rate_adjusted`` in :doc:`http-api/timeline`).
+    * Note which HTTP API endpoints require a project to be loaded.
+
     v11.0
     *****
 
