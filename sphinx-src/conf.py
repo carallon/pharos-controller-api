@@ -19,6 +19,22 @@ import datetime
 import os
 import sys
 
+# -- Utility functions ----------------------------------------------------
+
+variables = {}
+rst_prolog = ""
+
+
+def set_variable(variable, value):
+    variables[variable] = value
+
+
+def set_prolog_variables():
+    global rst_prolog
+    for key in variables:
+        rst_prolog += f".. |{key}| replace:: {variables[key]}\n"
+
+
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -105,79 +121,75 @@ if variant == "mosaic":
     print("Building Mosaic variant")
     copyright = f"{current_year} ETC Inc"
     author = "ETC Inc"
-    rst_prolog = """
-    .. |Vendor| replace:: Mosaic
-    .. |Designer| replace:: Designer
-    .. |LPC| replace:: MSC
-    .. |LPC X| replace:: MSC X
-    .. |TPC| replace:: MTPC
-    .. |VLC| replace:: Atlas
-    .. |VLC+| replace:: Atlas Pro
-    .. |TPS| replace:: M-TS
-    .. |XPC| replace:: XPC
-    .. |EXT| replace:: TPC-RIO
-    .. |EDN| replace:: EDN
-    .. |EDN 20| replace:: EDN 20
-    .. |EDN 10| replace:: EDN 10
-    .. |SAMPLE_CONTROLLER| replace:: ``MSC``
-    .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"msc-006321"``
-    .. |PROTOCOLS| replace:: ``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``
-    .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
-    """
+    set_variable("Vendor", "Mosaic")
+    set_variable("Designer", "Designer")
+    set_variable("LPC", "MSC")
+    set_variable("LPC X", "MSC X")
+    set_variable("TPC", "MTPC")
+    set_variable("VLC", "Atlas")
+    set_variable("VLC+", "Atlas Pro")
+    set_variable("TPS", "M-TS")
+    set_variable("XPC", "XPC")
+    set_variable("EXT", "TPC-RIO")
+    set_variable("EDN", "EDN")
+    set_variable("EDN 20", "EDN 20")
+    set_variable("EDN 10", "EDN 10")
+    set_variable("SAMPLE_CONTROLLER", "``MSC``")
+    set_variable("SAMPLE_CONTROLLER_HOST_NAME", '``"msc-006321"``')
+    set_variable(
+        "PROTOCOLS",
+        "``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``",
+    )
+    set_variable("SAMPLE_PROJECT_NAME", '``"help_project_v1.pd2"``')
 elif variant == "pharos":
     print("Building Pharos variant")
-    rst_prolog = """
-    .. |Vendor| replace:: Pharos
-    .. |Designer| replace:: Designer
-    .. |LPC| replace:: LPC
-    .. |LPC X| replace:: LPC X
-    .. |TPC| replace:: TPC
-    .. |VLC| replace:: VLC
-    .. |VLC+| replace:: VLC+
-    .. |TPS| replace:: TPS
-    .. |XPC| replace:: XPC
-    .. |EXT| replace:: EXT
-    .. |EDN| replace:: EDN
-    .. |EDN 20| replace:: EDN 20
-    .. |EDN 10| replace:: EDN 10
-    """
+    set_variable("Vendor", "Pharos")
+    set_variable("Designer", "Designer")
+    set_variable("LPC", "LPC")
+    set_variable("LPC X", "LPC X")
+    set_variable("TPC", "TPC")
+    set_variable("VLC", "VLC")
+    set_variable("VLC+", "VLC+")
+    set_variable("TPS", "TPS")
+    set_variable("XPC", "XPC")
+    set_variable("EXT", "EXT")
+    set_variable("EDN", "EDN")
+    set_variable("EDN 20", "EDN 20")
+    set_variable("EDN 10", "EDN 10")
     if product == "expert":
-        rst_prolog += """
-    .. |SAMPLE_CONTROLLER| replace:: ``Expert Control``
-    .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"xpc-006321"``
-    .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
-    .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
-        """
+        set_variable("SAMPLE_CONTROLLER", "``Expert Control``")
+        set_variable("SAMPLE_CONTROLLER_HOST_NAME", '``"xpc-006321"``')
+        set_variable("PROTOCOLS", "``dmx``, ``sacn``, ``art-net``")
+        set_variable("SAMPLE_PROJECT_NAME", '``"help_project_v1.xpproj"``')
     else:
-        rst_prolog += """
-    .. |SAMPLE_CONTROLLER| replace:: LPC
-    .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"lpc-006321"``
-    .. |PROTOCOLS| replace:: ``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``
-    .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.pd2"``
-        """
+        set_variable("SAMPLE_CONTROLLER", "LPC")
+        set_variable("SAMPLE_CONTROLLER_HOST_NAME", '``"lpc-006321"``')
+        set_variable(
+            "PROTOCOLS",
+            "``dmx``, ``pathport``, ``sacn``, ``art-net``, ``kinet``, ``rio-dmx``, ``edn``, ``edn-spi``",
+        )
+        set_variable("SAMPLE_PROJECT_NAME", '``"help_project_v1.pd2"``')
 elif variant == "acuity":
     print("Building Acuity variant")
     copyright = f"{current_year} Acuity Brands"
     author = "Acuity Brands"
-    rst_prolog = """
-    .. |Vendor| replace:: Acuity
-    .. |Designer| replace:: Designer
-    .. |LPC| replace:: LPC
-    .. |LPC X| replace:: LPC X
-    .. |TPC| replace:: TPC
-    .. |VLC| replace:: VLC
-    .. |VLC+| replace:: VLC+
-    .. |TPS| replace:: TPS
-    .. |XPC| replace:: XPC
-    .. |EXT| replace:: EXT
-    .. |EDN| replace:: EDN
-    .. |EDN 20| replace:: EDN 20
-    .. |EDN 10| replace:: EDN 10
-    .. |SAMPLE_CONTROLLER| replace:: ``Animate Control``
-    .. |SAMPLE_CONTROLLER_HOST_NAME| replace:: ``"animate-006321"``
-    .. |PROTOCOLS| replace:: ``dmx``, ``sacn``, ``art-net``
-    .. |SAMPLE_PROJECT_NAME| replace:: ``"help_project_v1.xpproj"``
-    """
+    set_variable("Vendor", "Acuity")
+    set_variable("Designer", "Designer")
+    set_variable("LPC", "LPC")
+    set_variable("LPC X", "LPC X")
+    set_variable("TPC", "TPC")
+    set_variable("VLC", "VLC")
+    set_variable("VLC+", "VLC+")
+    set_variable("TPS", "TPS")
+    set_variable("XPC", "XPC")
+    set_variable("EXT", "EXT")
+    set_variable("EDN", "EDN")
+    set_variable("EDN 20", "EDN 20")
+    set_variable("EDN 10", "EDN 10")
+    set_variable("SAMPLE_CONTROLLER", "``Animate Control``")
+    set_variable("SAMPLE_CONTROLLER_HOST_NAME", '``"animate-006321"``')
+    set_variable("PROTOCOLS", "``dmx``, ``sacn``, ``art-net``")
+    set_variable("SAMPLE_PROJECT_NAME", '``"help_project_v1.xpproj"``')
 else:
     print("Trying to build for non-existant variant")
     sys.exit(1)
@@ -189,15 +201,11 @@ project = "Product API"
 if product == "expert":
     print("Building for Expert product")
     if variant == "acuity":
-        rst_prolog += """
-    .. |Product| replace:: nLight
-        """
+        set_variable("Product", "nLight")
         project = "nLight API v" + version
         exclude_patterns.append("*/beacon.rst")
     else:
-        rst_prolog += """
-    .. |Product| replace:: Expert
-        """
+        set_variable("Product", "Expert")
         project = "Expert API v" + version
         exclude_patterns.append("*/identify.rst")
         exclude_patterns.append("*/nlight.rst")
@@ -238,9 +246,7 @@ if product == "expert":
 
 if product == "designer":
     print("Building for Designer product")
-    rst_prolog += """
-    .. |Product| replace:: Designer
-    """
+    set_variable("Product", "Designer")
     project = "Designer API v" + version
     exclude_patterns.append("*/identify.rst")
     exclude_patterns.append("*/mode.rst")
@@ -248,6 +254,8 @@ if product == "designer":
     exclude_patterns.append("*/schedule.rst")
     exclude_patterns.append("*/space.rst")
     exclude_patterns.append("*/tag_set.rst")
+
+set_prolog_variables()
 
 # -- Options for HTML output ----------------------------------------------
 
