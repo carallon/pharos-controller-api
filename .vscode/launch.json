@@ -17,6 +17,20 @@
             "request": "launch",
             "script": "$env:PRODUCT = 'expert'; ${workspaceFolder}/make.bat html; Invoke-Item ${workspaceFolder}/build/html/index.html",
             "cwd": "${cwd}"
+        },
+        {
+            "name": "Build and display (Mosaic)",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "$env:PRODUCT = 'designer'; $env:VARIANT = 'mosaic'; ${workspaceFolder}/make.bat html; Invoke-Item ${workspaceFolder}/build/html/index.html",
+            "cwd": "${cwd}"
+        },
+        {
+            "name": "Build and display (Acuity)",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "$env:PRODUCT = 'expert'; $env:VARIANT = 'acuity'; ${workspaceFolder}/make.bat html; Invoke-Item ${workspaceFolder}/build/html/index.html",
+            "cwd": "${cwd}"
         }
     ]
 }
