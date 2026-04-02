@@ -156,11 +156,14 @@ elif variant == "pharos":
     set_variable("EDN", "EDN")
     set_variable("EDN 20", "EDN 20")
     set_variable("EDN 10", "EDN 10")
-    if product == "expert":
-        set_variable("SAMPLE_CONTROLLER", "``Expert Control``")
+    if product in ("expert", "express"):
         set_variable("SAMPLE_CONTROLLER_HOST_NAME", '``"xpc-006321"``')
         set_variable("PROTOCOLS", "``dmx``, ``sacn``, ``art-net``")
         set_variable("SAMPLE_PROJECT_NAME", '``"help_project_v1.xpproj"``')
+        if product == "expert":
+            set_variable("SAMPLE_CONTROLLER", "``Expert Control``")
+        if product == "express":
+            set_variable("SAMPLE_CONTROLLER", "``Express Control``")
     else:
         set_variable("SAMPLE_CONTROLLER", "LPC")
         set_variable("SAMPLE_CONTROLLER_HOST_NAME", '``"lpc-006321"``')
@@ -198,18 +201,22 @@ else:
 project = "Product API"
 
 # Include/Exclude based on product type
-if product == "expert":
-    print("Building for Expert product")
+if product in ("expert", "express"):
     if variant == "acuity":
+        print("Building for Express, nLight variant")
         set_variable("Product", "nLight")
         project = "nLight API v" + version
         exclude_patterns.append("*/beacon.rst")
     else:
-        set_variable("Product", "Expert")
-        project = "Expert API v" + version
         exclude_patterns.append("*/identify.rst")
         exclude_patterns.append("*/nlight.rst")
-    # Items which are removed from the Expert documentation
+        if product == "expert":
+            set_variable("Product", "Expert")
+            project = "Expert API v" + version
+        else:
+            set_variable("Product", "Express")
+            project = "Express API v" + version
+    # Items which are removed from the Expert/Express documentation
     exclude_patterns.append("*/access-control.rst")
     exclude_patterns.append("*/command.rst")
     exclude_patterns.append("*/content-targets.rst")

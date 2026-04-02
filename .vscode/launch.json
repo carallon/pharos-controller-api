@@ -15,7 +15,7 @@
             "name": "Build and display (Expert)",
             "type": "PowerShell",
             "request": "launch",
-            "script": "$env:PRODUCT = 'expert'; ${workspaceFolder}/make.bat html; Invoke-Item ${workspaceFolder}/build/html/index.html",
+            "script": "$env:PRODUCT = 'expert'; $env:VARIANT = 'pharos'; ${workspaceFolder}/make.bat html; Invoke-Item ${workspaceFolder}/build/html/index.html",
             "cwd": "${cwd}"
         },
         {
@@ -30,6 +30,13 @@
             "type": "PowerShell",
             "request": "launch",
             "script": "$env:PRODUCT = 'expert'; $env:VARIANT = 'acuity'; ${workspaceFolder}/make.bat html; Invoke-Item ${workspaceFolder}/build/html/index.html",
+            "cwd": "${cwd}"
+        },
+        {
+            "name": "Build and display (Express)",
+            "type": "PowerShell",
+            "request": "launch",
+            "script": "$env:PRODUCT = 'express'; $env:VARIANT = 'pharos'; ${workspaceFolder}/make.bat html; Invoke-Item ${workspaceFolder}/build/html/index.html",
             "cwd": "${cwd}"
         }
     ]
