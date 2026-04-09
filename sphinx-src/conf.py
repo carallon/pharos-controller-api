@@ -114,6 +114,10 @@ product = os.environ.get("PRODUCT", "designer").lower()
 
 # Set tags to conditionally include content within pages
 tags.add(product)
+# Treat the express tag as defined if building expert product
+if product == 'expert':
+    tags.add('express')
+
 tags.add(variant)
 
 # Substitutions

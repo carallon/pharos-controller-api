@@ -11,7 +11,7 @@ Toggle beacon mode on the controller.
 
 ``POST /api/beacon``
 
-.. only:: expert
+.. only:: express
 
     In beacon mode, a controller will flash its LEDs continuously.
 

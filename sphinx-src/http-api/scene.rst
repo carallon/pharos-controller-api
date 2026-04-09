@@ -121,7 +121,7 @@ Control a scene in the project.
     }
 
 
-.. only:: expert
+.. only:: express
 
 
   Payload is a JSON object with the following attributes:

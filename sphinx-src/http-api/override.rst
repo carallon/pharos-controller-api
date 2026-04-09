@@ -17,7 +17,7 @@ PUT
 
   Action will propagate to all controllers in a project.
 
-.. only:: expert
+.. only:: express
 
   Set the Intensity, Red, Green, Blue levels and Colour Temperature for a Group or Space.
 
@@ -64,7 +64,7 @@ Payload is a JSON object with the following attributes:
       - Optional. Crossfade path to use when applying the override: ``Default``, ``Linear``, ``Start``, ``End``, ``Braked``, ``Accelerated``, ``Damped``, ``Overshoot``, ``Col At Start``, ``Col At End``, ``Int At Start``, ``Int At End``, ``Colour First``, ``Intensity First``
       - ``"Braked"``
 
-.. only:: expert
+.. only:: express
 
   .. list-table::
     :widths: 4 3 10 4
@@ -244,7 +244,7 @@ DELETE
 
   Action will propagate to all controllers in a project.
 
-.. only:: expert
+.. only:: express
 
   Release any overrides on a Space.
 
@@ -275,7 +275,7 @@ Payload is a JSON object with the following attributes:
       - Optional. Fade time in which to release overrides, in seconds.
       - ``2.0``
 
-.. only:: expert
+.. only:: express
 
   .. list-table::
     :widths: 4 3 10 4

@@ -5,14 +5,14 @@ Web API Authentication
 
   If the controller has security setup then some endpoints of the HTTP API and some functions in the JavaScript library will require clients to authenticate in order to authorise the requests.
 
-.. only:: expert
+.. only:: express
 
   If the controller has security setup then some endpoints of the HTTP API will require clients to authenticate in order to authorise the requests.
 
 Authentication Methods
 **********************
 
-.. only:: expert
+.. only:: express
 
   |Vendor| |Product| supports `Token Authentication`_: used with HTTP API requests, typically when the client is not a web browser.
   A new token, valid for 5 minutes, is returned from each authenticated request. If the API client, is inactive for longer than 5 minutes then the token expires, requiring a username and password to be provided again.

@@ -1,7 +1,7 @@
 What's New
 ##########
 
-.. only:: expert
+.. only:: express
 
     This API is available in |Product| controllers running v2.0.0.
 

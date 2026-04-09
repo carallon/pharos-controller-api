@@ -5,7 +5,7 @@ Introduction
 
     |Vendor| |Product| controllers offer :doc:`HTTP <../http-api/index>` and :doc:`Lua <../lua-api/index>` APIs providing access to system information, playback functions and trigger operations.
 
-.. only:: expert
+.. only:: express
 
     |Vendor| |Product| controllers offer an :doc:`HTTP <../http-api/index>` API, providing access to system information and playback functions.
 

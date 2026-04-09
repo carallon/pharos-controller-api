@@ -1,6 +1,6 @@
 A universe key string takes the form:
 
-.. only:: expert
+.. only:: express
 
     * ``protocol:index`` where:
 

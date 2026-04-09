@@ -78,7 +78,7 @@ Get a single RDM device including its status.
 
 Returns a JSON object with the same properties as contained in the :ref:`RDM Devices Overview GET <rdm-devices-overview-http-get>` response.
 
-.. only:: designer or expert
+.. only:: designer or express
 
   PUT
   ===

@@ -68,7 +68,7 @@ Returns a JSON array of objects with the following attributes:
       - ISO 8601-formatted timestamp of the last status update, or ``null`` if unknown
       - ``2024-06-27T09:30``
 
-.. only:: expert
+.. only:: express
 
   .. list-table::
     :widths: 5 2 10 5

@@ -32,7 +32,7 @@ Returns a JSON object with the following attributes:
       - DMX Input object; returned when DMX input is configured on the queried controller
 
 
-.. only:: expert
+.. only:: express
 
   .. list-table::
     :widths: 3 3 10
