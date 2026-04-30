@@ -227,6 +227,7 @@ if product in ("expert", "express"):
     exclude_patterns.append("*/dali-interface.rst")
     exclude_patterns.append("*/dali.rst")
     exclude_patterns.append("*/enumerated-rio-types.rst")
+    exclude_patterns.append("*/fan-speed.rst")
     exclude_patterns.append("*/group.rst")
     exclude_patterns.append("*/htaccess.rst")
     exclude_patterns.append("*/lua-variable.rst")
