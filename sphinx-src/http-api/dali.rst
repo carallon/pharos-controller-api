@@ -14,9 +14,9 @@ GET
 
 Returns information about connected DALI devices on a particular interface - see :doc:`dali-interface` to retrieve a list of interfaces.
 
-``GET /api/dali?interface=interface_num``
+``GET /api/dali?interface=interface_id``
 
-``interface_num`` is an integer referring to a specific interface.
+``interface_id`` is an integer referring to a specific interface.
 
 Returns a JSON object with the following attributes:
 

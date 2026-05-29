@@ -26,7 +26,7 @@ Returns an array of JSON objects with the following attributes:
      - Description
    * - ``id``
      - integer
-     - The ID of the interface
+     - The ID of the interface. Interface IDs begin at zero, i.e. the interface named ``Interface 1`` in Designer has ID ``0``.
    * - ``name``
      - string
      - The assigned string name of the interface
