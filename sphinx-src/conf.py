@@ -265,7 +265,7 @@ if product == "designer":
     exclude_patterns.append("*/nlight.rst")
     exclude_patterns.append("*/schedule.rst")
     exclude_patterns.append("*/space.rst")
-    exclude_patterns.append("*/tag_set.rst")
+    exclude_patterns.append("*/tag-set.rst")
 
 set_prolog_variables()
 
