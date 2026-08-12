@@ -201,7 +201,7 @@ The following functions are provided over the WebSocket - see the notes for furt
      -
    * - :doc:`io-module`
      - ``io_module``
-     - ✖
+     - ✔
      - ✔
      -
    * - System
