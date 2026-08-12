@@ -10,7 +10,7 @@ Subscribe Message
 .. code-block:: json
 
    {
-      "subscribe": "remote_device"
+      "subscribe": "io_module"
    }
 
 
