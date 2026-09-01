@@ -19,15 +19,15 @@ The Network Adapters call returns an array of the network adapters on the target
      - boolean
      - Whether the adapter is currently connected.
      - ``true``
-   * - ``defaultGateway``
+   * - ``default_gateway``
      - IP address
      - The IP address of the default gateway - 0.0.0.0 if none is assigned.
      - ``"192.168.0.1"``
-   * - ``ipAddress``
+   * - ``ip_address``
      - IP address
      - The current IP address of the adapter.
      - ``"192.168.0.21"``
-   * - ``subnetMask``
+   * - ``subnet_mask``
      - IP address
      - The subnet mask of the adapter in dotted-decimal format.
      - ``"255.255.255.0"``
@@ -44,9 +44,9 @@ For example:
       {
          "capturing": false,
          "connected": true,
-         "defaultGateway": "192.168.0.1",
-         "ipAddress": "192.168.0.21",
+         "default_gateway": "192.168.0.1",
+         "ip_address": "192.168.0.21",
          "name": "mgmt",
-         "subnetMask": "255.255.255.0"
+         "subnet_mask": "255.255.255.0"
       }
    ]
