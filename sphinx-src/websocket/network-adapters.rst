@@ -27,6 +27,10 @@ The Network Adapters call returns an array of the network adapters on the target
      - IP address
      - The current IP address of the adapter.
      - ``"192.168.0.21"``
+   * - ``mac_address``
+     - MAC address
+     - The hardware address of the adapter.
+     - ``"00:1A:2B:3C:4D:5E"``
    * - ``subnet_mask``
      - IP address
      - The subnet mask of the adapter in dotted-decimal format.
@@ -46,6 +50,7 @@ For example:
          "connected": true,
          "default_gateway": "192.168.0.1",
          "ip_address": "192.168.0.21",
+         "mac_address": "00:1A:2B:3C:4D:5E",
          "name": "mgmt",
          "subnet_mask": "255.255.255.0"
       }
