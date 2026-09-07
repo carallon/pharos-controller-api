@@ -64,6 +64,10 @@ The Physical Remote Device JSON object has the following attributes:
    :widths: 3 3 10 5
    :header-rows: 1
 
+   * - Attribute
+     - Value Type
+     - Description
+     - Value Example
    * - ``serial``
      - string
      - Serial number of the automatically or manually assigned physical device
