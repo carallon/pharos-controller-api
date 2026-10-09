@@ -238,6 +238,7 @@ if product in ("expert", "express"):
     exclude_patterns.append("*/objects/rdm-device-info.rst")
     exclude_patterns.append("*/objects/rdm-universe-key.rst")
     exclude_patterns.append("*/objects/rdm-universe-key.rst")
+    exclude_patterns.append("*/playback-group.rst")
     exclude_patterns.append("*/project-file.rst")
     exclude_patterns.append("*/rdm-discovery.rst")
     exclude_patterns.append("*/rdm-get.rst")
